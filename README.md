@@ -2,10 +2,10 @@
 
 # Introduction
 - There are multiple folders whit different functions
-* [ansible](ansible/README.md) contains all files needed to run the provision playbook
-* [diagrams](diagrams/README.md) contains some diagrams designed for the virtual staging area
-* [oob-server](oob-server/README.md) contains all files needed to setup the OOB-server.
-* [staging](staging/README.md) contains all files to setup a virtual staging area, using vagrant+libvirt on kvm.
+* [ansible](ansible/) contains all files needed to run the provision playbook
+* [diagrams](diagrams/) contains some diagrams designed for the virtual staging area
+* [oob-server](oob-server/) contains all files needed to setup the OOB-server.
+* [staging](staging/) contains all files to setup a virtual staging area, using vagrant+libvirt on kvm.
 
 # Workflow
 - The OOB-server passes DHCP options so switches can find the cumulus.bin and ztp files.
