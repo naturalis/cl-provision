@@ -25,7 +25,7 @@ base64 -d /etc/motd.base64 > /etc/motd
 rm /etc/motd.base64
 chmod 755 /etc/motd
 ```
-- Install needed packages
+- Install needed packages (dnsmasq/lldp is extra)
 ```bash
 apt-get install -y htop isc-dhcp-server tree apache2 git python-pip dnsmasq lldpd ntp
 modprobe 8021q
@@ -47,7 +47,17 @@ echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
 - Add parameters to dhcpd.conf and restart the DHCP server
 ```bash
 vim /etc/dhcp/dhcpd.conf
-???
+
+*** Add to the global range:
+option cumulus-provision-url code 239 = text;
+option www-server code 72 = ip-address;
+
+*** Add to the mgmt subnet:  
+option default-url = "http://172.16.200.2/onie-installer-[ARCH].bin";
+option cumulus-provision-url "http://172.16.200.2/ztp_oob.sh";
+option www-server 172.16.200.2;
+
+
 systemctl restart isc-dhcp-server
 ```
 - Setup ztp.

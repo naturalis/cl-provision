@@ -5,7 +5,7 @@
 ```bash
 ansible all -m ping
 ```
-- Run the provisin playbook
+- Run the provision playbook
 ```bash
 ansible-playbook provision.yaml
 ```
