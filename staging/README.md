@@ -7,7 +7,7 @@
 ```bash
 ./topology_converter.py -s 25000 -p libvirt naturalis.dot -c
 ```
-- Start all the vagrant boxes:
+- Start all the vagrant boxes: (min. of 14G RAM needed)
 ```bash
 vagrant up --provider=libvirt --no-parallel
 ```
