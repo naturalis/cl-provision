@@ -53,6 +53,9 @@ systemctl restart isc-dhcp-server
 - Setup ztp.
 Clone this repo (OOB-server folder) and copy the ztp_oob.sh file to "/var/www/html/ztp_oob.sh"
 
+- Setup the license
+Copy the license key to "/var/www/html/license"
+
 - Setup ansible files
   Clone this repo (ansible folder)
 

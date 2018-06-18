@@ -11,6 +11,11 @@
 - We are setting all switches in sets of maximum 4
 - All uplinks/downlinks/pairs will use active-active mlag.
 
+# Setup
+- Clone this repo and:
+* Setup the OOB-Server
+* Setup the ansible playbook on the OOB-Server
+
 # Diagram
 The following diagram is the basis for the virtual environment. This can also be used to be a template for the physical environment.
 
