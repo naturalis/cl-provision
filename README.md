@@ -19,9 +19,11 @@
 - All uplinks/downlinks/pairs will use active-active mlag.
 
 # Setup
-- Clone this repo and:
-* Setup the OOB-Server
-* Setup the ansible playbook on the OOB-Server
+After cloning this repo, setup the [oob-server](oob-server/) (and dhcp server) and boot the switches.
+
+If all setup correctly you can watch the access.log (sudo tail -f /var/log/apache2/access.log) to see incoming requests.
+
+If all switches pulled the ztp_oob.sh file and restarted switchd you can test the connections with [ansible](ansible/) (ansible all -m ping) and start the provision playbook to finish the deployment.
 
 # Design
 The following diagram is the basis for the virtual environment. This can also be used to be a template for the physical environment.

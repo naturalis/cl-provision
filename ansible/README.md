@@ -1,7 +1,7 @@
 # cl-provision
 
 # Ansible
-- Clone this repo (Ansbible folder) and test connections
+- Clone this repo (Ansible folder) and test connections
 ```bash
 ansible all -m ping
 ```
