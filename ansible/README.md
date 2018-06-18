@@ -9,6 +9,10 @@ ansible all -m ping
 ```bash
 ansible-playbook provision.yaml
 ```
+- There is also an interfaces playbook, which only checks the interfaces for changes.
+```bash
+ansible-playbook interfaces.yaml
+```
 
 # Roles
 - cl-apt
