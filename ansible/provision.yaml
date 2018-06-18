@@ -6,13 +6,14 @@
   become_method: sudo
   become_user: root
   roles:
-    - cl-users
     - cl-common
     - cl-license
+    - cl-users
 #    - cl-apt
 #    - cl-ldap
-#    - cl-snmp
 #    - cl-rsyslog
+#    - cl-snmp
+    - cl-ptm
 
 - name: Cumulus Setup interfaces for mgmt switches
   hosts: mgmt
@@ -41,4 +42,3 @@
   roles:
     - cl-interface-leaf
 ...
-

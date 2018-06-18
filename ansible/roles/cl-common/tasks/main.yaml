@@ -1,5 +1,5 @@
 ---
-# Set common settings like NTP, Hostname, Timezone    
+# Set common settings like NTP, Hostname, Timezone
   - name: Setup NTP remove default NTP servers
     lineinfile:
       path: /etc/ntp.conf
@@ -66,7 +66,7 @@
     lineinfile:
       path: /etc/hosts
       regexp: '^127\.0\.1\.1'
-      line: "127.0.1.1	cumulus {{ inventory_hostname }}"
+      line: "127.0.1.1  {{ inventory_hostname }} cumulus"
       state: present
 
   - name: Ensure hostname is set correctly
