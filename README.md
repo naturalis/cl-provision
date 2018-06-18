@@ -1,7 +1,7 @@
 # cl-provision
 
 # Introduction
-- There are multiple folders whit different functions
+- There are multiple folders with different functions
 * [ansible](ansible/) contains all files needed to run the provision playbook
 * [diagrams](diagrams/) contains some diagrams designed for the virtual staging area
 * [oob-server](oob-server/) contains all files needed to setup the OOB-server.
