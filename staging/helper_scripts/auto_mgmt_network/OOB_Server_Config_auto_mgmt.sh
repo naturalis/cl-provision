@@ -15,8 +15,8 @@ echo " Detected vagrant user is: $username"
 #       KNOBS
 #######################
 
-REPOSITORY="https://github.com/CumulusNetworks/naturalis"
-REPONAME="naturalis"
+REPOSITORY="https://github.com/CumulusNetworks/cl-provision"
+REPONAME="cl-provision"
 
 #Install Automation Tools
 puppet=0

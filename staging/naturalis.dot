@@ -1,7 +1,6 @@
 graph dc {
    "oob-mgmt-switch"  [function="oob-switch" config="./helper_scripts/oob_switch_config.sh"]
    "oob-mgmt-server"  [function="oob-server" config="./helper_scripts/OOB_Server_Config.sh"]
-   "netq-ts"   [function="host" config="./helper_scripts/extra_server_config.sh" mgmt_ip="192.168.200.250"]
 
    "uplink01"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
    "uplink02"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
@@ -13,7 +12,7 @@ graph dc {
    "netdw2-leaf-d1b"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
    "netdw2-leaf-d1c"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
    "netdw2-leaf-d1d"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
-   
+
    "netdw2-leaf-h1a"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
    "netdw2-leaf-h1b"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
    "netdw2-leaf-h1c"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
@@ -27,7 +26,7 @@ graph dc {
 
    "netdw2-spine-a":"swp47" -- "uplink01":"swp1"
    "netdw2-spine-a":"swp48" -- "uplink02":"swp1"
-   
+
    "netdw2-spine-b":"swp47" -- "uplink01":"swp2"
    "netdw2-spine-b":"swp48" -- "uplink02":"swp2"
 

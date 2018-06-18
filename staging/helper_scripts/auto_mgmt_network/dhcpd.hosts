@@ -13,40 +13,38 @@ group {
   option default-url = "http://192.168.200.254/onie-installer";
 
 
-host oob-mgmt-switch {hardware ethernet 44:38:39:00:00:2d; fixed-address 192.168.200.4; option host-name "oob-mgmt-switch"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host oob-mgmt-switch {hardware ethernet 44:38:39:00:00:2d; fixed-address 192.168.200.5; option host-name "oob-mgmt-switch"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-spine-a {hardware ethernet 44:38:39:00:00:3e; fixed-address 192.168.200.8; option host-name "netdw2-spine-a"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-spine-a {hardware ethernet 44:38:39:00:00:3e; fixed-address 192.168.200.9; option host-name "netdw2-spine-a"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-spine-b {hardware ethernet 44:38:39:00:00:42; fixed-address 192.168.200.10; option host-name "netdw2-spine-b"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-spine-b {hardware ethernet 44:38:39:00:00:42; fixed-address 192.168.200.11; option host-name "netdw2-spine-b"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
 host host01 {hardware ethernet 44:38:39:00:00:30; fixed-address 192.168.200.1; option host-name "host01"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
 host host02 {hardware ethernet 44:38:39:00:00:32; fixed-address 192.168.200.2; option host-name "host02"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host host04 {hardware ethernet 44:38:39:00:00:36; fixed-address 192.168.200.3; option host-name "host04"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host host03 {hardware ethernet 44:38:39:00:00:34; fixed-address 192.168.200.3; option host-name "host03"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-leaf-h1d {hardware ethernet 44:38:39:00:00:38; fixed-address 192.168.200.5; option host-name "netdw2-leaf-h1d"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host host04 {hardware ethernet 44:38:39:00:00:36; fixed-address 192.168.200.4; option host-name "host04"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-leaf-h1b {hardware ethernet 44:38:39:00:00:3a; fixed-address 192.168.200.6; option host-name "netdw2-leaf-h1b"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-leaf-h1d {hardware ethernet 44:38:39:00:00:38; fixed-address 192.168.200.6; option host-name "netdw2-leaf-h1d"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-leaf-h1c {hardware ethernet 44:38:39:00:00:3c; fixed-address 192.168.200.7; option host-name "netdw2-leaf-h1c"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-leaf-h1b {hardware ethernet 44:38:39:00:00:3a; fixed-address 192.168.200.7; option host-name "netdw2-leaf-h1b"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-leaf-h1a {hardware ethernet 44:38:39:00:00:40; fixed-address 192.168.200.9; option host-name "netdw2-leaf-h1a"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-leaf-h1c {hardware ethernet 44:38:39:00:00:3c; fixed-address 192.168.200.8; option host-name "netdw2-leaf-h1c"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host host03 {hardware ethernet 44:38:39:00:00:44; fixed-address 192.168.200.11; option host-name "host03"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-leaf-h1a {hardware ethernet 44:38:39:00:00:40; fixed-address 192.168.200.10; option host-name "netdw2-leaf-h1a"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host uplink02 {hardware ethernet 44:38:39:00:00:46; fixed-address 192.168.200.12; option host-name "uplink02"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host uplink02 {hardware ethernet 44:38:39:00:00:44; fixed-address 192.168.200.12; option host-name "uplink02"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-leaf-d1b {hardware ethernet 44:38:39:00:00:48; fixed-address 192.168.200.13; option host-name "netdw2-leaf-d1b"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-leaf-d1b {hardware ethernet 44:38:39:00:00:46; fixed-address 192.168.200.13; option host-name "netdw2-leaf-d1b"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-leaf-d1c {hardware ethernet 44:38:39:00:00:4a; fixed-address 192.168.200.14; option host-name "netdw2-leaf-d1c"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-leaf-d1c {hardware ethernet 44:38:39:00:00:48; fixed-address 192.168.200.14; option host-name "netdw2-leaf-d1c"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host uplink01 {hardware ethernet 44:38:39:00:00:4c; fixed-address 192.168.200.15; option host-name "uplink01"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host uplink01 {hardware ethernet 44:38:39:00:00:4a; fixed-address 192.168.200.15; option host-name "uplink01"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-leaf-d1a {hardware ethernet 44:38:39:00:00:4e; fixed-address 192.168.200.16; option host-name "netdw2-leaf-d1a"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+host netdw2-leaf-d1a {hardware ethernet 44:38:39:00:00:4c; fixed-address 192.168.200.16; option host-name "netdw2-leaf-d1a"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 
-host netdw2-leaf-d1d {hardware ethernet 44:38:39:00:00:50; fixed-address 192.168.200.17; option host-name "netdw2-leaf-d1d"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
-
-host netq-ts {hardware ethernet 44:38:39:00:00:34; fixed-address 192.168.200.250; option host-name "netq-ts"; } 
+host netdw2-leaf-d1d {hardware ethernet 44:38:39:00:00:4e; fixed-address 192.168.200.17; option host-name "netdw2-leaf-d1d"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
 }#End of static host group
 
