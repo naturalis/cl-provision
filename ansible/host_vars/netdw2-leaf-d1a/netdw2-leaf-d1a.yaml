@@ -26,4 +26,8 @@ node:
       swp1:
         mlag: false
         trunk: false
+        vlan: 200
+      swp1:
+        mlag: false
+        trunk: false
         vlan: 201

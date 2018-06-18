@@ -17,6 +17,11 @@ snmp_allowed_hosts:
 # All vlans
 general:
   vlans:
+    200:
+      name: wr-mgmt
+      ipv4-virtual: 172.16.200.4/24
+      ipv4-1: 172.16.201.5/24
+      ipv4-2: 172.16.201.6/24
     201:
       name: wr-serv
       ipv4-virtual: 172.16.201.4/24
