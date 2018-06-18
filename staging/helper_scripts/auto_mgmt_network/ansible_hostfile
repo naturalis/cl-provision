@@ -1,0 +1,45 @@
+# Created by Topology-Converter v4.6.6
+#    Template Revision: v4.6.6
+#    https://github.com/cumulusnetworks/topology_converter
+#    using topology data from: naturalis.dot
+
+
+
+
+[oob-switch]
+oob-mgmt-switch ansible_host=192.168.200.4 ansible_user=cumulus
+
+
+
+
+
+
+
+[leaf]
+host01 ansible_host=192.168.200.1 ansible_user=cumulus
+host02 ansible_host=192.168.200.2 ansible_user=cumulus
+host04 ansible_host=192.168.200.3 ansible_user=cumulus
+netdw2-leaf-h1d ansible_host=192.168.200.5 ansible_user=cumulus
+netdw2-leaf-h1b ansible_host=192.168.200.6 ansible_user=cumulus
+netdw2-leaf-h1c ansible_host=192.168.200.7 ansible_user=cumulus
+netdw2-leaf-h1a ansible_host=192.168.200.9 ansible_user=cumulus
+host03 ansible_host=192.168.200.11 ansible_user=cumulus
+uplink02 ansible_host=192.168.200.12 ansible_user=cumulus
+netdw2-leaf-d1b ansible_host=192.168.200.13 ansible_user=cumulus
+netdw2-leaf-d1c ansible_host=192.168.200.14 ansible_user=cumulus
+uplink01 ansible_host=192.168.200.15 ansible_user=cumulus
+netdw2-leaf-d1a ansible_host=192.168.200.16 ansible_user=cumulus
+netdw2-leaf-d1d ansible_host=192.168.200.17 ansible_user=cumulus
+
+
+
+[spine]
+netdw2-spine-a ansible_host=192.168.200.8 ansible_user=cumulus
+netdw2-spine-b ansible_host=192.168.200.10 ansible_user=cumulus
+
+
+
+
+
+[host]
+netq-ts ansible_host=192.168.200.250 ansible_user=cumulus

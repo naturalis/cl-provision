@@ -1,0 +1,9 @@
+---
+- name: Copy interfaces configuration
+  template:
+    src: interfaces.j2
+    dest: /etc/network/interfaces
+    backup: yes
+  notify: reload networking
+  tags:
+    - interfaces

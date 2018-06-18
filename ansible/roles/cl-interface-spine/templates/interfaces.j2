@@ -1,0 +1,99 @@
+###############
+# Ansible generated config, will be overwritten!
+###############
+
+###############
+# General
+###############
+auto lo
+iface lo inet loopback
+   address {{node[inventory_hostname]["lo"]}}
+
+auto eth0
+iface eth0 inet dhcp
+  vrf mgmt
+
+auto mgmt
+iface mgmt
+  address 127.0.0.1/8
+  vrf-table auto
+
+###############
+# Bridge / Vlans
+###############
+
+auto bridge
+iface bridge
+  bridge-vlan-aware yes
+  bridge-ports {{ node[inventory_hostname]["ports"] | join(" ") }} peerlink
+  bridge-vids {{ general["vlans"] | join(" ") }}
+  
+###############
+# MLAG
+###############
+
+{% if node[inventory_hostname]["mlag"] is defined %}
+auto peerlink
+iface peerlink
+  bond-slaves {{ node[inventory_hostname]["mlag"]["members"] | join(" ") }}
+  mtu 9216
+
+auto peerlink.4094
+iface peerlink.4094
+  address {{ node[inventory_hostname]["mlag"]["address"] }}
+  clagd-peer-ip {{ node[inventory_hostname]["mlag"]["peer-ip"] }}
+  clagd-backup-ip {{ node[inventory_hostname]["mlag"]["backup-ip"] }} vrf mgmt
+  clagd-sys-mac {{ node[inventory_hostname]["mlag"]["sysmac"] }}
+  clagd-args --initDelay 180
+{% endif %}
+  
+###############
+# SVIs
+###############
+
+{% for svi in general["vlans"] -%}
+auto vlan{{svi}}
+iface vlan{{svi}}
+    {% if node[inventory_hostname]["mlag"]["primary"] == "true" %}
+    address {{general["vlans"][svi]["ipv4-1"]}}
+    {% else %}
+    address {{general["vlans"][svi]["ipv4-2"]}}
+    {% endif %}
+    vlan-id {{svi}}
+    vlan-raw-device bridge
+    address-virtual 00:00:5e:00:01:01 {{general["vlans"][svi]["ipv4-virtual"]}}
+{% endfor %}
+  
+###############
+# Client ports
+###############
+
+{% if node[inventory_hostname]["ports"] is defined %}
+{% for port in node[inventory_hostname]["ports"] -%}
+
+{% if node[inventory_hostname]["ports"][port]["mlag"] %}
+{% for member in node[inventory_hostname]["ports"][port]["members"] -%}
+auto {{member}}
+iface {{member}}
+{% endfor %}
+{% endif %}
+
+auto {{port}}
+iface {{port}}
+  mtu 9000
+  {% if node[inventory_hostname]["ports"][port]["alias"] is defined %}
+  alias {{ node[inventory_hostname]["ports"][port]["alias"] }}
+  {% endif %}
+  {% if node[inventory_hostname]["ports"][port]["mlag"] %}
+  clag-id {{ node[inventory_hostname]["ports"][port]["mlag-id"] }}
+  bond-slaves {{ node[inventory_hostname]["ports"][port]["members"] | join(" ") }}
+  {% endif %}
+  {% if node[inventory_hostname]["ports"][port]["trunk"] %}
+  {% if node[inventory_hostname]["ports"][port]["vlans"] is defined %}
+  bridge-vids {{ node[inventory_hostname]["ports"][port]["vlans"] | join(" ") }}
+  {% endif %}
+  {% else %}
+  bridge-access {{ node[inventory_hostname]["ports"][port]["vlan"] }}
+  {% endif %}  
+{% endfor %}
+{% endif %}

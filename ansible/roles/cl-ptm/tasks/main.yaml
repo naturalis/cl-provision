@@ -1,0 +1,29 @@
+---
+# Setup Prescriptive Topology Manager with correct .dot file
+  - name: configure ptmd topology.dot
+    copy:
+      src: topology.dot
+      dest: /etc/ptm.d/topology.dot
+    register: dotfile
+    tags:
+      - ptm
+
+  - name: Restart ptmd service
+    service:
+      name: ptmd
+      state: restarted
+    when: dotfile.changed
+    tags:
+      - ptm
+
+  - name: Check PTM status
+    command: ptmctl -lj
+    register: ptmctl_output
+    tags:
+      - ptm
+
+  - name: Print PTM table
+    debug:
+      var: ptmctl_output.stdout.split('\n')
+    tags:
+      - ptm

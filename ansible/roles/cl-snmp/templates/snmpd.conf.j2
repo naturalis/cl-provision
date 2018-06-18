@@ -1,0 +1,9 @@
+# SYSTEM INFORMATION
+sysLocation	{{ snmp_location }}
+sysContact	{{ snmp_contact }}
+sysName		{{ inventory_hostname }}
+
+# ALLOWED HOSTS
+{% for host in snmp_allowed_hosts %}
+rocommunity {{ snmp_ro_community }} {{ host }}
+{% endfor %}

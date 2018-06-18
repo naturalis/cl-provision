@@ -1,0 +1,44 @@
+---
+- name: Cumulus Switch provisioning
+  hosts: all
+  gather_facts: yes
+  become: true
+  become_method: sudo
+  become_user: root
+  roles:
+    - cl-users
+    - cl-common
+    - cl-license
+#    - cl-apt
+#    - cl-ldap
+#    - cl-snmp
+#    - cl-rsyslog
+
+- name: Cumulus Setup interfaces for mgmt switches
+  hosts: mgmt
+  gather_facts: no
+  become: true
+  become_method: sudo
+  become_user: root
+  roles:
+    - cl-interface-mgmt
+
+- name: Cumulus Setup interfaces for spine switches
+  hosts: core
+  gather_facts: no
+  become: true
+  become_method: sudo
+  become_user: root
+  roles:
+    - cl-interface-spine
+
+- name: Cumulus Setup interfaces for leaf switches
+  hosts: access
+  gather_facts: no
+  become: true
+  become_method: sudo
+  become_user: root
+  roles:
+    - cl-interface-leaf
+...
+
