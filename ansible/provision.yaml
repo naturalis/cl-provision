@@ -15,15 +15,6 @@
 #    - cl-snmp
     - cl-ptm
 
-- name: Cumulus Setup interfaces for mgmt switches
-  hosts: mgmt
-  gather_facts: no
-  become: true
-  become_method: sudo
-  become_user: root
-  roles:
-    - cl-interface-mgmt
-
 - name: Cumulus Setup interfaces for spine switches
   hosts: core
   gather_facts: no

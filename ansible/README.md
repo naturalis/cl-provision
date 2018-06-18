@@ -23,10 +23,6 @@ ansible-playbook provision.yaml
 
   Will set interfaces for leaf switches. Also PoE is enabled on all ports.
 
-- cl-interface-mgmt
-
-  Not used yet, can set interfaces for mgmt switches.
-
 - cl-interface-spine
 
   Will set interfaces for spine switches. Also BGP is enabled for SVI.

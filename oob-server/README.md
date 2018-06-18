@@ -25,12 +25,18 @@ base64 -d /etc/motd.base64 > /etc/motd
 rm /etc/motd.base64
 chmod 755 /etc/motd
 ```
-- Install needed packages (dnsmasq/lldp is extra)
+- Install needed packages
 ```bash
-apt-get install -y htop isc-dhcp-server tree apache2 git python-pip dnsmasq lldpd ntp
+apt-get install -y htop tree apache2 vlan git python-pip
+
 modprobe 8021q
-#modprobe bonding
-#echo "8021q" >> /etc/modules
+echo "8021q" >> /etc/modules
+
+#extra if needed
+#apt-get install -y isc-dhcp-server dnsmasq lldpd ifenslave ntp
+
+#caching proxy server for repositories
+#apt-get install -y apt-cacher-ng
 ```
 - Install Ansible
 ```bash
@@ -44,7 +50,7 @@ useradd -m cumulus
 passwd cumulus
 echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
 ```
-- Add parameters to dhcpd.conf and restart the DHCP server
+- Add parameters to DHCP server or dhcpd.conf and restart the DHCP server
 ```bash
 vim /etc/dhcp/dhcpd.conf
 
