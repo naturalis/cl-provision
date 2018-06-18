@@ -1,6 +1,6 @@
 # cl-provision
 
-# OOB-server
+# oob-server
 
 - Set a  nice MOTD for the OOB-server
 ```bash

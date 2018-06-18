@@ -1,9 +1,16 @@
 # cl-provision
 
+# Introduction
+- There are multiple folders whit different functions
+* [ansible](ansible/README.md) contains all files needed to run the provision playbook
+* [diagrams](diagrams/README.md) contains some diagrams designed for the virtual staging area
+* [oob-server](oob-server/README.md) contains all files needed to setup the OOB-server.
+* [staging](staging/README.md) contains all files to setup a virtual staging area, using vagrant+libvirt on kvm.
+
 # Workflow
-- The OOB-server passes DHCP options so switches can find the cumulus.bin files.
-- The ONIE bootloader is used for the initial provisioning of all switches. Cumulus Linux is auto installed.
-- Cumulus Linux boots for the 1st time and ZTP pulles the ztp_oob.sh script to install ssh keys, set license key, and set a mgmt interface on mgmt VRF.
+- The OOB-server passes DHCP options so switches can find the cumulus.bin and ztp files.
+- The ONIE bootloader loads the needed .bin file and installs Cumulus Linux.
+- Cumulus Linux boots for the 1st time and ZTP pulles the ztp_oob.sh script to install ssh keys, set a license key, and set a mgmt interface on mgmt VRF.
   Also a nice MOTD is set and a provisioning callback is done to Ansible AWX.
 - Ansible AWX runs the 1st provisioning playbook to set PTM+.dot file, users, and interfaces.
 
