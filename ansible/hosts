@@ -1,12 +1,23 @@
 [core]
-netdw2-spine-a ansible_user=cumulus ansible_host=172.16.200.30
+netdw2-spine-a ansible_user=cumulus
+netdw2-spine-b ansible_user=cumulus
 
 [access]
-netdw2-leaf-d1a ansible_user=cumulus ansible_host=172.16.200.23
+netdw2-leaf-d1a ansible_user=cumulus
+netdw2-leaf-d1b ansible_user=cumulus
+netdw2-leaf-d1c ansible_user=cumulus
+netdw2-leaf-d1d ansible_user=cumulus
+
+netdw2-leaf-h1a ansible_user=cumulus
+netdw2-leaf-h1b ansible_user=cumulus
+netdw2-leaf-h1c ansible_user=cumulus
+netdw2-leaf-h1d ansible_user=cumulus
 
 [host]
-#host01 ansible_user=cumulus
-#host02 ansible_user=cumulus
+host01 ansible_user=cumulus
+host02 ansible_user=cumulus
+host03 ansible_user=cumulus
+host04 ansible_user=cumulus
 
 [network:children]
 core
