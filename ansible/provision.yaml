@@ -7,13 +7,13 @@
   become_user: root
   roles:
     - cl-common
-    - cl-license
-    - cl-users
+#    - cl-license
+#    - cl-users
 #    - cl-apt
 #    - cl-ldap
 #    - cl-rsyslog
 #    - cl-snmp
-    - cl-ptm
+#    - cl-ptm
 
 - name: Cumulus Setup interfaces for spine switches
   hosts: core

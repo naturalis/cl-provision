@@ -1,3 +1,6 @@
+[all:vars]
+ansible_ssh_pass=CumulusLinux!
+
 [core]
 netdw2-spine-a ansible_user=cumulus
 netdw2-spine-b ansible_user=cumulus
