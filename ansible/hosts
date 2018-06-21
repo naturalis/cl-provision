@@ -1,8 +1,8 @@
 [core]
-netdw2-spine-a ansible_user=cumulus ansible_host=172.16.200.30
+netdw2-spine-a ansible_user=cumulus ansible_host=172.16.200.10
 
 [access]
-netdw2-leaf-d1a ansible_user=cumulus ansible_host=172.16.200.23
+netdw2-leaf-d1a ansible_user=cumulus ansible_host=172.16.200.20
 
 [host]
 #host01 ansible_user=cumulus
