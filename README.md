@@ -28,4 +28,4 @@ If all switches pulled the ztp_oob.sh file and restarted switchd you can test th
 # Design
 The following diagram is the basis for the virtual environment. This can also be used to be a template for the physical environment.
 
-![diagram](diagrams/naturalis.png)  
+![diagram](diagrams/cl-ontwerp-dw2.png)  
