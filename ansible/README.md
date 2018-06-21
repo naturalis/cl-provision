@@ -5,6 +5,7 @@
 ```bash
 ansible all -m ping
 ```
+- On timeouts or errors there is probably a problem with the ssh keys. If needef fix manually by connecting as the vagrant user.
 - Run the provision playbook
 ```bash
 ansible-playbook provision.yaml

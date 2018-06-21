@@ -23,4 +23,4 @@ vagrant ssh oob-server
 ```bash
 sudo tail /var/log/apache2/access.log
 ```
-If everything looks good, clone this repo into the oob-server and run the provision playbook for the [ansible](../ansible/) folder.
+- If everything looks good, clone this repo into the oob-server and run the provision playbook for the [ansible](../ansible/) folder.
