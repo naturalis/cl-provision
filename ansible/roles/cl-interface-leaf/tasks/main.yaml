@@ -10,7 +10,7 @@
 
 - name: Copy PoE configuration
   template:
-    src: poe.conf
+    src: poe.j2
     dest: /etc/cumulus/poe.conf
     backup: yes
   notify: reload networking
