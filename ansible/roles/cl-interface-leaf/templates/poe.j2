@@ -1,0 +1,24 @@
+###############
+# Ansible generated config, will be overwritten!
+###############
+{% if node[inventory_hostname]["ports"] is defined %}
+[enable]
+{% for port in node[inventory_hostname]["ports"] -%}
+{% if node[inventory_hostname]["ports"][port]["poe"] is defined %}
+{{port}} = enable
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if node[inventory_hostname]["ports"] is defined %}
+[priority]
+{% for port in node[inventory_hostname]["ports"] -%}
+{% if node[inventory_hostname]["ports"][port]["poe"] is defined %}
+{% if node[inventory_hostname]["ports"][port]["poe_prio"] is defined %}
+{{port}} = {{node[inventory_hostname]["ports"][port]["poe_prio"]}}
+{% else %}
+{{port}} = low
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
