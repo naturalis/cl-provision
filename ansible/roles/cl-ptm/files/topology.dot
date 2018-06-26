@@ -1,7 +1,0 @@
-## small test file for hardware
-graph G {
-  graph [hostidtype="hostname", version="1:0"];
-    "sw005897-mgmt":"40" -- "netdw2-spine-a":"eth0";
-    "sw005897-mgmt":"38" -- "netdw2-leaf-d1a":"eth0";
-    "netdw2-spine-a":"swp1" -- "netdw2-leaf-d1a":"swp52";
-}
