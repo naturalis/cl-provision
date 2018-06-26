@@ -6,6 +6,8 @@
 {% for port in node[inventory_hostname]["ports"] -%}
 {% if node[inventory_hostname]["ports"][port]["poe"] is defined %}
 {{port}} = enable
+{% else %}
+{{port}} = disable
 {% endif %}
 {% endfor %}
 {% endif %}
