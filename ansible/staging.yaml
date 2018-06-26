@@ -1,14 +1,12 @@
 ---
 - name: Cumulus Switch provisioning
-  hosts: vx
+  hosts: network
   remote_user: cumulus
-  gather_facts: yes
-  become: yes
   vars:
     check_ptm: false
     check_lldp: false
-    ansible_become_pass: "CumulusLinux!"
-
+  gather_facts: yes
+  become: true
   roles:
     - cl-common
 #    - cl-license
@@ -20,23 +18,18 @@
 #    - cl-ptm
 
 - name: Cumulus Setup interfaces for spine switches
-  hosts: vx-core
+  hosts: core
   remote_user: cumulus
   gather_facts: no
-  become: yes
-  vars:
-    ansible_become_pass: "CumulusLinux!"
-
+  become: true
   roles:
     - cl-interface-spine
 
 - name: Cumulus Setup interfaces for leaf switches
-  hosts: vx-access
+  hosts: access
   remote_user: cumulus
   gather_facts: no
-  become: yes
-  vars:
-    ansible_become_pass: "CumulusLinux!"
+  become: true
   roles:
     - cl-interface-leaf
 ...
