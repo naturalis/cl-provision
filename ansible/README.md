@@ -1,18 +1,30 @@
 # cl-provision
 
 # Ansible
-- Clone this repo (Ansible folder) and test connections
+- Clone this repo (Ansible folder) and test connections, on hardware:
 ```bash
-ansible all -m ping
+ansible network -m ping
 ```
-- On timeouts or errors there is probably a problem with the ssh keys. If needef fix manually by connecting as the vagrant user.
-- Run the provision playbook
+Or on vx:
+```bash
+ansible vx -m ping -i vx-hosts
+```
+- On timeouts or errors there is probably a problem with the ssh keys. If on vx, fix manually by connecting as the vagrant user.
+- Run the provision playbook, on hardware:
 ```bash
 ansible-playbook provision.yaml
 ```
-- There is also an interfaces playbook, which only checks the interfaces for changes.
+Or on vx:
+```bash
+ansible-playbook vx-provision.yaml
+```
+- There is also an interfaces playbook, which only checks the interfaces for changes. On hardware:
 ```bash
 ansible-playbook interfaces.yaml
+```
+Or on vx:
+```bash
+ansible-playbook vx-interfaces.yaml
 ```
 
 # Roles

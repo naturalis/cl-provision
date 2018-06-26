@@ -1,0 +1,17 @@
+---
+- name: Cumulus Setup interfaces for spine switches
+  hosts: vx-core
+  remote_user: cumulus
+  gather_facts: no
+  become: true
+  roles:
+    - cl-interface-spine
+
+- name: Cumulus Setup interfaces for leaf switches
+  hosts: vx-access
+  remote_user: cumulus
+  gather_facts: no
+  become: true
+  roles:
+    - cl-interface-leaf
+...
