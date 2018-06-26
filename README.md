@@ -12,7 +12,7 @@
 │   └── . . .     #   contains all files needed to setup the OOB-server.
 │
 └── staging/
-│   └── . . .     # contains all files to setup the virtual staging area, using vagrant+libvirt on kvm.
+    └── . . .     # contains all files to setup the virtual staging area, using vagrant+libvirt on kvm.
 ```
 
 # Decisions
