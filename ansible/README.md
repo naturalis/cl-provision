@@ -54,8 +54,12 @@ ansible-playbook vx-interfaces.yaml
 │   ├── cl-snmp             # Not used yet, can setup SNMP and start daemon
 │   └── cl-users            # Sets up Infra user and removes credentials from cumulus user
 │
+├── vars/ 
+│   ├── prod.yaml           # prod specific vars files
+│   └── staging.yaml        # staging specific vars files
+│
 ├── check.yaml
 ├── interfaces.yaml
 ├── provision.yaml
-├── staging.yaml
+└── staging.yaml
 ```
