@@ -12,18 +12,345 @@ snmp_allowed_hosts:
   - 172.16.200.10/32
   - 172.16.200.20/32
 
-# ?
-
-# All vlans
 general:
   vlans:
-    200:
-      name: wr-mgmt
-      ipv4-virtual: 172.16.200.4/24
-      ipv4-1: 172.16.200.5/24
-      ipv4-2: 172.16.200.6/24
-    201:
-      name: wr-serv
-      ipv4-virtual: 172.16.201.4/24
-      ipv4-1: 172.16.201.5/24
-      ipv4-2: 172.16.201.6/24
+    114:
+      name: mgmt1
+      ipv4-virtual: 172.16.114.1/24
+      ipv4-1: 172.16.114.2/24
+      ipv4-2: 172.16.114.3/24
+    115:
+      name: mgmt2
+      ipv4-virtual: 172.16.115.1/24
+      ipv4-1: 172.16.115.2/24
+      ipv4-2: 172.16.115.3/24
+    116:
+      name: servers1
+      ipv4-virtual: 172.16.116.1/24
+      ipv4-1: 172.16.116.2/24
+      ipv4-2: 172.16.116.3/24
+    117:
+      name: servers2
+      ipv4-virtual: 172.16.117.1/24
+      ipv4-1: 172.16.117.2/24
+      ipv4-2: 172.16.117.3/24
+    118:
+      name: servers3
+      ipv4-virtual: 172.16.118.1/24
+      ipv4-1: 172.16.118.2/24
+      ipv4-2: 172.16.118.3/24
+    119:
+      name: servers4
+      ipv4-virtual: 172.16.119.1/24
+      ipv4-1: 172.16.119.2/24
+      ipv4-2: 172.16.119.3/24
+    120:
+      name: servers5
+      ipv4-virtual: 172.16.120.1/24
+      ipv4-1: 172.16.120.2/24
+      ipv4-2: 172.16.120.3/24
+    121:
+      name: offdevices1
+      ipv4-virtual: 172.16.121.1/24
+      ipv4-1: 172.16.121.2/24
+      ipv4-2: 172.16.121.3/24
+    122:
+      name: offdevices2
+      ipv4-virtual: 172.16.122.1/24
+      ipv4-1: 172.16.122.2/24
+      ipv4-2: 172.16.122.3/24
+    123:
+      name: offdevices3
+      ipv4-virtual: 172.16.123.1/24
+      ipv4-1: 172.16.123.2/24
+      ipv4-2: 172.16.123.3/24
+    124:
+      name: voip1
+      ipv4-virtual: 172.16.124.1/24
+      ipv4-1: 172.16.124.2/24
+      ipv4-2: 172.16.124.3/24
+    125:
+      name: voip2
+      ipv4-virtual: 172.16.125.1/24
+      ipv4-1: 172.16.125.2/24
+      ipv4-2: 172.16.125.3/24
+    126:
+      name: voip3
+      ipv4-virtual: 172.16.126.1/24
+      ipv4-1: 172.16.126.2/24
+      ipv4-2: 172.16.126.3/24
+    127:
+      name: museum-devices1
+      ipv4-virtual: 172.16.127.1/24
+      ipv4-1: 172.16.127.2/24
+      ipv4-2: 172.16.127.3/24
+    128:
+      name: museum-devices2
+      ipv4-virtual: 172.16.128.1/24
+      ipv4-1: 172.16.128.2/24
+      ipv4-2: 172.16.128.3/24
+    129:
+      name: museum-devices3
+      ipv4-virtual: 172.16.129.1/24
+      ipv4-1: 172.16.129.2/24
+      ipv4-2: 172.16.129.3/24
+    130:
+      name: office-guests
+      ipv4-virtual: 10.130.0.1/16
+      ipv4-1: 10.130.0.2/16
+      ipv4-2: 10.130.0.3/16
+    131:
+      name: museum-visitors
+      ipv4-virtual: 10.131.0.1/16
+      ipv4-1: 10.131.0.2/16
+      ipv4-2: 10.131.0.3/16
+    132:
+      name: byod
+      ipv4-virtual: 10.132.0.1/16
+      ipv4-1: 10.132.0.2/16
+      ipv4-2: 10.132.0.3/16
+    133:
+      name: offdevices4
+      ipv4-virtual: 10.133.0.1/16
+      ipv4-1: 10.133.0.2/16
+      ipv4-2: 10.133.0.3/16
+    134:
+      name: voip4
+      ipv4-virtual: 10.134.0.1/16
+      ipv4-1: 10.134.0.1/16
+      ipv4-2: 10.134.0.2/16
+
+node:
+  netdw2-spine-a:
+    lo: 10.255.255.1/32
+    mlag:
+      primary: true
+      members:
+      - swp49
+      - swp50
+      address: 169.254.1.1/30
+      peer-ip: 169.254.1.2
+      backup-ip: 192.168.200.10
+      sysmac: 44:38:39:FF:01:12
+    ports:
+      ser-d:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp1
+        trunk: true
+      ser-h:
+        mlag: true
+        mlag-id: 2
+        members:
+        - swp2
+        trunk: true
+
+  netdw2-spine-b:
+    lo: 10.255.255.2/32
+    mlag:
+      primary: false
+      members:
+      - swp49
+      - swp50
+      address: 169.254.1.2/30
+      peer-ip: 169.254.1.1
+      backup-ip: 192.168.200.8
+      sysmac: 44:38:39:FF:01:12
+    ports:
+      ser-d:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp1
+        trunk: true
+      ser-h:
+        mlag: true
+        mlag-id: 2
+        members:
+        - swp2
+        trunk: true
+
+  netdw2-leaf-d1a:
+    lo: 10.255.255.11/32
+    mlag:
+      primary: true
+      members:
+      - swp50
+      address: 169.254.1.1/30
+      peer-ip: 169.254.1.2
+      backup-ip: 192.168.200.17
+      sysmac: 44:38:39:FF:11:12
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp52
+        trunk: true
+      downlink:
+        mlag: true
+        mlag-id: 2
+        members:
+        - swp49
+        trunk: true
+
+  netdw2-leaf-d1d:
+    lo: 10.255.255.12/32
+    mlag:
+      primary: false
+      members:
+      - swp50
+      address: 169.254.1.2/30
+      peer-ip: 169.254.1.1
+      backup-ip: 192.168.200.16
+      sysmac: 44:38:39:FF:11:12
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp52
+        trunk: true
+      downlink:
+        mlag: true
+        mlag-id: 2
+        members:
+        - swp49
+        trunk: true
+
+  netdw2-leaf-d1b:
+    lo: 10.255.255.13/32
+    mlag:
+      primary: true
+      members:
+      - swp50
+      address: 169.254.1.1/30
+      peer-ip: 169.254.1.2
+      backup-ip: 192.168.200.14
+      sysmac: 44:38:39:FF:12:34
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp49
+        trunk: true
+      swp1:
+        mlag: false
+        trunk: false
+        vlan: 121
+
+  netdw2-leaf-d1c:
+    lo: 10.255.255.14/32
+    mlag:
+      primary: false
+      members:
+      - swp50
+      address: 169.254.1.2/30
+      peer-ip: 169.254.1.1
+      backup-ip: 192.168.200.13
+      sysmac: 44:38:39:FF:12:34
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp49
+        trunk: true
+      swp1:
+        mlag: false
+        trunk: false
+        vlan: 121
+
+  netdw2-leaf-h1a:
+    lo: 10.255.255.21/32
+    mlag:
+      primary: true
+      members:
+      - swp50
+      address: 169.254.1.1/30
+      peer-ip: 169.254.1.2
+      backup-ip: 192.168.200.5
+      sysmac: 44:38:39:FF:21:12
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp52
+        trunk: true
+      downlink:
+        mlag: true
+        mlag-id: 2
+        members:
+        - swp49
+        trunk: true
+
+  netdw2-leaf-h1d:
+    lo: 10.255.255.22/32
+    mlag:
+      primary: false
+      members:
+      - swp50
+      address: 169.254.1.2/30
+      peer-ip: 169.254.1.1
+      backup-ip: 192.168.200.9
+      sysmac: 44:38:39:FF:21:12
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp52
+        trunk: true
+      downlink:
+        mlag: true
+        mlag-id: 2
+        members:
+        - swp49
+        trunk: true
+
+  netdw2-leaf-h1b:
+    lo: 10.255.255.23/32
+    mlag:
+      primary: true
+      members:
+      - swp50
+      address: 169.254.1.1/30
+      peer-ip: 169.254.1.2
+      backup-ip: 192.168.200.7
+      sysmac: 44:38:39:FF:22:34
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp49
+        trunk: true
+      swp1:
+        mlag: false
+        trunk: false
+        vlan: 127
+
+  netdw2-leaf-h1c:
+    lo: 10.255.255.24/32
+    mlag:
+      primary: false
+      members:
+      - swp50
+      address: 169.254.1.2/30
+      peer-ip: 169.254.1.1
+      backup-ip: 192.168.200.6
+      sysmac: 44:38:39:FF:22:34
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp49
+        trunk: true
+      swp1:
+        mlag: false
+        trunk: false
+        vlan: 127
