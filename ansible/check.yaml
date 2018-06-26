@@ -1,13 +1,12 @@
 ---
 - name: Cumulus checks
   hosts: network
+  remote_user: cumulus
   vars:
     check_ptm: true
     check_lldp: true
   gather_facts: no
   become: true
-  become_method: sudo
-  become_user: root
   roles:
     - cl-ptm
 ...

@@ -1,13 +1,12 @@
 ---
 - name: Cumulus Switch provisioning
   hosts: network
+  remote_user: cumulus
   vars:
     check_ptm: false
     check_lldp: false
   gather_facts: yes
   become: true
-  become_method: sudo
-  become_user: root
   roles:
     - cl-common
     - cl-license
@@ -20,19 +19,17 @@
 
 - name: Cumulus Setup interfaces for spine switches
   hosts: core
+  remote_user: cumulus
   gather_facts: no
   become: true
-  become_method: sudo
-  become_user: root
   roles:
     - cl-interface-spine
 
 - name: Cumulus Setup interfaces for leaf switches
   hosts: access
+  remote_user: cumulus
   gather_facts: no
   become: true
-  become_method: sudo
-  become_user: root
   roles:
     - cl-interface-leaf
 ...
