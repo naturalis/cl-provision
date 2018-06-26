@@ -29,14 +29,14 @@ sudo tail -f /var/log/apache2/access.log
 
 If all vx switches pulled the ztp_oob.sh file (and ran the provision.yaml playbook if the provision callback is enabled) you can test the connections with [ansible](ansible/):
 ```bash
-ansible vx -m ping -i vx-hosts
+ansible network -m ping -i environments/staging
 ```
 Now is the time to start the provision playbook if the provision callback is not enabled, to finish the deployment:
 ```bash
-ansible-playbook vx-provision.yaml -i vx-hosts
+ansible-playbook provision.yaml -i environments/staging
 ```
 
 There is also an interfaces playbook, which only checks the interfaces for changes.
 ```bash
-ansible-playbook vx-interfaces.yaml -i vx-hosts
+ansible-playbook interfaces.yaml -i environments/staging
 ```

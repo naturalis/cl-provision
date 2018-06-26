@@ -3,31 +3,31 @@
 # Ansible
 - Clone this repo (Ansible folder) and test connections, on hardware:
 ```bash
-ansible network -m ping
+ansible network -m ping -i environments/prod
 ```
 Or on vx:
 ```bash
-ansible vx -m ping -i vx-hosts
+ansible network -m ping -i environments/staging
 ```
 - On timeouts or errors there is probably a problem with the ssh keys. If on vx, fix manually by connecting as the vagrant user.
 - Run the provision playbook, on hardware:
 ```bash
-ansible-playbook provision.yaml
+ansible-playbook provision.yaml -i environments/prod
 ```
 Or on vx:
 ```bash
-ansible-playbook vx-provision.yaml
+ansible-playbook provision.yaml -i environments/staging
 ```
 - There is also an interfaces playbook, which only checks the interfaces for changes. On hardware:
 ```bash
-ansible-playbook interfaces.yaml
+ansible-playbook interfaces.yaml -i environments/prod
 ```
 Or on vx:
 ```bash
-ansible-playbook vx-interfaces.yaml
+ansible-playbook interfaces.yaml -i environments/staging
 ```
 
-# Files 
+# Files
 ```bash
 ├── ansible.cfg
 ├── environments/           # Parent directory for environment-specific directories
@@ -42,7 +42,7 @@ ansible-playbook vx-interfaces.yaml
 │       │   └── all
 │       └── hosts           # Contains only the hosts in the prod environment
 │   
-├── roles/ 
+├── roles/
 │   ├── cl-apt              # Not used yet, will setup repositories
 │   ├── cl-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
 │   ├── cl-interface-leaf   # Will set interfaces for leaf switches. Also PoE is enabled needed ports.
@@ -54,7 +54,7 @@ ansible-playbook vx-interfaces.yaml
 │   ├── cl-snmp             # Not used yet, can setup SNMP and start daemon
 │   └── cl-users            # Sets up Infra user and removes credentials from cumulus user
 │
-├── vars/ 
+├── vars/
 │   ├── prod.yaml           # prod specific vars files
 │   └── staging.yaml        # staging specific vars files
 │
