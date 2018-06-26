@@ -51,7 +51,8 @@
   - name: write hostname
     lineinfile:
       path: /etc/hostname
-      regexp: '^' backrefs=no
+      regexp: '^'
+      backrefs: no
       line: '{{ inventory_hostname }}'
       state: present
     notify: apply hostname
@@ -59,14 +60,16 @@
   - name: Remove cumulus hostname from Local DNS Resolution
     lineinfile:
       path: /etc/hosts
-      regexp: '^.*  cumulus' backrefs=no
+      regexp: '^.*  cumulus'
+      backrefs: no
       line: '127.0.1.1  cumulus'
       state: absent
 
   - name: Add Local DNS Resolution for our Hostname
     lineinfile:
       path: /etc/hosts
-      regexp: '^.*  {{ inventory_hostname }}' backrefs=no
+      regexp: '^.*  {{ inventory_hostname }}'
+      backrefs: no
       line: '127.0.1.1  {{ inventory_hostname }}'
       state: present
     notify: apply hostname
