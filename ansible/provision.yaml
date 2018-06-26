@@ -1,6 +1,9 @@
 ---
 - name: Cumulus Switch provisioning
   hosts: all
+  vars:
+    check_ptm: false
+    check_lldp: false
   gather_facts: yes
   become: true
   become_method: sudo
