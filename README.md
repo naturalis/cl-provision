@@ -1,11 +1,19 @@
 # cl-provision
 
 # Introduction
-There are multiple folders with different functions
-* [ansible](ansible/) contains all files needed to run the playbooks on hardware or vx.
-* [diagrams](diagrams/) contains some diagrams designed for the virtual staging area and template for the physical environment.
-* [oob-server](oob-server/) contains all files needed to setup the OOB-server.
-* [staging](staging/) contains all files to setup the virtual staging area, using vagrant+libvirt on kvm.
+```bash
+├── ansible/
+│   └── . . .     # contains all files needed to run the playbooks on hardware or vx.
+│
+├── diagrams/
+│   └── . . .     # contains some diagrams designed for the virtual staging area and template for the physical environment.
+│
+├── oob-server/
+│   └── . . .     #   contains all files needed to setup the OOB-server.
+│
+└── staging/
+│   └── . . .     # contains all files to setup the virtual staging area, using vagrant+libvirt on kvm.
+```
 
 # Decisions
 - We are connecting all switches in a set, with a maximum of four.
