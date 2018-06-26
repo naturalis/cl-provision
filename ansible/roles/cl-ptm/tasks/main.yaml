@@ -5,25 +5,28 @@
       src: topology.dot
       dest: /etc/ptm.d/topology.dot
     register: dotfile
-    tags:
-      - ptm
 
   - name: Restart ptmd service
     service:
-      name: ptmd
+      name: ptmd.service
       state: restarted
     when: dotfile.changed
-    tags:
-      - ptm
 
   - name: Check PTM status
     command: ptmctl -lj
     register: ptmctl_output
-    tags:
-      - ptm
+    when: check_ptm
 
   - name: Print PTM table
     debug:
       var: ptmctl_output.stdout.split('\n')
-    tags:
-      - ptm
+    when: check_ptm
+
+  - name: Check lldp neighbors
+    command: lldpctl
+    register: lldpctl_output
+    when: check_lldp
+
+  - name: Print lldp neighbors
+    debug: var=lldpctl_output.stdout.split('\n')
+    when: check_lldp

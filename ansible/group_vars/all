@@ -7,7 +7,7 @@ ntp:
   - '172.16.200.1'
   - '172.16.44.10'
 
-timezone: Europe/Amsterdam
+timezone: 'Europe/Amsterdam'
 
 snmp_ro_community: public
 snmp_contact: infra@naturalis.nl
