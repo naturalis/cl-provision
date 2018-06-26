@@ -1,6 +1,6 @@
 ---
 - name: Cumulus checks
-  hosts: network
+  hosts: vx
   vars:
     check_ptm: true
     check_lldp: true

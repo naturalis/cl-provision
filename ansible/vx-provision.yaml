@@ -1,6 +1,6 @@
 ---
 - name: Cumulus Switch provisioning
-  hosts: network
+  hosts: vx
   vars:
     check_ptm: false
     check_lldp: false
@@ -19,7 +19,7 @@
     - cl-ptm
 
 - name: Cumulus Setup interfaces for spine switches
-  hosts: core
+  hosts: vx-core
   gather_facts: no
   become: true
   become_method: sudo
@@ -28,7 +28,7 @@
     - cl-interface-spine
 
 - name: Cumulus Setup interfaces for leaf switches
-  hosts: access
+  hosts: vx-access
   gather_facts: no
   become: true
   become_method: sudo
