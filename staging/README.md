@@ -11,8 +11,16 @@
 ```bash
 vagrant up --provider=libvirt --no-parallel
 ```
+- Check that all boxes are running.
+```bash
+vagrant status
+```
 - ssh into the oob-server
 ```bash
 vagrant ssh oob-server
 ```
-- Clone this repo into the oob-server and run the provision playbook for the [ansible](../ansible/) folder.
+- If all boxes are setup correctly each box/switch should have pulled the ztp_oob.sh script and installed the ssh keys. Check the apache log for requests:
+```bash
+sudo tail /var/log/apache2/access.log
+```
+- If everything looks good, clone this repo into the oob-server and run the provision playbook for the [ansible](../ansible/) folder.

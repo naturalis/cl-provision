@@ -27,7 +27,7 @@ iface bridge
   bridge-vlan-aware yes
   bridge-ports {{ node[inventory_hostname]["ports"] | join(" ") }} peerlink
   bridge-vids {{ general["vlans"] | join(" ") }}
-  
+
 ###############
 # MLAG
 ###############
@@ -46,7 +46,7 @@ iface peerlink.4094
   clagd-sys-mac {{ node[inventory_hostname]["mlag"]["sysmac"] }}
   clagd-args --initDelay 180
 {% endif %}
-  
+
 ###############
 # SVIs
 ###############
@@ -63,7 +63,7 @@ iface vlan{{svi}}
     vlan-raw-device bridge
     address-virtual 00:00:5e:00:01:01 {{general["vlans"][svi]["ipv4-virtual"]}}
 {% endfor %}
-  
+
 ###############
 # Client ports
 ###############
@@ -80,7 +80,11 @@ iface {{member}}
 
 auto {{port}}
 iface {{port}}
+  {% if node[inventory_hostname]["ports"][port]["mtu"] is defined %}
+  mtu {{node[inventory_hostname]["ports"][port]["mtu"]}}
+  {% else %}
   mtu 9000
+  {% endif %}
   {% if node[inventory_hostname]["ports"][port]["alias"] is defined %}
   alias {{ node[inventory_hostname]["ports"][port]["alias"] }}
   {% endif %}
@@ -94,6 +98,6 @@ iface {{port}}
   {% endif %}
   {% else %}
   bridge-access {{ node[inventory_hostname]["ports"][port]["vlan"] }}
-  {% endif %}  
+  {% endif %}
 {% endfor %}
 {% endif %}

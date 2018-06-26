@@ -6,8 +6,6 @@
 {% for port in node[inventory_hostname]["ports"] -%}
 {% if node[inventory_hostname]["ports"][port]["poe"] is defined %}
 {{port}} = enable
-{% else %}
-{{port}} = disable
 {% endif %}
 {% endfor %}
 {% endif %}
@@ -17,12 +15,10 @@
 {% for port in node[inventory_hostname]["ports"] -%}
 {% if node[inventory_hostname]["ports"][port]["poe"] is defined %}
 {% if node[inventory_hostname]["ports"][port]["poe_prio"] is defined %}
-{{port}} = {{node[inventory_hostname]["ports"][port]["poe_prio"]}} 
+{{port}} = {{node[inventory_hostname]["ports"][port]["poe_prio"]}}
 {% else %}
 {{port}} = low
 {% endif %}
 {% endif %}
 {% endfor %}
 {% endif %}
-
-
