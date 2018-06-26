@@ -1,0 +1,8 @@
+- name: apply hostname
+  command: hostname -F /etc/hostname
+
+- name: apply timezone
+  command: /usr/sbin/dpkg-reconfigure --frontend noninteractive tzdata
+
+- name: restart ntp
+  service: name=ntp@mgmt state=restarted
