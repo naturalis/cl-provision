@@ -10,11 +10,11 @@ netdw2-spine-a ansible_host=172.16.200.10
 netdw2-leaf-d1a ansible_host=172.16.200.20
 
 [vx-core]
-netdw2-spine-a
+netdw2-spine-a ansible_host=
 netdw2-spine-b
 
 [vx-access]
-netdw2-leaf-d1a
+netdw2-leaf-d1a ansible_host=
 netdw2-leaf-d1b
 netdw2-leaf-d1c
 netdw2-leaf-d1d
