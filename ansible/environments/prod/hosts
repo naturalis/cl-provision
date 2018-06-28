@@ -2,12 +2,12 @@
 [all:vars]
 ansible_user=cumulus
 
-[core]
+[spine]
 netdw2-spine-a ansible_host=172.16.200.10
 
-[access]
+[leaf]
 netdw2-leaf-d1a ansible_host=172.16.200.20
 
 [network:children]
-core
-access
+spine
+leaf

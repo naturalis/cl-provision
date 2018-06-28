@@ -2,11 +2,11 @@
 [all:vars]
 ansible_user=cumulus
 
-[core]
+[spine]
 netdw2-spine-a
 netdw2-spine-b
 
-[access]
+[leaf]
 netdw2-leaf-d1a
 netdw2-leaf-d1b
 netdw2-leaf-d1c
@@ -24,6 +24,6 @@ host03
 host04
 
 [network:children]
-core
-access
+spine
+leaf
 host

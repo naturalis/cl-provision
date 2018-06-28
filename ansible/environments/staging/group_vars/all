@@ -265,8 +265,12 @@ node:
         trunk: true
       swp1:
         mlag: false
-        trunk: false
-        vlan: 121
+        trunk: true
+        vlans:
+        - 121
+        - 122
+        - 123
+        - 124
         poe: true
 
   netdw2-leaf-d1c:
@@ -288,7 +292,7 @@ node:
         trunk: true
       swp1:
         mlag: false
-        trunk: false
+        trunk: true
         vlan: 121
         poe: true
 
