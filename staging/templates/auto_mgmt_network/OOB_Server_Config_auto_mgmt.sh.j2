@@ -48,7 +48,7 @@ install_ansible(){
     apt-get install -qy ansible sshpass libssh-dev python-dev libssl-dev libffi-dev
     pip install pip --upgrade
     pip install setuptools --upgrade
-    pip install ansible==$ansible_version --upgrade
+    pip install ansible --upgrade
 }
 
 ## MOTD
@@ -135,6 +135,7 @@ EOT
 
 echo " ### Creating cumulus user ###"
 useradd -m cumulus
+echo "cumulus:CumulusLinux!" | chpasswd
 
 echo " ### Setting Up DHCP ###"
 mv /home/$username/dhcpd.conf /etc/dhcp/dhcpd.conf
