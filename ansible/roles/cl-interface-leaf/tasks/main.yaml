@@ -13,6 +13,7 @@
     src: poe.j2
     dest: /etc/cumulus/poe.conf
     backup: yes
+  when: env == "prod"
   notify: load PoE config
   tags:
     - interfaces
