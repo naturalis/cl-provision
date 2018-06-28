@@ -10,7 +10,7 @@
   roles:
     - cl-common
     - cl-license
-    - cl-users
+#    - cl-users
 #    - cl-apt
 #    - cl-ldap
 #    - cl-rsyslog
