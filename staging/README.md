@@ -27,16 +27,16 @@ sudo tail -f /var/log/apache2/access.log
 ```
 (If enabled) the ZTP script will do a provision callback to Ansible AWX and the 1st provisioning playbook will be started, to set PTM+.dot file, users, and interfaces.
 
-If all vx switches pulled the ztp_oob.sh file (and ran the provision.yaml playbook if the provision callback is enabled) you can test the connections with [ansible](ansible/):
+If all vx switches pulled the ztp_oob.sh file (and ran the provision.yml playbook if the provision callback is enabled) you can test the connections with [ansible](ansible/):
 ```bash
 ansible network -m ping -i environments/staging
 ```
 Now is the time to start the provision playbook if the provision callback is not enabled, to finish the deployment:
 ```bash
-ansible-playbook provision.yaml -i environments/staging
+ansible-playbook provision.yml -i environments/staging
 ```
 
 There is also an interfaces playbook, which only checks the interfaces for changes.
 ```bash
-ansible-playbook interfaces.yaml -i environments/staging
+ansible-playbook interfaces.yml -i environments/staging
 ```

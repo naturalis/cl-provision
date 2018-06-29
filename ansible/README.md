@@ -12,19 +12,19 @@ ansible network -m ping -i environments/staging
 - On timeouts or errors there is probably a problem with the ssh keys. If on vx, fix manually by connecting as the vagrant user.
 - Run the provision playbook, on hardware:
 ```bash
-ansible-playbook provision.yaml -i environments/prod
+ansible-playbook provision.yml -i environments/prod
 ```
 Or on vx:
 ```bash
-ansible-playbook provision.yaml -i environments/staging
+ansible-playbook provision.yml -i environments/staging
 ```
 - There is also an interfaces playbook, which only checks the interfaces for changes. On hardware:
 ```bash
-ansible-playbook interfaces.yaml -i environments/prod
+ansible-playbook interfaces.yml -i environments/prod
 ```
 Or on vx:
 ```bash
-ansible-playbook interfaces.yaml -i environments/staging
+ansible-playbook interfaces.yml -i environments/staging
 ```
 
 # Files
@@ -55,11 +55,11 @@ ansible-playbook interfaces.yaml -i environments/staging
 │   └── cl-users            # Sets up Infra user and removes credentials from cumulus user
 │
 ├── vars/
-│   ├── prod.yaml           # prod specific vars files
-│   └── staging.yaml        # staging specific vars files
+│   ├── prod.yml           # prod specific vars files
+│   └── staging.yml        # staging specific vars files
 │
-├── check.yaml
-├── interfaces.yaml
-├── provision.yaml
-└── staging.yaml
+├── check.yml
+├── interfaces.yml
+├── provision.yml
+└── staging.yml
 ```
