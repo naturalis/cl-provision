@@ -3,7 +3,7 @@
   hosts: network
   remote_user: cumulus
   vars_files:
-    - "vars/{{env}}.yaml"
+    - "vars/{{env}}.yml"
   gather_facts: yes
   become: yes
   roles:
