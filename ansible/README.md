@@ -58,8 +58,7 @@ ansible-playbook interfaces.yml -i environments/staging
 │   ├── prod.yml           # prod specific vars files
 │   └── staging.yml        # staging specific vars files
 │
-├── check.yml
-├── interfaces.yml
-├── provision.yml
-└── staging.yml
+├── check.yml              # Playbook to check and ouput ptm and lldp information
+├── interfaces.yml         # Playbook to setup interfaces
+└── provision.yml          # Playbook to do the first provisioning
 ```
