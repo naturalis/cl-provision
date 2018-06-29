@@ -1,0 +1,31 @@
+---
+# Make infra user and remove default creds from cumulus
+  - name: Create a login user
+    user:
+      name: infra
+      groups:
+        - sudo
+        - netedit
+      state: present
+      shell: /bin/bash
+
+  - name: Install public ssh key
+    authorized_key:
+      user: infra
+      state: present
+      key: "{{ public_ssh_key }}"
+
+#  - name: Set passwordless sudo for infra user
+#    shell: echo "infra ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/20_infra
+#    tags:
+#      - users
+
+  - name: Set passwordless sudo for infra user
+    copy:
+      content: "infra ALL=(ALL) NOPASSWD:ALL"
+      dest: /etc/sudoers.d/20_infra
+
+#  - name: Set nologin for cumulus user
+#    user:
+#      name: cumulus
+#      shell: /usr/sbin/nologin

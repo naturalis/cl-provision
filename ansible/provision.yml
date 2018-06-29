@@ -1,0 +1,34 @@
+---
+- name: Cumulus Switch provisioning
+  hosts: network
+  remote_user: cumulus
+  vars_files:
+    - "vars/{{env}}.yaml"
+  gather_facts: yes
+  become: yes
+  roles:
+    - cl-common
+    - cl-license
+#    - cl-users
+#    - cl-apt
+#    - cl-ldap
+#    - cl-rsyslog
+#    - cl-snmp
+    - cl-ptm
+
+- name: Cumulus Setup interfaces for spine switches
+  hosts: spine
+  remote_user: cumulus
+  gather_facts: no
+  become: true
+  roles:
+    - cl-interface-spine
+
+- name: Cumulus Setup interfaces for leaf switches
+  hosts: leaf
+  remote_user: cumulus
+  gather_facts: no
+  become: true
+  roles:
+    - cl-interface-leaf
+...

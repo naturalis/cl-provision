@@ -1,0 +1,32 @@
+---
+# Setup Prescriptive Topology Manager with correct .dot file
+  - name: configure ptmd topology.dot
+    template:
+      src: templates/topology.j2
+      dest: /etc/ptm.d/topology.dot
+    register: dotfile
+
+  - name: Restart ptmd service
+    service:
+      name: ptmd.service
+      state: restarted
+    when: dotfile.changed
+
+  - name: Check PTM status
+    command: ptmctl -lj
+    register: ptmctl_output
+    when: check_ptm
+
+  - name: Print PTM table
+    debug:
+      var: ptmctl_output.stdout.split('\n')
+    when: check_ptm
+
+  - name: Check lldp neighbors
+    command: lldpctl
+    register: lldpctl_output
+    when: check_lldp
+
+  - name: Print lldp neighbors
+    debug: var=lldpctl_output.stdout.split('\n')
+    when: check_lldp

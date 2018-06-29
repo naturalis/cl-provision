@@ -1,0 +1,75 @@
+---
+# Set common settings like NTP, Hostname, Timezone
+  - name: Setup NTP
+    template:
+      src: ntp.j2
+      dest: /etc/ntp.conf
+    notify: restart ntp
+
+  - name: stop ntp
+    service:
+      name: ntp
+      state: stopped
+
+  - name: disable ntp
+    service:
+      name: ntp
+      enabled: no
+
+  - name: enable ntp@mgmt
+    service:
+      name: ntp@mgmt
+      enabled: yes
+
+  - name: start ntp@mgmt
+    service:
+      name: ntp@mgmt
+      state: started
+
+  - name: Write Timezone File
+    lineinfile:
+      path: /etc/timezone
+      line: "{{ timezone }}"
+    notify: apply timezone
+
+  - name: Ensure a locale exists
+    locale_gen:
+      name: en_US.UTF-8
+      state: present
+
+  - name: Set default locale to en_US.UTF.8
+    lineinfile:
+      path: /etc/default/locale
+      line: 'LC_ALL="en_US.UTF-8"'
+
+  - name: Add information to MOTD
+    lineinfile:
+      path: /etc/motd
+      regexp: '^#(.*)System info:(.*)$'
+      line: "#    System info: {{ inventory_hostname }} / {{ansible_product_name}} / {{ansible_lsb.description}}"
+
+  - name: write hostname
+    lineinfile:
+      path: /etc/hostname
+      regexp: '^'
+      backrefs: no
+      line: '{{ inventory_hostname }}'
+      state: present
+    notify: apply hostname
+
+  - name: Remove cumulus hostname from Local DNS Resolution
+    lineinfile:
+      path: /etc/hosts
+      regexp: '^.*  cumulus'
+      backrefs: no
+      line: '127.0.1.1  cumulus'
+      state: absent
+
+  - name: Add Local DNS Resolution for our Hostname
+    lineinfile:
+      path: /etc/hosts
+      regexp: '^.*  {{ inventory_hostname }}'
+      backrefs: no
+      line: '127.0.1.1  {{ inventory_hostname }}'
+      state: present
+    notify: apply hostname

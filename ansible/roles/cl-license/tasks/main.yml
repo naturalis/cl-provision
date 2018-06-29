@@ -1,0 +1,8 @@
+---
+# Setup license and activate it if needed
+  - name: install license using http url
+    shell: cl-license -i {{ cl_license_server }}/license
+    args:
+      creates: /etc/cumulus/.license
+    when: env == "prod"
+    notify: restart switchd

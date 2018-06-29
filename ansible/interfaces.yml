@@ -1,0 +1,17 @@
+---
+- name: Cumulus Setup interfaces for spine switches
+  hosts: spine
+  remote_user: cumulus
+  gather_facts: no
+  become: yes
+  roles:
+    - cl-interface-spine
+
+- name: Cumulus Setup interfaces for leaf switches
+  hosts: leaf
+  remote_user: cumulus
+  gather_facts: no
+  become: yes
+  roles:
+    - cl-interface-leaf
+...
