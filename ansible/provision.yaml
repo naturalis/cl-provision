@@ -2,9 +2,8 @@
 - name: Cumulus Switch provisioning
   hosts: network
   remote_user: cumulus
-  vars:
-    check_ptm: false
-    check_lldp: false
+  vars_files:
+    - "vars/{{env}}.yaml"
   gather_facts: yes
   become: yes
   roles:
