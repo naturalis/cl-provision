@@ -42,110 +42,140 @@ ptm:
 general:
   vlans:
     114:
-      name: mgmt1
-      ipv4-virtual: 172.16.114.1/24
-      ipv4-1: 172.16.114.2/24
-      ipv4-2: 172.16.114.3/24
+      name: Management
+      ipv4-virtual: 10.114.0.1/24
+      ipv4-1: 10.114.0.2/24
+      ipv4-2: 10.114.0.3/24
     115:
-      name: mgmt2
-      ipv4-virtual: 172.16.115.1/24
-      ipv4-1: 172.16.115.2/24
-      ipv4-2: 172.16.115.3/24
+      name: Servers
+      ipv4-virtual: 10.115.0.1/24
+      ipv4-1: 10.115.0.2/24
+      ipv4-2: 10.115.0.3/24
     116:
-      name: servers1
-      ipv4-virtual: 172.16.116.1/24
-      ipv4-1: 172.16.116.2/24
-      ipv4-2: 172.16.116.3/24
+      name: Beveiliging
+      ipv4-virtual: 10.116.0.1/24
+      ipv4-1: 10.116.0.2/24
+      ipv4-2: 10.116.0.3/24
     117:
-      name: servers2
-      ipv4-virtual: 172.16.117.1/24
-      ipv4-1: 172.16.117.2/24
-      ipv4-2: 172.16.117.3/24
+      name: Gebouwbeheer
+      ipv4-virtual: 10.117.0.1/24
+      ipv4-1: 10.117.0.2/24
+      ipv4-2: 10.117.0.3/24
     118:
-      name: servers3
-      ipv4-virtual: 172.16.118.1/24
-      ipv4-1: 172.16.118.2/24
-      ipv4-2: 172.16.118.3/24
+      name: Kantoor
+      ipv4-virtual: 10.118.0.1/24
+      ipv4-1: 10.118.0.2/24
+      ipv4-2: 10.118.0.3/24
     119:
-      name: servers4
-      ipv4-virtual: 172.16.119.1/24
-      ipv4-1: 172.16.119.2/24
-      ipv4-2: 172.16.119.3/24
+      name: Telefonie
+      ipv4-virtual: 10.119.0.1/24
+      ipv4-1: 10.119.0.2/24
+      ipv4-2: 10.119.0.3/24
     120:
-      name: servers5
-      ipv4-virtual: 172.16.120.1/24
-      ipv4-1: 172.16.120.2/24
-      ipv4-2: 172.16.120.3/24
+      name: Printers
+      ipv4-virtual: 10.120.0.1/24
+      ipv4-1: 10.120.0.2/24
+      ipv4-2: 10.120.0.3/24
     121:
-      name: offdevices1
-      ipv4-virtual: 172.16.121.1/24
-      ipv4-1: 172.16.121.2/24
-      ipv4-2: 172.16.121.3/24
+      name: BYOD
+      ipv4-virtual: 10.121.0.1/24
+      ipv4-1: 10.121.0.2/24
+      ipv4-2: 10.121.0.3/24
     122:
-      name: offdevices2
-      ipv4-virtual: 172.16.122.1/24
-      ipv4-1: 172.16.122.2/24
-      ipv4-2: 172.16.122.3/24
+      name: Gasten kantoor
+      ipv4-virtual: 10.122.0.1/24
+      ipv4-1: 10.122.0.2/24
+      ipv4-2: 10.122.0.3/24
     123:
-      name: offdevices3
-      ipv4-virtual: 172.16.123.1/24
-      ipv4-1: 172.16.123.2/24
-      ipv4-2: 172.16.123.3/24
+      name: Test
+      ipv4-virtual: 10.123.0.1/24
+      ipv4-1: 10.123.0.2/24
+      ipv4-2: 10.123.0.3/24
     124:
-      name: voip1
-      ipv4-virtual: 172.16.124.1/24
-      ipv4-1: 172.16.124.2/24
-      ipv4-2: 172.16.124.3/24
+      name: Bezoekers museum
+      ipv4-virtual: 10.124.0.1/24
+      ipv4-1: 10.124.0.2/24
+      ipv4-2: 10.124.0.3/24
     125:
-      name: voip2
-      ipv4-virtual: 172.16.125.1/24
-      ipv4-1: 172.16.125.2/24
-      ipv4-2: 172.16.125.3/24
+      name: Kernsystemen museum
+      ipv4-virtual: 10.125.0.1/24
+      ipv4-1: 10.125.0.2/24
+      ipv4-2: 10.125.0.3/24
     126:
-      name: voip3
-      ipv4-virtual: 172.16.126.1/24
-      ipv4-1: 172.16.126.2/24
-      ipv4-2: 172.16.126.3/24
+      name: Kernsystemen restaurant
+      ipv4-virtual: 10.126.0.1/24
+      ipv4-1: 10.126.0.2/24
+      ipv4-2: 10.126.0.3/24
     127:
-      name: museum-devices1
-      ipv4-virtual: 172.16.127.1/24
-      ipv4-1: 172.16.127.2/24
-      ipv4-2: 172.16.127.3/24
+      name: Museum LiveScience
+      ipv4-virtual: 10.127.0.1/24
+      ipv4-1: 10.127.0.2/24
+      ipv4-2: 10.127.0.3/24
     128:
-      name: museum-devices2
-      ipv4-virtual: 172.16.128.1/24
-      ipv4-1: 172.16.128.2/24
-      ipv4-2: 172.16.128.3/24
+      name: Museum De Ontmoeting
+      ipv4-virtual: 10.128.0.1/24
+      ipv4-1: 10.128.0.2/24
+      ipv4-2: 10.128.0.3/24
     129:
-      name: museum-devices3
-      ipv4-virtual: 172.16.129.1/24
-      ipv4-1: 172.16.129.2/24
-      ipv4-2: 172.16.129.3/24
+      name: Museum Ik wil je
+      ipv4-virtual: 10.129.0.1/24
+      ipv4-1: 10.129.0.2/24
+      ipv4-2: 10.129.0.3/24
     130:
-      name: office-guests
+      name: Museum IJstijd
       ipv4-virtual: 10.130.0.1/16
       ipv4-1: 10.130.0.2/16
       ipv4-2: 10.130.0.3/16
     131:
-      name: museum-visitors
+      name: Museum Ontstaan van leven
       ipv4-virtual: 10.131.0.1/16
       ipv4-1: 10.131.0.2/16
       ipv4-2: 10.131.0.3/16
     132:
-      name: byod
+      name: Museum Wat een kracht
       ipv4-virtual: 10.132.0.1/16
       ipv4-1: 10.132.0.2/16
       ipv4-2: 10.132.0.3/16
     133:
-      name: offdevices4
+      name: Museum De mens
       ipv4-virtual: 10.133.0.1/16
       ipv4-1: 10.133.0.2/16
       ipv4-2: 10.133.0.3/16
     134:
-      name: voip4
+      name: Museum De dood
       ipv4-virtual: 10.134.0.1/16
       ipv4-1: 10.134.0.1/16
       ipv4-2: 10.134.0.2/16
+    135:
+      name: Museum REXperience
+      ipv4-virtual: 10.135.0.1/16
+      ipv4-1: 10.135.0.1/16
+      ipv4-2: 10.135.0.2/16
+    136:
+      name: Museum I love dino's
+      ipv4-virtual: 10.136.0.1/16
+      ipv4-1: 10.136.0.1/16
+      ipv4-2: 10.136.0.2/16
+    137:
+      name: Museum Wisselzaal
+      ipv4-virtual: 10.137.0.1/16
+      ipv4-1: 10.137.0.1/16
+      ipv4-2: 10.137.0.2/16
+    138:
+      name: Museum Auditorium
+      ipv4-virtual: 10.138.0.1/16
+      ipv4-1: 10.138.0.1/16
+      ipv4-2: 10.138.0.2/16
+    139:
+      name: Signage
+      ipv4-virtual: 10.139.0.1/16
+      ipv4-1: 10.139.0.1/16
+      ipv4-2: 10.139.0.2/16
+    140:
+      name: Overig
+      ipv4-virtual: 10.140.0.1/16
+      ipv4-1: 10.140.0.1/16
+      ipv4-2: 10.140.0.2/16
 
 node:
   netdw2-spine-a:
@@ -270,7 +300,6 @@ node:
         - 121
         - 122
         - 123
-        - 124
         poe: true
 
   netdw2-leaf-d1c:
@@ -293,7 +322,7 @@ node:
       swp1:
         mlag: false
         trunk: true
-        vlan: 121
+        vlan: 123
         poe: true
 
   netdw2-leaf-h1a:
@@ -364,7 +393,7 @@ node:
       swp1:
         mlag: false
         trunk: false
-        vlan: 127
+        vlan: 123
 
   netdw2-leaf-h1c:
     lo: 10.255.255.24/32
@@ -386,4 +415,4 @@ node:
       swp1:
         mlag: false
         trunk: false
-        vlan: 127
+        vlan: 123
