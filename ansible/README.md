@@ -60,5 +60,6 @@ ansible-playbook interfaces.yml -i environments/staging
 │
 ├── check.yml              # Playbook to check and ouput ptm and lldp information
 ├── interfaces.yml         # Playbook to setup interfaces
+├── linter.sh              # Passes all .yml files through yamllint ($pip install yamllint)
 └── provision.yml          # Playbook to do the first provisioning
 ```
