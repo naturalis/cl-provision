@@ -15,40 +15,18 @@ echo " Detected vagrant user is: $username"
 #       KNOBS
 #######################
 
-REPOSITORY="https://github.com/CumulusNetworks/cl-provision"
-REPONAME="cl-provision"
-
-#Install Automation Tools
-puppet=0
-ansible=1
-ansible_version=2.3.1.0
-
-#######################
+REPOSITORY="https://github.com/naturalis/cl-provision"
 
 username=$(cat /tmp/normal_user)
 
-install_puppet(){
-    echo " ### Adding Puppet Repositories... ###"
-    wget https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
-    dpkg -i puppetlabs-release-pc1-xenial.deb
-    echo " ### Updating APT Repository... ###"
-    apt-get update -y
-    echo " ### Installing Puppet ###"
-    apt-get install puppetserver -qy
-    echo " ### Setting up Puppet ###"
-    rm -rf /etc/puppetlabs/code/environments/production
-    sed -i 's/-Xms2g/-Xms512m/g' /etc/default/puppetserver
-    sed -i 's/-Xmx2g/-Xmx512m/g' /etc/default/puppetserver
-    echo "*" > /etc/puppetlabs/puppet/autosign.conf
-    sed -i 's/192.168.200.254/192.168.200.254 puppet /g'>> /etc/hosts
-}
-
+#Install Ansible
 install_ansible(){
     echo " ### Installing Ansible... ###"
+    apt-add-repository ppa:ansible/ansible -y -u
     apt-get install -qy ansible sshpass libssh-dev python-dev libssl-dev libffi-dev
     pip install pip --upgrade
     pip install setuptools --upgrade
-    pip install ansible==$ansible_version --upgrade
+    pip install ansible --upgrade
 }
 
 ## MOTD
@@ -102,10 +80,6 @@ modprobe 8021q
 #modprobe bonding
 echo "8021q" >> /etc/modules
 
-if [ $puppet -eq 1 ]; then
-    echo " ### Installing Puppet ### "
-    install_puppet
-fi
 if [ $ansible -eq 1 ]; then
     echo " ### Installing Ansible ### "
     install_ansible
@@ -132,6 +106,7 @@ EOT
 
 echo " ### Creating cumulus user ###"
 useradd -m cumulus
+echo "cumulus:CumulusLinux!" | chpasswd
 
 echo " ### Setting Up DHCP ###"
 mv /home/$username/dhcpd.conf /etc/dhcp/dhcpd.conf
@@ -179,17 +154,6 @@ echo " ### Creating turnup.sh script ###"
 git clone $REPOSITORY
 EOT
 
-if [ $puppet -eq 1 ]; then
-    cat <<EOT >> /home/cumulus/turnup.sh
-sudo rm -rf /etc/puppetlabs/code/environments/production
-sudo ln -s  /home/cumulus/$REPONAME/puppet/ /etc/puppetlabs/code/environments/production
-sudo /opt/puppetlabs/bin/puppet module install puppetlabs-stdlib
-#sudo bash -c 'echo "certname = 192.168.200.254" >> /etc/puppetlabs/puppet/puppet.conf'
-echo " ### Starting PUPPET Master ###"
-echo "     (this may take a while 30 secs or so...)"
-sudo systemctl restart puppetserver.service
-EOT
-fi
 if [ $ansible -eq 1 ]; then
     cat <<EOT >> /home/cumulus/turnup.sh
 #Add any ansible specific steps here

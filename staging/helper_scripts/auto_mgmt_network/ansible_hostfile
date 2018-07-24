@@ -3,8 +3,17 @@
 #    https://github.com/cumulusnetworks/topology_converter
 #    using topology data from: naturalis.dot
 
+
+
+
 [oob-switch]
 oob-mgmt-switch ansible_host=192.168.200.5 ansible_user=cumulus
+
+
+
+
+
+
 
 [leaf]
 host01 ansible_host=192.168.200.1 ansible_user=cumulus
@@ -22,6 +31,12 @@ uplink01 ansible_host=192.168.200.15 ansible_user=cumulus
 netdw2-leaf-d1a ansible_host=192.168.200.16 ansible_user=cumulus
 netdw2-leaf-d1d ansible_host=192.168.200.17 ansible_user=cumulus
 
+
+
 [spine]
 netdw2-spine-a ansible_host=192.168.200.9 ansible_user=cumulus
 netdw2-spine-b ansible_host=192.168.200.11 ansible_user=cumulus
+
+
+
+
