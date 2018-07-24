@@ -1,6 +1,6 @@
 frr version 4.0+cl3u1
 frr defaults datacenter
-hostname netdw2-spine-a
+hostname {{ inventory_hostname }}
 username cumulus nopassword
 !
 service integrated-vtysh-config
