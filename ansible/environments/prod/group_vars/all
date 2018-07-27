@@ -34,12 +34,18 @@ general:
       ipv4-virtual: 172.16.201.4/24
       ipv4-1: 172.16.201.5/24
       ipv4-2: 172.16.201.6/24
+    269:
+      name: wr-lnk
+      ipv4-virtual: 145.136.246.229/32
+      ipv4-1: 145.136.246.230/32
+      ipv4-2: 145.136.246.231/32
 
 node:
   netdw2-spine-a:
     lo: 10.255.255.1/32
     ospf:
-      router-id: 145.136.246.28
+      interface: swp47
+      router-id: 145.136.246.228
       network: 145.136.246.224/28
     mlag:
       primary: true
@@ -55,6 +61,10 @@ node:
       native: 201
       priority: 4096
     ports:
+      swp47:
+        mlag: false
+        trunk: true
+        vlan: 269
       ser-d:
         mlag: true
         mlag-id: 1

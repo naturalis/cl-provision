@@ -144,44 +144,50 @@ general:
     134:
       name: Museum De dood
       ipv4-virtual: 10.134.0.1/16
-      ipv4-1: 10.134.0.1/16
-      ipv4-2: 10.134.0.2/16
+      ipv4-1: 10.134.0.2/16
+      ipv4-2: 10.134.0.3/16
     135:
       name: Museum REXperience
       ipv4-virtual: 10.135.0.1/16
-      ipv4-1: 10.135.0.1/16
-      ipv4-2: 10.135.0.2/16
+      ipv4-1: 10.135.0.2/16
+      ipv4-2: 10.135.0.3/16
     136:
       name: Museum I love dino's
       ipv4-virtual: 10.136.0.1/16
-      ipv4-1: 10.136.0.1/16
-      ipv4-2: 10.136.0.2/16
+      ipv4-1: 10.136.0.2/16
+      ipv4-2: 10.136.0.3/16
     137:
       name: Museum Wisselzaal
       ipv4-virtual: 10.137.0.1/16
-      ipv4-1: 10.137.0.1/16
-      ipv4-2: 10.137.0.2/16
+      ipv4-1: 10.137.0.2/16
+      ipv4-2: 10.137.0.3/16
     138:
       name: Museum Auditorium
       ipv4-virtual: 10.138.0.1/16
-      ipv4-1: 10.138.0.1/16
-      ipv4-2: 10.138.0.2/16
+      ipv4-1: 10.138.0.2/16
+      ipv4-2: 10.138.0.3/16
     139:
       name: Signage
       ipv4-virtual: 10.139.0.1/16
-      ipv4-1: 10.139.0.1/16
-      ipv4-2: 10.139.0.2/16
+      ipv4-1: 10.139.0.2/16
+      ipv4-2: 10.139.0.3/16
     140:
       name: Overig
       ipv4-virtual: 10.140.0.1/16
-      ipv4-1: 10.140.0.1/16
-      ipv4-2: 10.140.0.2/16
+      ipv4-1: 10.140.0.2/16
+      ipv4-2: 10.140.0.3/16
+    269:
+      name: wr-lnk
+      ipv4-virtual: 145.136.246.229/32
+      ipv4-1: 145.136.246.230/32
+      ipv4-2: 145.136.246.231/32
 
 node:
   netdw2-spine-a:
     lo: 10.255.255.1/32
     ospf:
-      router-id: 145.136.246.28
+      interface: swp47
+      router-id: 145.136.246.227
       network: 145.136.246.224/28
     mlag:
       primary: true
@@ -197,6 +203,10 @@ node:
       native: 122
       priority: 4096
     ports:
+      swp47:
+        mlag: false
+        trunk: true
+        vlan: 269
       ser-d:
         mlag: true
         mlag-id: 1
@@ -213,7 +223,8 @@ node:
   netdw2-spine-b:
     lo: 10.255.255.2/32
     ospf:
-      router-id: 145.136.246.29
+      interface: swp48
+      router-id: 145.136.246.228
       network: 145.136.246.224/28
     mlag:
       primary: false
@@ -229,6 +240,10 @@ node:
       native: 122
       priority: 4096
     ports:
+      swp48:
+        mlag: false
+        trunk: true
+        vlan: 269
       ser-d:
         mlag: true
         mlag-id: 1

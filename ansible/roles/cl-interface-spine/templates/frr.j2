@@ -1,5 +1,6 @@
 frr version 4.0+cl3u1
 frr defaults datacenter
+ip import-table 10 route-map REDIST_NEIGHBOR
 hostname {{ inventory_hostname }}
 username cumulus nopassword
 !
@@ -7,9 +8,13 @@ service integrated-vtysh-config
 !
 log syslog informational
 !
+route-map REDIST_NEIGHBOR permit 10
+ match interface {{ node[inventory_hostname]["ospf"]["interface"] }}
+!
 router ospf
  ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
  network {{ node[inventory_hostname]["ospf"]["network"] }} area 0.0.0.0
+ redistribute table 10
 !
 line vty
 !
