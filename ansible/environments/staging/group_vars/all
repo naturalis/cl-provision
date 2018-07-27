@@ -189,6 +189,11 @@ node:
       peer-ip: 169.254.1.2
       backup-ip: 192.168.200.10
       sysmac: 44:38:39:FF:01:12
+      priority: 4096
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       ser-d:
         mlag: true
@@ -214,6 +219,11 @@ node:
       peer-ip: 169.254.1.1
       backup-ip: 192.168.200.8
       sysmac: 44:38:39:FF:01:12
+      priority: 4096
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       ser-d:
         mlag: true
@@ -238,6 +248,10 @@ node:
       peer-ip: 169.254.1.2
       backup-ip: 192.168.200.17
       sysmac: 44:38:39:FF:11:12
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       uplink:
         mlag: true
@@ -262,6 +276,10 @@ node:
       peer-ip: 169.254.1.1
       backup-ip: 192.168.200.16
       sysmac: 44:38:39:FF:11:12
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       uplink:
         mlag: true
@@ -286,6 +304,10 @@ node:
       peer-ip: 169.254.1.2
       backup-ip: 192.168.200.14
       sysmac: 44:38:39:FF:12:34
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       uplink:
         mlag: true
@@ -312,6 +334,10 @@ node:
       peer-ip: 169.254.1.1
       backup-ip: 192.168.200.13
       sysmac: 44:38:39:FF:12:34
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       uplink:
         mlag: true
@@ -335,6 +361,10 @@ node:
       peer-ip: 169.254.1.2
       backup-ip: 192.168.200.5
       sysmac: 44:38:39:FF:21:12
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       uplink:
         mlag: true
@@ -359,6 +389,10 @@ node:
       peer-ip: 169.254.1.1
       backup-ip: 192.168.200.9
       sysmac: 44:38:39:FF:21:12
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       uplink:
         mlag: true
@@ -383,6 +417,10 @@ node:
       peer-ip: 169.254.1.2
       backup-ip: 192.168.200.7
       sysmac: 44:38:39:FF:22:34
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       uplink:
         mlag: true
@@ -405,6 +443,10 @@ node:
       peer-ip: 169.254.1.1
       backup-ip: 192.168.200.6
       sysmac: 44:38:39:FF:22:34
+    bridge:
+      native: 122
+      stp: true
+      priority: 4096
     ports:
       uplink:
         mlag: true
