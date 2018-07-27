@@ -50,7 +50,6 @@ node:
       priority: 4096
     bridge:
       native: 201
-      stp: true
       priority: 4096
     ports:
       ser-d:
@@ -79,7 +78,6 @@ node:
       priority: 4096
     bridge:
       native: 201
-      stp: true
       priority: 4096
     ports:
       uplink:
