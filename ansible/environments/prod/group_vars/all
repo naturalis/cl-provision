@@ -47,6 +47,7 @@ node:
       peer-ip: 169.254.1.2
       backup-ip: 192.168.200.10
       sysmac: 44:38:39:FF:01:12
+      priority: 4096
     bridge:
       native: 201
       stp: true
