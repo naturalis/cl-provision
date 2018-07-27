@@ -46,7 +46,7 @@ ansible-playbook interfaces.yml -i environments/staging
 │   ├── cl-apt              # Not used yet, will setup repositories
 │   ├── cl-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
 │   ├── cl-interface-leaf   # Will set interfaces for leaf switches. Also PoE is enabled needed ports.
-│   ├── cl-interface-spine  # Will set interfaces for spine switches. Also BGP is enabled for SVI.
+│   ├── cl-interface-spine  # Will set interfaces for spine switches. Also ospf is enabled for SVI/uplinks.
 │   ├── cl-ldap             # Not used yet, can setup LDAP for user management
 │   ├── cl-license          # Can change the license key on the switches. (initial setup is done by ZTP)
 │   ├── cl-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file
