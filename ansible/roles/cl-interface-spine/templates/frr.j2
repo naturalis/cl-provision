@@ -7,5 +7,9 @@ service integrated-vtysh-config
 !
 log syslog informational
 !
+router ospf
+ ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
+ network {{ node[inventory_hostname]["ospf"]["network"] }} area 0.0.0.0
+!
 line vty
 !

@@ -180,6 +180,9 @@ general:
 node:
   netdw2-spine-a:
     lo: 10.255.255.1/32
+    ospf:
+      router-id: 145.136.246.28
+      network: 145.136.246.224/28
     mlag:
       primary: true
       members:
@@ -209,6 +212,9 @@ node:
 
   netdw2-spine-b:
     lo: 10.255.255.2/32
+    ospf:
+      router-id: 145.136.246.29
+      network: 145.136.246.224/28
     mlag:
       primary: false
       members:
