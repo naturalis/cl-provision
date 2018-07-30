@@ -177,10 +177,15 @@ general:
       ipv4-1: 10.140.0.2/16
       ipv4-2: 10.140.0.3/16
     269:
-      name: wr-lnk
+      name: uplink01
       ipv4-virtual: 145.136.246.229/24
       ipv4-1: 145.136.246.230/24
       ipv4-2: 145.136.246.231/24
+    270:
+      name: uplink02
+      ipv4-virtual: 145.136.246.000/24
+      ipv4-1: 145.136.246.000/24
+      ipv4-2: 145.136.246.000/24
 
 node:
   netdw2-spine-a:
@@ -203,10 +208,18 @@ node:
       native: 122
       priority: 4096
     ports:
-      swp47:
+      uplink01:
         mlag: false
+        members:
+        - swp47
         trunk: true
         vlan: 269
+      uplink02:
+        mlag: false
+        members:
+        - swp48
+        trunk: true
+        vlan: 270
       ser-d:
         mlag: true
         mlag-id: 1
@@ -240,10 +253,18 @@ node:
       native: 122
       priority: 4096
     ports:
-      swp48:
+      uplink01:
         mlag: false
+        members:
+        - swp47
         trunk: true
         vlan: 269
+      uplink02:
+        mlag: false
+        members:
+        - swp48
+        trunk: true
+        vlan: 270
       ser-d:
         mlag: true
         mlag-id: 1
