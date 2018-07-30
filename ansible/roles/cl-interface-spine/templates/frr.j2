@@ -8,13 +8,19 @@ service integrated-vtysh-config
 !
 log syslog informational
 !
-route-map REDIST_NEIGHBOR permit 10
- match interface {{ node[inventory_hostname]["ospf"]["interface"] }}
+{% if node[inventory_hostname]["ospf"] is defined %}
+{% for vlans in node[inventory_hostname]["ospf"]["vlans"] -%}
+interface {{vlans}}
+ ip ospf network point-to-point
 !
 router ospf
  ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
  network {{ node[inventory_hostname]["ospf"]["network"] }} area 0.0.0.0
  redistribute table 10
 !
-line vty
+route-map REDIST_NEIGHBOR permit 10
+ match interface {{ node[inventory_hostname]["ospf"]["interface"] }}
 !
+{% endfor %}
+{% endif %}
+line vty

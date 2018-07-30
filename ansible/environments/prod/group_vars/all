@@ -47,6 +47,8 @@ node:
       interface: swp47
       router-id: 145.136.246.228
       network: 145.136.246.224/28
+      vlans:
+      - 269
     mlag:
       primary: true
       members:
