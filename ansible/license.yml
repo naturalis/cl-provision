@@ -1,0 +1,9 @@
+---
+- name: Cumulus Setup users
+  hosts: all
+  remote_user: cumulus
+  gather_facts: no
+  become: yes
+  roles:
+    - cl-license
+...

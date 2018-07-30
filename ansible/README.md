@@ -43,14 +43,11 @@ ansible-playbook interfaces.yml -i environments/staging
 │       └── hosts           # Contains only the hosts in the prod environment
 │   
 ├── roles/
-│   ├── cl-apt              # Not used yet, will setup repositories
 │   ├── cl-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
 │   ├── cl-interface-leaf   # Will set interfaces for leaf switches. Also PoE is enabled needed ports.
 │   ├── cl-interface-spine  # Will set interfaces for spine switches. Also bgp+ospf is enabled for SVI/uplinks.
-│   ├── cl-ldap             # Not used yet, can setup LDAP for user management
 │   ├── cl-license          # Can change the license key on the switches. (initial setup is done by ZTP)
 │   ├── cl-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file
-│   ├── cl-rsyslog          # Not used yet, can setup rsyslog and start daemon
 │   ├── cl-snmp             # Not used yet, can setup SNMP and start daemon
 │   └── cl-users            # Sets up Infra user and removes credentials from cumulus user
 │
@@ -59,7 +56,9 @@ ansible-playbook interfaces.yml -i environments/staging
 │   └── staging.yml        # staging specific vars files
 │
 ├── check.yml              # Playbook to check and ouput ptm and lldp information
+├── license.yml            # Playbook to setup or change license key. (initial setup is done by ZTP)
 ├── interfaces.yml         # Playbook to setup interfaces
 ├── linter.sh              # Passes all .yml files through yamllint ($pip install yamllint)
-└── provision.yml          # Playbook to do the first provisioning
+├── provision.yml          # Playbook to do the first provisioning
+└── users.yml              # Playbook to setup users and ssh keys
 ```
