@@ -29,7 +29,9 @@
   - name: Write Timezone File
     lineinfile:
       path: /etc/timezone
+      regexp: '^'
       line: "{{ timezone }}"
+      backrefs: yes
     notify: apply timezone
 
   - name: Ensure a locale exists
