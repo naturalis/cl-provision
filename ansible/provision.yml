@@ -8,7 +8,6 @@
   become: yes
   roles:
     - cl-common
-    - cl-license
 #    - cl-snmp
     - cl-ptm
 
