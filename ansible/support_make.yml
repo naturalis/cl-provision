@@ -29,6 +29,10 @@
     - debug: msg="###############################################################"
 
     - name: collect support file
+      fetch:
+        src: "{{ new_support_file.stdout }}"
+        dest: "{{ destination_dir }}"
+        flat: yes
+        fail_on_missing: yes
       when: new_support_file.stdout.find('cl_support') != -1
-      fetch: src={{ new_support_file.stdout }} dest={{ destination_dir }} flat=yes fail_on_missing=yes
 ...

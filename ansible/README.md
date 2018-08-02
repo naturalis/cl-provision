@@ -60,5 +60,7 @@ ansible-playbook interfaces.yml -i environments/staging
 ├── interfaces.yml         # Playbook to setup interfaces
 ├── linter.sh              # Passes all .yml files through yamllint ($pip install yamllint)
 ├── provision.yml          # Playbook to do the first provisioning
+├── support_make.yml       # Playbook to make and retrieve support files for troubleshooting
+├── support_remove.yml     # Playbook to remove support files from switches
 └── users.yml              # Playbook to setup users and ssh keys
 ```

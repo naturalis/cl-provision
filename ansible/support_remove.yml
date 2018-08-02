@@ -4,24 +4,15 @@
   remote_user: cumulus
   gather_facts: no
   become: yes
-  vars_prompt:
-
-  - name: "are_you_sure"
-    prompt: "Are you REALLY sure you want to delete the files?"
-    default: "no"
-    private: no
-
   tasks:
-    - debug: msg="{{ are_you_sure }}"
 
-    - debug: msg="Waiting 5 Seconds to make sure that you're really sure..."
-      failed_when: "'yes' not in are_you_sure"
-
-    - wait_for: timeout=5
+    - name: determine newly created support file
+      shell: ls -lt /var/support/cl_support* | head -n2 | tail -n1 | awk '{print $9}'
+      register: new_support_file
 
     - name: Removing CL-Support files
-      shell: rm -v /var/support/cl_support*
-      register: debug_output
-
-    - debug: msg=" {{ debug_output.stdout }} "
+      file:
+        path: "{{ new_support_file.stdout }}"
+        state: absent
+      when: new_support_file.stdout.find('cl_support') != -1
 ...
