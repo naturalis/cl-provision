@@ -1,0 +1,26 @@
+frr version 4.0+cl3u1
+frr defaults datacenter
+hostname {{ inventory_hostname }}
+username cumulus nopassword
+!
+service integrated-vtysh-config
+!
+log syslog informational
+{% if node[inventory_hostname]["ospf"] is defined %}
+{% for interfaces in node[inventory_hostname]["ospf"]["interfaces"] -%}
+!
+interface {{interfaces}}
+ ip ospf network point-to-point
+ ip ospf area 0.0.0.0
+!
+{% endfor %}
+router ospf
+ ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
+ log-adjacency-changes detail
+ passive-interface default
+{% for interfaces in node[inventory_hostname]["ospf"]["interfaces"] -%}
+ no passive-interface {{interfaces}}
+{% endfor %}
+!
+{% endif %}
+line vty
