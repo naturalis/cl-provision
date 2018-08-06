@@ -15,19 +15,7 @@ echo " Detected vagrant user is: $username"
 #       KNOBS
 #######################
 
-REPOSITORY="https://github.com/naturalis/cl-provision"
-
 username=$(cat /tmp/normal_user)
-
-#Install Ansible
-install_ansible(){
-    echo " ### Installing Ansible... ###"
-    apt-add-repository ppa:ansible/ansible -y -u
-    apt-get install -qy ansible sshpass libssh-dev python-dev libssl-dev libffi-dev
-    pip install pip --upgrade
-    pip install setuptools --upgrade
-    pip install ansible --upgrade
-}
 
 ## MOTD
 echo " ### Overwriting MOTD ###"
@@ -50,7 +38,6 @@ EOT
 base64 -d /etc/motd.base64 > /etc/motd
 rm /etc/motd.base64
 chmod 755 /etc/motd
-
 
 echo " ### Overwriting /etc/network/interfaces ###"
 cat <<EOT > /etc/network/interfaces
@@ -83,10 +70,12 @@ modprobe 8021q
 #modprobe bonding
 echo "8021q" >> /etc/modules
 
-if [ $ansible -eq 1 ]; then
-    echo " ### Installing Ansible ### "
-    install_ansible
-fi
+echo " ### Installing Ansible ### "
+apt-add-repository ppa:ansible/ansible -y -u
+apt-get install -qy ansible sshpass libssh-dev python-dev libssl-dev libffi-dev
+pip install pip --upgrade
+pip install setuptools --upgrade
+pip install ansible --upgrade
 
 echo " ### Configure NTP... ###"
 echo <<EOT >> /etc/ntp.conf
@@ -150,20 +139,6 @@ echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
 echo ' ### Setting UP NAT and Routing on MGMT server... ### '
 echo -e '#!/bin/bash \n/sbin/iptables -t nat -A POSTROUTING -o vagrant -j MASQUERADE' > /etc/rc.local
 echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/98-ipforward.conf
-
-
-echo " ### Creating turnup.sh script ###"
-    cat <<EOT >> /home/cumulus/turnup.sh
-git clone $REPOSITORY
-EOT
-
-if [ $ansible -eq 1 ]; then
-    cat <<EOT >> /home/cumulus/turnup.sh
-#Add any ansible specific steps here
-EOT
-fi
-
-chmod +x /home/cumulus/turnup.sh
 
 echo " ### creating .gitconfig for cumulus user"
 cat <<EOT >> /home/cumulus/.gitconfig
