@@ -18,5 +18,11 @@ interface {{interface}}
   ip ospf network point-to-point
 !
 {% endfor %}
+redistribute table 10
+route-map REDIST_NEIGHBOR permit 10
+log-adjacency-changes detail
+{% for interfaces in node[inventory_hostname]["ospf"]["interfaces"] -%}
+no passive-interface {{interfaces}}
+{% endfor %}
 {% endif %}
 line vty
