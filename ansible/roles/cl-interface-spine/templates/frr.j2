@@ -7,9 +7,11 @@ username cumulus nopassword
 service integrated-vtysh-config
 !
 {% if node[inventory_hostname]["ospf"] is defined %}
+{% for interface in node[inventory_hostname]["ospf"]["interfaces"] -%}
 interface {{interface}}
  ip ospf area 0.0.0.0
  ip ospf network point-to-point
+{% endfor %}
 !
 log syslog informational
 router ospf
