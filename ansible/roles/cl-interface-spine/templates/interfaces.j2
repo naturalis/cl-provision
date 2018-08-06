@@ -18,10 +18,11 @@ iface mgmt
   address 127.0.0.1/8
   vrf-table auto
 
+{% if inventory_hostname in groups['spine'] %}
+
 ###############
 # Bridge / Vlans
 ###############
-{% if node[inventory_hostname]["uplink"] == "false" %}
 
 auto bridge
 iface bridge
