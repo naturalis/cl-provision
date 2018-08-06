@@ -20,7 +20,9 @@
     src: frr.j2
     dest: /etc/frr/frr.conf
     backup: yes
-  notify: reload frr
+  notify:
+    - reload networking
+    - reload frr
   tags:
     - frr
 

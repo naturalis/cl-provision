@@ -6,23 +6,23 @@ username cumulus nopassword
 !
 service integrated-vtysh-config
 !
-log syslog informational
 {% if node[inventory_hostname]["ospf"] is defined %}
-router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
-router ospf
-  ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
-  network {{ node[inventory_hostname]["ospf"]["network"] }} area 0.0.0.0
-{% for interface in node[inventory_hostname]["ospf"]["interfaces"] -%}
-!
 interface {{interface}}
-  ip ospf network point-to-point
+ ip ospf area 0.0.0.0
+ ip ospf network point-to-point
 !
+log syslog informational
+router ospf
+ ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
+ log-adjacency-changes detail
+ timers throttle spf 5 100 500
+ timers lsa min-arrival 50
+ passive-interface default
+{% for interface in node[inventory_hostname]["ospf"]["interfaces"] -%}
+ no passive-interface {{interfaces}}
 {% endfor %}
-redistribute table 10
-route-map REDIST_NEIGHBOR permit 10
-log-adjacency-changes detail
-{% for interfaces in node[inventory_hostname]["ospf"]["interfaces"] -%}
-no passive-interface {{interfaces}}
-{% endfor %}
+ redistribute table 10
+ route-map REDIST_NEIGHBOR permit 10
+!
 {% endif %}
 line vty
