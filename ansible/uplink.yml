@@ -17,5 +17,5 @@
   gather_facts: no
   become: true
   roles:
-    - cl-interface-spine
+    - cl-interface-uplink
 ...

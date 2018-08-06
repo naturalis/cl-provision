@@ -184,17 +184,8 @@ node:
       interfaces:
       - swp1
       - swp2
-      router-id: 145.136.246.227
+      router-id: 145.136.246.225/32
       network: 145.136.246.224/28
-    ports:
-      swp1:
-        mlag: false
-        trunk: false
-        vlan: 269
-      swp2:
-        mlag: false
-        trunk: false
-        vlan: 269
 
   uplink02:
     lo: 10.255.255.1/32
@@ -202,17 +193,8 @@ node:
       interfaces:
       - swp1
       - swp2
-      router-id: 145.136.246.227
+      router-id: 145.136.246.226/32
       network: 145.136.246.224/28
-    ports:
-      swp1:
-        mlag: false
-        trunk: false
-        vlan: 269
-      swp2:
-        mlag: false
-        trunk: false
-        vlan: 269
 
   netdw2-spine-a:
     lo: 10.255.255.1/32
@@ -220,7 +202,7 @@ node:
       interfaces:
       - swp47
       - swp48
-      router-id: 145.136.246.227
+      router-id: 145.136.246.227/32
       network: 145.136.246.224/28
     mlag:
       primary: true
@@ -236,14 +218,6 @@ node:
       native: 122
       priority: 4096
     ports:
-      swp47:
-        mlag: false
-        trunk: false
-        vlan: 269
-      swp48:
-        mlag: false
-        trunk: false
-        vlan: 270
       ser-d:
         mlag: true
         mlag-id: 1
@@ -263,7 +237,7 @@ node:
       interfaces:
       - swp47
       - swp48
-      router-id: 145.136.246.228
+      router-id: 145.136.246.228/32
       network: 145.136.246.224/28
     mlag:
       primary: false
@@ -279,14 +253,6 @@ node:
       native: 122
       priority: 4096
     ports:
-      swp47:
-        mlag: false
-        trunk: false
-        vlan: 269
-      swp48:
-        mlag: false
-        trunk: false
-        vlan: 269
       ser-d:
         mlag: true
         mlag-id: 1

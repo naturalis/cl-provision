@@ -1,0 +1,34 @@
+###############
+# Ansible generated config, will be overwritten!
+###############
+
+###############
+# General
+###############
+auto lo
+iface lo inet loopback
+   address {{node[inventory_hostname]["lo"]}}
+
+auto eth0
+iface eth0 inet dhcp
+  vrf mgmt
+
+auto mgmt
+iface mgmt
+  address 127.0.0.1/8
+  vrf-table auto
+
+{% if node[inventory_hostname]["ospf"] is defined %}
+###############
+# OSPF ports
+###############
+
+{% if node[inventory_hostname]["ospf"]["interfaces"] %}
+{% for member in node[inventory_hostname]["ospf"]["interfaces"] -%}
+auto {{member}}
+iface {{member}}
+  address {{ node[inventory_hostname]["ospf"]["router-id"] }}
+{% endfor %}
+{% endif %}
+
+{% endif %}
