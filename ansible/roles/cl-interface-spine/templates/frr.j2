@@ -19,7 +19,7 @@ router ospf
  timers lsa min-arrival 50
  passive-interface default
 {% for interface in node[inventory_hostname]["ospf"]["interfaces"] -%}
- no passive-interface {{interfaces}}
+ no passive-interface {{interface}}
 {% endfor %}
  redistribute table 10
  route-map REDIST_NEIGHBOR permit 10
