@@ -21,6 +21,7 @@ iface mgmt
 ###############
 # Bridge / Vlans
 ###############
+{% if node[inventory_hostname]["uplink"] == "false" %}
 
 auto bridge
 iface bridge
@@ -30,8 +31,9 @@ iface bridge
   {% if node[inventory_hostname]["bridge"]is defined %}
   bridge-pvid {{ node[inventory_hostname]["bridge"]["native"] }}
   bridge-stp on
+  {% if node[inventory_hostname]["bridge"]["priority"] is defined %}
   mstpctl-treeprio {{ node[inventory_hostname]["bridge"]["priority"] }}
-  {% else %}
+  {% endif %}
   {% endif %}
 
 ###############
@@ -50,14 +52,16 @@ iface peerlink.4094
   clagd-peer-ip {{ node[inventory_hostname]["mlag"]["peer-ip"] }}
   clagd-backup-ip {{ node[inventory_hostname]["mlag"]["backup-ip"] }} vrf mgmt
   clagd-sys-mac {{ node[inventory_hostname]["mlag"]["sysmac"] }}
+  {% if node[inventory_hostname]["mlag"]["priority"] is defined %}
   clagd-priority {{ node[inventory_hostname]["mlag"]["priority"] }}
+  {% endif %}
   clagd-args --initDelay 180
 {% endif %}
 
 ###############
 # SVIs
 ###############
-
+{% if node[inventory_hostname]["mlag"] is defined %}
 {% for svi in general["vlans"] -%}
 auto vlan{{svi}}
 iface vlan{{svi}}
@@ -70,7 +74,9 @@ iface vlan{{svi}}
     vlan-raw-device bridge
     address-virtual 00:00:5e:00:01:01 {{general["vlans"][svi]["ipv4-virtual"]}}
 {% endfor %}
+{% endif %}
 
+{% endif %}
 ###############
 # Client ports
 ###############

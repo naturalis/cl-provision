@@ -2,6 +2,10 @@
 [all:vars]
 ansible_user=cumulus
 
+[uplink]
+uplink01
+uplink02
+
 [spine]
 netdw2-spine-a
 netdw2-spine-b
@@ -24,6 +28,7 @@ host03
 host04
 
 [network:children]
+uplink
 spine
 leaf
 host

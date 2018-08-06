@@ -18,6 +18,8 @@ iface mgmt
   address 127.0.0.1/8
   vrf-table auto
 
+{% if inventory_hostname in groups['spine'] %}
+
 ###############
 # Bridge / Vlans
 ###############
@@ -30,7 +32,9 @@ iface bridge
   {% if node[inventory_hostname]["bridge"]is defined %}
   bridge-pvid {{ node[inventory_hostname]["bridge"]["native"] }}
   bridge-stp on
+  {% if node[inventory_hostname]["bridge"]["priority"] is defined %}
   mstpctl-treeprio {{ node[inventory_hostname]["bridge"]["priority"] }}
+  {% endif %}
   {% endif %}
 
 ###############
@@ -49,9 +53,12 @@ iface peerlink.4094
   clagd-peer-ip {{ node[inventory_hostname]["mlag"]["peer-ip"] }}
   clagd-backup-ip {{ node[inventory_hostname]["mlag"]["backup-ip"] }} vrf mgmt
   clagd-sys-mac {{ node[inventory_hostname]["mlag"]["sysmac"] }}
+  {% if node[inventory_hostname]["mlag"]["priority"] is defined %}
   clagd-priority {{ node[inventory_hostname]["mlag"]["priority"] }}
+  {% endif %}
 {% endif %}
 
+{% endif %}
 ###############
 # Client ports
 ###############
