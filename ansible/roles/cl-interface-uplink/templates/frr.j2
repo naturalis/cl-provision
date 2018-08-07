@@ -28,7 +28,7 @@ router ospf
  route-map REDIST_NEIGHBOR permit 10
 !
 {% for route in general["vlans"] -%}
-ip route 10.{{route}}.0.0/24 {{["routing"]["fw-carp"]}}
+ip route 10.{{route}}.0.0/24 {{routing["fw-carp"]}}
 {% endfor %}
 !
 {% endif %}
