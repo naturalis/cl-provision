@@ -35,6 +35,9 @@ general:
       ipv4-1: 172.16.201.5/24
       ipv4-2: 172.16.201.6/24
 
+routing:
+  fw-carp: 145.136.246.232
+
 node:
   netdw2-spine-a:
     lo: 10.255.255.1/32

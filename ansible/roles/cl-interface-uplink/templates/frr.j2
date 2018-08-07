@@ -16,15 +16,20 @@ interface {{interface}}
 log syslog informational
 router ospf
  ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
+ redistribute static
  log-adjacency-changes detail
  timers throttle spf 5 100 500
  timers lsa min-arrival 50
  passive-interface default
-{% for interface in node[inventory_hostname]["ospf"]["interfaces"] -%}
+ {% for interface in node[inventory_hostname]["ospf"]["interfaces"] -%}
  no passive-interface {{interface}}
-{% endfor %}
+ {% endfor %}
  redistribute table 10
  route-map REDIST_NEIGHBOR permit 10
+!
+{% for route in general["vlans"] -%}
+ip route 10.{{route}}.0.0/24 {{["routing"]["fw_carp"]}}
+{% endfor %}
 !
 {% endif %}
 line vty
