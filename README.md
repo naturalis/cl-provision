@@ -16,11 +16,11 @@
 ```
 
 # Decisions
-- We are connecting all switches in a set, with a maximum of four.
+- We are connecting all switches in a set, with a maximum of six.
 - All uplinks/downlinks/peerlinks will make use of active-active mlag.
-- All management ports (eth0) of the switches will be connected to an oob-switch. Each SER will have an oob-switch on management VRF, which will be directly connected (sm fiber) to the oob-switch in the MER. Here the oob-server (MAAS ha-setup) will be connected.
-- The oob-server/MAAS will be used as the DHCP/DNS/NTP server.
-- Ansible AWX will run in the DC, while the oob-server/MAAS will be installed in the MER
+- All management ports (eth0) of the switches will be connected to an oob-switch. Each SER will have an oob-switch on management VRF, which will be directly connected (sm fiber) to the oob-switch in the MER. Here the oob-servers (MAAS ha-setup) will be connected.
+- The oob-servers/MAAS will be used as the DHCP/DNS/NTP server.
+- Ansible AWX will run in the DC, while the oob-servers/MAAS will be installed in the MER
 
 # Setup on hardware
 First the oob-server has to be setup. After cloning this repo, setup the [oob-server](oob-server/) (and dhcp server) and boot the switches.

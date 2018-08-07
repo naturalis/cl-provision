@@ -36,7 +36,7 @@ general:
       ipv4-2: 172.16.201.6/24
 
 routing:
-  fw-carp: 145.136.246.232
+  fw-carp: 145.136.246.219
 
 node:
   netdw2-spine-a:
@@ -44,8 +44,8 @@ node:
     ospf:
       interfaces:
       - swp47
-      router-id: 145.136.246.227
-      network: 145.136.246.224/28
+      router-id: 145.136.246.218
+      network: 145.136.246.216/29
     mlag:
       primary: true
       members:
