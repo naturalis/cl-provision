@@ -72,8 +72,6 @@ iface {{member}}
 
 auto {{port}}
 iface {{port}}
-  mstpctl-bpduguard yes
-  mstpctl-portadminedge yes
   {% if node[inventory_hostname]["ports"][port]["mtu"] is defined %}
   mtu {{node[inventory_hostname]["ports"][port]["mtu"]}}
   {% else %}
@@ -85,6 +83,9 @@ iface {{port}}
   {% if node[inventory_hostname]["ports"][port]["mlag"] %}
   clag-id {{ node[inventory_hostname]["ports"][port]["mlag-id"] }}
   bond-slaves {{ node[inventory_hostname]["ports"][port]["members"] | join(" ") }}
+  {% else %}
+  mstpctl-bpduguard yes
+  mstpctl-portadminedge yes
   {% endif %}
   {% if node[inventory_hostname]["ports"][port]["trunk"] %}
   {% if node[inventory_hostname]["ports"][port]["vlans"] is defined %}
