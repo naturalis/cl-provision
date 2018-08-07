@@ -45,7 +45,8 @@ ansible-playbook interfaces.yml -i environments/staging
 ├── roles/
 │   ├── cl-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
 │   ├── cl-interface-leaf   # Will set interfaces for leaf switches. Also PoE is enabled needed ports.
-│   ├── cl-interface-spine  # Will set interfaces for spine switches. Also bgp+ospf is enabled for SVI/uplinks.
+│   ├── cl-interface-spine  # Will set interfaces and ospf for spine switches.
+│   ├── cl-interface-uplink # Will set interfaces and ospf for uplink switches (staging).
 │   ├── cl-license          # Can change the license key on the switches. (initial setup is done by ZTP)
 │   ├── cl-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file
 │   ├── cl-snmp             # Not used yet, can setup SNMP and start daemon
@@ -62,5 +63,6 @@ ansible-playbook interfaces.yml -i environments/staging
 ├── provision.yml          # Playbook to do the first provisioning
 ├── support_make.yml       # Playbook to make and retrieve support files for troubleshooting
 ├── support_remove.yml     # Playbook to remove support files from switches
+├── uplink.yml             # Playbook to setup interfaces and ospf on uplink switches (staging).
 └── users.yml              # Playbook to setup users and ssh keys
 ```

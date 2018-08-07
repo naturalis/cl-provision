@@ -72,6 +72,8 @@ iface {{member}}
 
 auto {{port}}
 iface {{port}}
+  mstpctl-bpduguard yes
+  mstpctl-portadminedge yes
   {% if node[inventory_hostname]["ports"][port]["mtu"] is defined %}
   mtu {{node[inventory_hostname]["ports"][port]["mtu"]}}
   {% else %}
