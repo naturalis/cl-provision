@@ -51,6 +51,9 @@ base64 -d /etc/motd.base64 > /etc/motd
 rm /etc/motd.base64
 chmod 755 /etc/motd
 
+#Restart switchd to load license
+/bin/systemctl restart switchd.service
+
 #Reload interfaces to apply loaded config
 ifreload -a
 
