@@ -57,6 +57,9 @@ chmod 755 /etc/motd
 #Reload interfaces to apply loaded config
 ifreload -a
 
+#Provision webhook to Mattermost
+#curl -i -X POST --data-urlencode 'payload={"channel": "network", "username": "cl-automate", "icon_url": "https://www.mattermost.org/wp-content/uploads/2016/04/icon.png", "text": "ZTP script started on ??\nMore text. :tada:"}' http://{your-mattermost-site}/hooks/xxx-generatedkey-xxx
+
 #Provision callback to Ansible AWX
 #/usr/bin/curl -H "Content-Type:application/json" -k -X POST --data '{"host_config_key":"'changeme'"}' -u username:password $SERVER/api/v2/job_templates/1111/callback/
 
