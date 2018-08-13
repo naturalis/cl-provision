@@ -1,0 +1,35 @@
+---
+node:
+  netdw2-spine-a:
+    lo: 10.255.255.1/32
+    ospf:
+      interfaces:
+      - swp47
+      router-id: 145.136.246.218
+      network: 145.136.246.216/29
+    mlag:
+      primary: true
+      members:
+      - swp49
+      - swp50
+      address: 169.254.1.1/30
+      peer-ip: 169.254.1.2
+      backup-ip: 192.168.200.10
+      sysmac: 44:38:39:FF:01:12
+      priority: 4096
+    bridge:
+      native: 201
+      priority: 4096
+    ports:
+      ser-d:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp1
+        trunk: true
+      ser-h:
+        mlag: true
+        mlag-id: 2
+        members:
+        - swp2
+        trunk: true
