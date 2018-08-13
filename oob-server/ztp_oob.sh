@@ -13,14 +13,14 @@ trap error ERR
 SERVER="http://172.16.200.2"
 
 #Add Debian Repositories
-echo "deb http://http.us.debian.org/debian jessie main" >> /etc/apt/sources.list
-echo "deb http://security.debian.org/ jessie/updates main" >> /etc/apt/sources.list
+#echo "deb http://http.us.debian.org/debian jessie main" >> /etc/apt/sources.list
+#echo "deb http://security.debian.org/ jessie/updates main" >> /etc/apt/sources.list
 
 #Update Package Cache
-apt-get update -y
+#apt-get update -y
 
 #Install extra packages
-apt-get install -y htop vim
+#apt-get install -y htop vim
 
 #Setup SSH key authentication for Ansible
 mkdir -p /home/cumulus/.ssh

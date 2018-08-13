@@ -12,13 +12,14 @@
     src: node_exporter-{{ node_exporter_version }}-amd64
     dest: /usr/local/bin/node_exporter
     owner: node_exporter
+    mode: 0755
   when: ansible_architecture == "x86_64"
   notify: restart node_exporter
 
 - name: Make systemd service for node_exporter
   copy:
     src: node_exporter.service
-    dest: /etc/systemd/system/node_exporter.service
+    dest: /etc/systemd/system/node_exporter@mgmt.service
   notify: restart node_exporter
 
 - name: Start node_exporter
