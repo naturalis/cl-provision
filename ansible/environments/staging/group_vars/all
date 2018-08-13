@@ -1,6 +1,7 @@
 ---
 env: staging
 
+node-exporter-version: 0.16.0
 public_ssh_key: http://172.16.200.254/authorized_keys
 
 ntp:
