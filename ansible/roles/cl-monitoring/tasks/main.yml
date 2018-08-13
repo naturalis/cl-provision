@@ -1,29 +1,29 @@
 ---
 - name: Create node_exporter user
   user:
-    name: node-exporter
+    name: node_exporter
     state: present
     shell: /bin/false
     system: no
     createhome: no
 
-- name: Copy node-exporter file
+- name: Copy node_exporter file
   copy:
-    src: node-exporter-{{ node_exporter_version }}-amd64
-    dest: /usr/local/bin/node-exporter
+    src: node_exporter-{{ node_exporter_version }}-amd64
+    dest: /usr/local/bin/node_exporter
     owner: node_exporter
   when: ansible_architecture == "x86_64"
-  notify: restart node-exporter
+  notify: restart node_exporter
 
-- name: Make systemd service for node-exporter
+- name: Make systemd service for node_exporter
   copy:
-    src: node-exporter.service
+    src: node_exporter.service
     dest: /etc/systemd/system/node_exporter.service
-  notify: restart node-exporter
+  notify: restart node_exporter
 
-- name: Start node-exporter
+- name: Start node_exporter
   systemd:
-    name: node-exporter
+    name: node_exporter
     enabled: yes
     state: started
     daemon_reload: yes
