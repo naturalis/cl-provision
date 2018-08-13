@@ -1,7 +1,7 @@
 ---
 - name: restart node_exporter
   systemd:
-    name: node_exporter
+    name: node_exporter@mgmt
     enabled: yes
     state: restarted
     daemon_reload: yes
