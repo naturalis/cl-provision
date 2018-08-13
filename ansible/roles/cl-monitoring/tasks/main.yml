@@ -12,6 +12,7 @@
     src: node_exporter-{{ node_exporter_version }}-{{ ansible_architecture }}
     dest: /usr/local/bin/node_exporter
     owner: node_exporter
+    group: node_exporter
     mode: 0755
   notify: restart node_exporter
 

@@ -9,6 +9,7 @@
   roles:
     - cl-common
 #    - cl-snmp
+#    - cl-monitoring
     - cl-ptm
 
 - name: Cumulus Setup interfaces for spine switches
