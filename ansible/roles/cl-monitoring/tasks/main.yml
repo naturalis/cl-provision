@@ -38,7 +38,7 @@
 
 - name: create and modify snmpd.conf
   template:
-    src: snmdp.conf.j2
+    src: snmpd.conf.j2
     dest: /etc/snmp/snmpd.conf
     mode: 0644
   notify: restart snmpd
