@@ -8,8 +8,7 @@
   become: yes
   roles:
     - cl-common
-#    - cl-snmp
-#    - cl-monitoring
+    - cl-monitoring
     - cl-ptm
 
 - name: Cumulus Setup interfaces for spine switches

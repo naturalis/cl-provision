@@ -28,3 +28,22 @@
     enabled: yes
     state: started
     daemon_reload: yes
+
+- name: Add remote syslog server
+  lineinfile:
+    path: /etc/rsyslog.d/11-remotesyslog.conf
+    create: true
+    line: "*.*   @{{ rsyslog_server }}:{{ rsyslog_port }}   # UDP"
+  notify: restart rsyslog
+
+- name: create and modify snmpd.conf
+  template:
+    src: snmdp.conf.j2
+    dest: /etc/snmp/snmpd.conf
+    mode: 0644
+  notify: restart snmpd
+
+- name: enable snmpd at boottime
+  service:
+    name: snmpd
+    enabled: yes

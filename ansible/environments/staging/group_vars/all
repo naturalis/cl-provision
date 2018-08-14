@@ -1,8 +1,17 @@
 ---
 env: staging
 
-node_exporter_version: 0.16.0
 public_ssh_key: http://172.16.200.254/authorized_keys
+
+node_exporter_version: 0.16.0
+rsyslog_server: 172.16.200.2
+rsyslog_port: 512
+snmp_ro_community: public
+snmp_location: Leiden
+snmp_contact: infra@naturalis.nl
+snmp_allowed_hosts:
+  - 172.16.200.10/32
+  - 172.16.200.20/32
 
 ntp:
   - '172.16.200.1'
@@ -10,11 +19,7 @@ ntp:
 
 timezone: 'Europe/Amsterdam'
 
-snmp_ro_community: public
-snmp_contact: infra@naturalis.nl
-snmp_allowed_hosts:
-  - 172.16.200.10/32
-  - 172.16.200.20/32
+
 
 ptm:
   - '"netdw2-spine-a":"swp47" -- "uplink01":"swp1"'

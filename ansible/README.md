@@ -48,9 +48,8 @@ ansible-playbook interfaces.yml -i environments/staging
 │   ├── cl-interface-spine  # Will set interfaces and ospf for spine switches.
 │   ├── cl-interface-uplink # Will set interfaces and ospf for uplink switches (staging).
 │   ├── cl-license          # Can change the license key on the switches (initial setup is done by ZTP).
-│   ├── cl-monitoring       # Will install prometheus node_exporter for device stats.
+│   ├── cl-monitoring       # Installs prometheus node_exporter, configures remote syslog and snmp daemon.
 │   ├── cl-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file
-│   ├── cl-snmp             # Not used yet, can setup SNMP and start daemon.
 │   └── cl-users            # Sets up Infra user and removes credentials from cumulus user.
 │
 ├── vars/
