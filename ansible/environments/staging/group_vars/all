@@ -19,8 +19,6 @@ ntp:
 
 timezone: 'Europe/Amsterdam'
 
-
-
 ptm:
   - '"netdw2-spine-a":"swp47" -- "uplink01":"swp1"'
   - '"netdw2-spine-a":"swp48" -- "uplink02":"swp1"'
@@ -184,32 +182,58 @@ general:
       ipv4-2: 10.140.0.3/16
 
 routing:
-  fw-carp: 145.136.246.232
+  ospf:
+    network: 145.136.246.224/29
+    fw-carp-address: 145.136.246.232
+    static-routes:
+    - 10.141.0.0/16
+    - 10.142.0.0/16
 
 node:
   uplink01:
-    lo: 10.255.255.1/32
+    lo: 10.255.255.30/32
     ospf:
-      interfaces:
-      - swp1
       router-id: 145.136.246.225
-      network: 145.136.246.224/28
+      lnk-vlan: 269
+      members:
+      - swp1
+      - swp2
+    ports:
+      swp1:
+        mlag: false
+        trunk: false
+        vlan: 269
+      swp2:
+        mlag: false
+        trunk: false
+        vlan: 269
 
   uplink02:
-    lo: 10.255.255.1/32
+    lo: 10.255.255.31/32
     ospf:
-      interfaces:
-      - swp2
       router-id: 145.136.246.226
-      network: 145.136.246.224/28
+      lnk-vlan: 269
+      members:
+      - swp1
+      - swp2
+    ports:
+      swp1:
+        mlag: false
+        trunk: false
+        vlan: 269
+      swp2:
+        mlag: false
+        trunk: false
+        vlan: 269
 
   netdw2-spine-a:
     lo: 10.255.255.1/32
     ospf:
-      interfaces:
-      - swp47
       router-id: 145.136.246.227
-      network: 145.136.246.224/28
+      lnk-vlan: 269
+      members:
+      - swp47
+      - swp48
     mlag:
       primary: true
       members:
@@ -236,14 +260,23 @@ node:
         members:
         - swp2
         trunk: true
+      swp47:
+        mlag: false
+        vlan: 269
+        trunk: false
+      swp48:
+        mlag: false
+        vlan: 269
+        trunk: false
 
   netdw2-spine-b:
     lo: 10.255.255.2/32
     ospf:
-      interfaces:
-      - swp48
       router-id: 145.136.246.228
-      network: 145.136.246.224/28
+      lnk-vlan: 269
+      members:
+      - swp47
+      - swp48
     mlag:
       primary: false
       members:
@@ -270,6 +303,14 @@ node:
         members:
         - swp2
         trunk: true
+      swp47:
+        mlag: false
+        vlan: 269
+        trunk: false
+      swp48:
+        mlag: false
+        vlan: 269
+        trunk: false
 
   netdw2-leaf-d1a:
     lo: 10.255.255.11/32

@@ -1,0 +1,5 @@
+---
+routing:
+  ospf:
+    network: 145.136.246.216/29
+    fw-carp-address: 145.136.246.219
