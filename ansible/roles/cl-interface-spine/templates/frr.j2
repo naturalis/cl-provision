@@ -8,7 +8,6 @@ service integrated-vtysh-config
 log syslog informational
 !
 {% if node[inventory_hostname]["ospf"] is defined %}
-router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
 router ospf
   ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
   network {{ routing["ospf"]["network"] }} area 0.0.0.0
