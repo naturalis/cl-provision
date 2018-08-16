@@ -1,35 +1,29 @@
 frr version 4.0+cl3u1
 frr defaults datacenter
-ip import-table 10 route-map REDIST_NEIGHBOR
 hostname {{ inventory_hostname }}
 username cumulus nopassword
 !
 service integrated-vtysh-config
 !
-{% if node[inventory_hostname]["ospf"] is defined %}
-{% for interface in node[inventory_hostname]["ospf"]["interfaces"] -%}
-interface {{interface}}
- ip ospf area 0.0.0.0
- ip ospf network point-to-point
-{% endfor %}
-!
 log syslog informational
+!
+{% if node[inventory_hostname]["ospf"] is defined %}
+router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
 router ospf
- ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
- redistribute static
- log-adjacency-changes detail
- timers throttle spf 5 100 500
- timers lsa min-arrival 50
- passive-interface default
- {% for interface in node[inventory_hostname]["ospf"]["interfaces"] -%}
- no passive-interface {{interface}}
- {% endfor %}
- redistribute table 10
- route-map REDIST_NEIGHBOR permit 10
+  ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
+  network {{ routing["ospf"]["network"] }} area 0.0.0.0
+  passive-interface default
+  no passive-interface vlan{{ node[inventory_hostname]["ospf"][lnk-vlan"] }}
+  log-adjacency-changes detail
+  timers throttle spf 5 100 500
+  timers lsa min-arrival 50
 !
 {% for route in general["vlans"] -%}
-ip route 10.{{route}}.0.0/24 {{routing["fw-carp"]}}
+ip route 10.{{route}}.0.0/24 {{routing["ospf"]["fw-carp-address"]}}
 {% endfor %}
 !
+interface vlan{{ routing["ospf"]["lnk-vlan"] }}
+ ip ospf network point-to-point
 {% endif %}
+!
 line vty

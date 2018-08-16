@@ -3,10 +3,10 @@ node:
   netdw2-spine-a:
     lo: 10.255.255.1/32
     ospf:
-      interfaces:
-      - swp47
       router-id: 145.136.246.218
-      network: 145.136.246.216/29
+      lnk-vlan: 269
+      members:
+      - swp47
     mlag:
       primary: true
       members:
