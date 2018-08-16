@@ -17,9 +17,11 @@ router ospf
   timers throttle spf 5 100 500
   timers lsa min-arrival 50
 !
-{% for route in general["vlans"] -%}
-ip route 10.{{route}}.0.0/24 {{routing["ospf"]["fw-carp-address"]}}
+{% if routing["ospf"]["static-routes"] is defined %}
+{% for route in routing["ospf"]["static-routes"] -%}
+ip route {{route}} {{routing["ospf"]["fw-carp-address"]}}
 {% endfor %}
+{% endif %}
 !
 interface vlan{{ node[inventory_hostname]["ospf"]["lnk-vlan"] }}
  ip ospf network point-to-point
