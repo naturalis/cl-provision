@@ -128,6 +128,7 @@ iface vlan{{ node[inventory_hostname]["ospf"]["lnk-vlan"] }}
 {% for port in node[inventory_hostname]["ospf"]["members"] -%}
 auto {{port}}
 iface {{port}}
+  mtu 9000
   bridge-pvid {{ node[inventory_hostname]["ospf"]["lnk-vlan"] }}
 {% endfor %}
 {% endif %}

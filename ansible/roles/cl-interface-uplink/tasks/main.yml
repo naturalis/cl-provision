@@ -25,13 +25,3 @@
     - reload frr
   tags:
     - frr
-
-- name: enable rdnbrd
-  service:
-    name: rdnbrd.service
-    enabled: yes
-
-- name: start rdnbrd
-  service:
-    name: rdnbrd.service
-    state: started

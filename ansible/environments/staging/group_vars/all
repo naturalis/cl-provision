@@ -194,8 +194,13 @@ node:
       lnk-vlan: 269
       members:
       - swp1
+      - swp2
     ports:
       swp1:
+        mlag: false
+        trunk: false
+        vlan: 269
+      swp2:
         mlag: false
         trunk: false
         vlan: 269
@@ -206,8 +211,13 @@ node:
       router-id: 145.136.246.226
       lnk-vlan: 269
       members:
+      - swp1
       - swp2
     ports:
+      swp1:
+        mlag: false
+        trunk: false
+        vlan: 269
       swp2:
         mlag: false
         trunk: false
@@ -220,6 +230,7 @@ node:
       lnk-vlan: 269
       members:
       - swp47
+      - swp48
     mlag:
       primary: true
       members:
@@ -248,8 +259,12 @@ node:
         trunk: true
       swp47:
         mlag: false
-        trunk: false
         vlan: 269
+        trunk: false
+      swp48:
+        mlag: false
+        vlan: 269
+        trunk: false
 
   netdw2-spine-b:
     lo: 10.255.255.2/32
@@ -257,6 +272,7 @@ node:
       router-id: 145.136.246.228
       lnk-vlan: 269
       members:
+      - swp47
       - swp48
     mlag:
       primary: false
@@ -284,10 +300,14 @@ node:
         members:
         - swp2
         trunk: true
+      swp47:
+        mlag: false
+        vlan: 269
+        trunk: false
       swp48:
         mlag: false
-        trunk: false
         vlan: 269
+        trunk: false
 
   netdw2-leaf-d1a:
     lo: 10.255.255.11/32
