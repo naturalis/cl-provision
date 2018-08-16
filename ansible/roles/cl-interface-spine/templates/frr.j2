@@ -13,7 +13,7 @@ router ospf
   ospf router-id {{ node[inventory_hostname]["ospf"]["router-id"] }}
   network {{ routing["ospf"]["network"] }} area 0.0.0.0
   passive-interface default
-  no passive-interface vlan{{ node[inventory_hostname]["ospf"][lnk-vlan"] }}
+  no passive-interface vlan{{ node[inventory_hostname]["ospf"]["lnk-vlan"] }}
   log-adjacency-changes detail
   timers throttle spf 5 100 500
   timers lsa min-arrival 50
@@ -22,7 +22,7 @@ router ospf
 ip route 10.{{route}}.0.0/24 {{routing["ospf"]["fw-carp-address"]}}
 {% endfor %}
 !
-interface vlan{{ routing["ospf"]["lnk-vlan"] }}
+interface vlan{{ node[inventory_hostname]["ospf"]["lnk-vlan"] }}
  ip ospf network point-to-point
 {% endif %}
 !

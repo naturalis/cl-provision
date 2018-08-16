@@ -27,6 +27,7 @@ iface bridge
   bridge-vlan-aware yes
   bridge-ports {{ node[inventory_hostname]["ports"] | join(" ") }} peerlink
   bridge-vids {{ general["vlans"] | join(" ") }} {% if node[inventory_hostname]["ospf"] is defined %}{{ node[inventory_hostname]["ospf"]["lnk-vlan"] }} {% endif %}
+  
   {% if node[inventory_hostname]["bridge"]is defined %}
   bridge-pvid {{ node[inventory_hostname]["bridge"]["native"] }}
   bridge-stp on
@@ -118,13 +119,11 @@ iface {{port}}
 # OSPF ports
 ###############
 
-{% for link in node[inventory_hostname]["ospf"]["lnk-vlan"] -%}
-auto vlan{{link}}
-iface vlan{{link}}
+auto vlan{{ node[inventory_hostname]["ospf"]["lnk-vlan"] }}}
+iface vlan{{ node[inventory_hostname]["ospf"]["lnk-vlan"] }}
   address {{ node[inventory_hostname]["ospf"]["router-id"] }}
-  vlan-id {{link}}
+  vlan-id {{ node[inventory_hostname]["ospf"]["lnk-vlan"] }}
   vlan-raw-device bridge
-{% endfor %}
 
 {% for port in node[inventory_hostname]["ospf"]["members"] -%}
 auto {{port}}
