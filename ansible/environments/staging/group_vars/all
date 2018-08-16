@@ -230,16 +230,7 @@ node:
       backup-ip: 192.168.200.10
       sysmac: 44:38:39:FF:01:12
       priority: 4096
-    bridge:- name: enable rdnbrd
-  service:
-    name: rdnbrd.service
-    enabled: yes
-
-- name: start rdnbrd
-  service:
-    name: rdnbrd.service
-    state: started
-
+    bridge:
       native: 122
       priority: 4096
     ports:
