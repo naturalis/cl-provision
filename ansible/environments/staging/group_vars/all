@@ -188,7 +188,7 @@ routing:
 
 node:
   uplink01:
-    lo: 10.255.255.1/32
+    lo: 10.255.255.30/32
     ospf:
       router-id: 145.136.246.225
       lnk-vlan: 269
@@ -201,7 +201,7 @@ node:
         vlan: 269
 
   uplink02:
-    lo: 10.255.255.1/32
+    lo: 10.255.255.31/32
     ospf:
       router-id: 145.136.246.226
       lnk-vlan: 269
@@ -230,7 +230,16 @@ node:
       backup-ip: 192.168.200.10
       sysmac: 44:38:39:FF:01:12
       priority: 4096
-    bridge:
+    bridge:- name: enable rdnbrd
+  service:
+    name: rdnbrd.service
+    enabled: yes
+
+- name: start rdnbrd
+  service:
+    name: rdnbrd.service
+    state: started
+
       native: 122
       priority: 4096
     ports:
