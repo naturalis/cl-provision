@@ -11,6 +11,7 @@ date "+%FT%T ztp starting script $0"
 trap error ERR
 
 SERVER="http://172.16.200.2"
+USERNAME=automation
 
 #Add Debian Repositories
 #echo "deb http://http.us.debian.org/debian jessie main" >> /etc/apt/sources.list
@@ -22,9 +23,20 @@ SERVER="http://172.16.200.2"
 #Install extra packages
 #apt-get install -y htop vim
 
-#Setup SSH key authentication for Ansible
-mkdir -p /home/cumulus/.ssh
-wget -O /home/cumulus/.ssh/authorized_keys $SERVER/authorized_keys
+# Create the user to be used by automation
+useradd -m $USERNAME
+usermod --shell /bin/bash $USERNAME
+
+# Setup the Pre-shared SSH Key
+mkdir -p /home/$USERNAME/.ssh
+wget -O /home/$USERNAME/.ssh/authorized_keys $SERVER/authorized_keys
+
+# Make sure the SSH key is stored with the correct settings
+chown -Rv $USERNAME:$USERNAME /home/$USERNAME/
+chmod 600 /home/$USERNAME/.ssh/*
+
+# Add automation user to important groups
+usermod -a -G sudo,netedit,netshow $USERNAME
 
 #Set Management VRF
 sed -i '/iface eth0/a \ vrf mgmt' /etc/network/interfaces
@@ -36,7 +48,7 @@ iface mgmt
 EOT
 
 #Give sudo Powahr to cumulus user
-echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
+#echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
 
 #Install the license and restart switchd
 /usr/cumulus/bin/cl-license -i $SERVER/license && systemctl restart switchd.service
@@ -62,6 +74,8 @@ ifreload -a
 
 #Provision callback to Ansible AWX
 #/usr/bin/curl -H "Content-Type:application/json" -k -X POST --data '{"host_config_key":"'changeme'"}' -u username:password $SERVER/api/v2/job_templates/1111/callback/
+
+echo "$(date) INFO: ZTP IS FINISHED!"
 
 reboot
 exit 0
