@@ -18,6 +18,10 @@ netdw2-leaf-h1b ansible_user=cumulus
 netdw2-leaf-h1c ansible_user=cumulus
 netdw2-leaf-h1d ansible_user=cumulus
 
+[switches:children]
+spine
+leaf
+
 [host]
 host01 ansible_user=cumulus
 host02 ansible_user=cumulus

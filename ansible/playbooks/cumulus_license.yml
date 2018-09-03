@@ -1,9 +1,9 @@
 ---
 - name: Cumulus Setup users
-  hosts: all
+  hosts: switches
   remote_user: cumulus
   gather_facts: no
   become: yes
   roles:
-    - cl-users
+    - ansible-role-cumulus-license
 ...

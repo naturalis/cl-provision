@@ -1,6 +1,4 @@
 ---
-env: staging
-
 public_ssh_key: http://172.16.200.254/authorized_keys
 
 node_exporter_version: 0.16.0

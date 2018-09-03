@@ -3,7 +3,7 @@
 # Ansible
 - Clone this repo (Ansible folder) and install the roles:
 ```bash
-ansible-galaxy install -r roles/requirements.yml --roles-path ./
+ansible-galaxy install -r roles/requirements.yml --roles-path ./roles/
 ```
 - Test connections, on hardware:
 ```bash

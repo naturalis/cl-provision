@@ -1,6 +1,6 @@
 ---
 - name: Cumulus checks
-  hosts: network
+  hosts: switches
   remote_user: cumulus
   vars:
     check_ptm: true

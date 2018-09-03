@@ -1,9 +1,10 @@
 ---
 - name: Cumulus Switch provisioning
-  hosts: network
+  hosts: switches
   remote_user: cumulus
-  vars_files:
-    - "vars/{{env}}.yml"
+  vars:
+    check_ptm: false
+    check_lldp: false
   gather_facts: yes
   become: yes
   roles:

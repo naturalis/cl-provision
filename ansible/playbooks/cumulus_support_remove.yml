@@ -1,6 +1,6 @@
 ---
 - name: Cumulus remove support files
-  hosts: network
+  hosts: switches
   remote_user: cumulus
   gather_facts: no
   become: yes
