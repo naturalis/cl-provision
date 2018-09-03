@@ -1,7 +1,11 @@
 # cl-provision
 
 # Ansible
-- Clone this repo (Ansible folder) and test connections, on hardware:
+- Clone this repo (Ansible folder) and install the roles:
+```bash
+ansible-galaxy install -r roles/requirements.yml --roles-path ./
+```
+- Test connections, on hardware:
 ```bash
 ansible network -m ping -i environments/prod
 ```

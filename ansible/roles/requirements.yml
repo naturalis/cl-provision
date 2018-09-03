@@ -9,4 +9,5 @@
 - src: https://github.com/naturalis/ansible-role-cumulus-users
 
 # OPNsense repo's
-- src: https://github.com/naturalis/ansible-role-opnsense
+- src: https://github.com/naturalis/ansible-role-opnsense-api
+- src: https://github.com/naturalis/ansible-role-opnsense-config
