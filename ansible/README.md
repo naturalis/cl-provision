@@ -33,19 +33,30 @@ ansible-playbook cumulus_interfaces.yml -i environments/staging
 
 # Files
 ```bash
-├── ansible.cfg
-├── environments/           # Parent directory for environment-specific directories.
+├── environments/                             # Parent directory for environment-specific directories.
 │   │
-│   ├── staging/            # Contains all files specific to the staging (cumulus vx) environment.
-│   │   ├── group_vars/     # staging specific group_vars files.
+│   ├── staging/                              # Contains all files specific to the staging (cumulus vx) environment.
+│   │   ├── group_vars/                       # staging specific group_vars files.
 │   │   │   └── all
-│   │   └── hosts           # Contains only the hosts in the staging environment.
+│   │   └── hosts                             # Contains only the hosts in the staging environment.
 │   │
-│   └── prod/               # Contains all files specific to the prod environment.
-│       ├── group_vars/     # prod specific group_vars files.
+│   └── prod/                                 # Contains all files specific to the prod environment.
+│       ├── group_vars/                       # prod specific group_vars files.
 │       │   └── all
-│       └── hosts           # Contains only the hosts in the prod environment.
-│   
+│       └── hosts                             # Contains only the hosts in the prod environment.
+│  
+├── playbooks/
+│   ├── cumulus_check.yml                     # Playbook to check and ouput ptm and lldp information.
+│   ├── cumulus_interfaces.yml                # Playbook to setup interfaces.
+│   ├── cumulus_license.yml                   # Playbook to setup or change license key (initial setup is done by ZTP).
+│   ├── cumulus_provision.yml                 # Playbook to do the first provisioning.
+│   ├── cumulus_support_make.yml              # Playbook to make and retrieve support files for troubleshooting.
+│   ├── cumulus_support_remove.yml            # Playbook to remove support files from switches.
+│   ├── cumulus_uplink.yml                    # Playbook to setup interfaces and ospf on uplink switches (staging).
+│   ├── cumulus_users.yml                     # Playbook to setup users and ssh keys.
+│   ├── opnsense_api.yml                      # Playbook to test API on OPNSense firewall.
+│   └── opnsense_config.yml                   # Playbook to set config on OPNSense firewall.
+│
 ├── roles/
 │   ├── ansible-role-cumulus-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
 │   ├── ansible-role-cumulus-leaf             # Will set interfaces for leaf switches. Also PoE is enabled needed ports.
@@ -59,19 +70,11 @@ ansible-playbook cumulus_interfaces.yml -i environments/staging
 │   └── ansible-role-opnsense-config          # Setup config on OPNSense firewall.
 │
 ├── vars/
-│   ├── prod.yml           # prod specific vars files.
-│   └── staging.yml        # staging specific vars files.
+│   ├── prod.yml                              # prod specific vars files.
+│   └── staging.yml                           # staging specific vars files.
 │
-├── cumulus_check.yml              # Playbook to check and ouput ptm and lldp information.
-├── cumulus_interfaces.yml         # Playbook to setup interfaces.
-├── cumulus_license.yml            # Playbook to setup or change license key (initial setup is done by ZTP).
-├── cumulus_provision.yml          # Playbook to do the first provisioning.
-├── cumulus_support_make.yml       # Playbook to make and retrieve support files for troubleshooting.
-├── cumulus_support_remove.yml     # Playbook to remove support files from switches.
-├── cumulus_uplink.yml             # Playbook to setup interfaces and ospf on uplink switches (staging).
-├── cumulus_users.yml              # Playbook to setup users and ssh keys.
-├── linter.sh                      # Passes all .yml files through yamllint ($pip install yamllint).
-├── opnsense_api.yml               # Playbook to test API on OPNSense firewall.
-└── opnsense_config.yml            # Playbook to set config on OPNSense firewall.
+├── ansible.cfg                               # default arguments for ansible
+├── linter.sh                                 # Passes all .yml files through yamllint ($pip install yamllint).
+└── README.md                                 # This file
 
 ```
