@@ -1,8 +1,3 @@
-
-[uplink]
-uplink01 ansible_user=cumulus
-uplink02 ansible_user=cumulus
-
 [spine]
 netdw2-spine-a ansible_user=cumulus
 netdw2-spine-b ansible_user=cumulus
@@ -22,6 +17,13 @@ netdw2-leaf-h1d ansible_user=cumulus
 spine
 leaf
 
+[firewall]
+opnsense_1 ansible_host=127.0.0.1 ansible_port=2222 ansible_user=root ansible_ssh_pass=opnsense ansible_become_method=sudo ansible_python_interpreter='/usr/bin/env python2.7'
+
+[uplink]
+uplink01 ansible_user=cumulus
+uplink02 ansible_user=cumulus
+
 [host]
 host01 ansible_user=cumulus
 host02 ansible_user=cumulus
@@ -33,6 +35,3 @@ uplink ansible_user=cumulus
 spine ansible_user=cumulus
 leaf ansible_user=cumulus
 host ansible_user=cumulus
-
-[firewall]
-opnsense_1 ansible_host=127.0.0.1 ansible_port=2222 ansible_user=root ansible_ssh_pass=opnsense ansible_become_method=sudo ansible_python_interpreter='/usr/bin/env python2.7'
