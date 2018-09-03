@@ -46,12 +46,12 @@ ansible network -m ping -i environments/prod
 ```
 Now is the time to start the provision playbook if the provision callback is not enabled, to finish the deployment:
 ```bash
-ansible-playbook cumulus_provision.yml -i environments/prod
+ansible-playbook playbooks/cumulus_provision.yml -i environments/prod
 ```
 
 There is also an interfaces playbook, which only checks the interfaces for changes.
 ```bash
-ansible-playbook cumulus_interfaces.yml -i environments/prod
+ansible-playbook playbooks/cumulus_interfaces.yml -i environments/prod
 ```
 
 # OPNSense firewalls
