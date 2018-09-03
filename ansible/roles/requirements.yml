@@ -1,0 +1,12 @@
+# Cumulus repo's
+- src: https://github.com/naturalis/ansible-role-cumulus-common
+- src: https://github.com/naturalis/ansible-role-cumulus-leaf
+- src: https://github.com/naturalis/ansible-role-cumulus-spine
+- src: https://github.com/naturalis/ansible-role-cumulus-uplink
+- src: https://github.com/naturalis/ansible-role-cumulus-license
+- src: https://github.com/naturalis/ansible-role-cumulus-monitoring
+- src: https://github.com/naturalis/ansible-role-cumulus-ptm
+- src: https://github.com/naturalis/ansible-role-cumulus-users
+
+# OPNsense repo's
+- src: https://github.com/naturalis/ansible-role-opnsense

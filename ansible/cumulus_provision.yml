@@ -1,0 +1,29 @@
+---
+- name: Cumulus Switch provisioning
+  hosts: network
+  remote_user: cumulus
+  vars_files:
+    - "vars/{{env}}.yml"
+  gather_facts: yes
+  become: yes
+  roles:
+    - ansible-role-cumulus-common
+    - ansible-role-cumulus-monitoring
+    - ansible-role-cumulus-ptm
+
+- name: Cumulus Setup interfaces for spine switches
+  hosts: spine
+  remote_user: cumulus
+  gather_facts: no
+  become: true
+  roles:
+    - ansible-role-cumulus-spine
+
+- name: Cumulus Setup interfaces for leaf switches
+  hosts: leaf
+  remote_user: cumulus
+  gather_facts: no
+  become: true
+  roles:
+    - ansible-role-cumulus-leaf
+...
