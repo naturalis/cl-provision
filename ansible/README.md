@@ -16,19 +16,19 @@ ansible network -m ping -i environments/staging
 - On timeouts or errors there is probably a problem with the ssh keys. If on vx, fix manually by connecting as the vagrant user.
 - Run the provision playbook, on hardware:
 ```bash
-ansible-playbook cumulus_provision.yml -i environments/prod
+ansible-playbook playbooks/cumulus_provision.yml -i environments/prod
 ```
 Or on vx:
 ```bash
-ansible-playbook cumulus_provision.yml -i environments/staging
+ansible-playbook playbooks/cumulus_provision.yml -i environments/staging
 ```
 - There is also an interfaces playbook, which only checks the interfaces for changes. On hardware:
 ```bash
-ansible-playbook cumulus_interfaces.yml -i environments/prod
+ansible-playbook playbooks/cumulus_interfaces.yml -i environments/prod
 ```
 Or on vx:
 ```bash
-ansible-playbook cumulus_interfaces.yml -i environments/staging
+ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 ```
 
 # Files
