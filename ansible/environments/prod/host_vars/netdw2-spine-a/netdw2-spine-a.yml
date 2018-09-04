@@ -33,3 +33,7 @@ node:
         members:
         - swp2
         trunk: true
+      swp47:
+        mlag: false
+        trunk: true
+        vlan: 269
