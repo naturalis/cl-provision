@@ -13,13 +13,14 @@ netdw2-leaf-h1b ansible_user=cumulus
 netdw2-leaf-h1c ansible_user=cumulus
 netdw2-leaf-h1d ansible_user=cumulus
 
-[switches:children]
-spine
-leaf
-
 [uplink]
 uplink01 ansible_user=cumulus
 uplink02 ansible_user=cumulus
+
+[switches:children]
+spine
+leaf
+uplink
 
 [host]
 host01 ansible_user=cumulus

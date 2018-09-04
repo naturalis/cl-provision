@@ -50,15 +50,6 @@ node:
       members:
       - swp1
       - swp2
-    ports:
-      swp1:
-        mlag: false
-        trunk: false
-        vlan: 269
-      swp2:
-        mlag: false
-        trunk: false
-        vlan: 269
 
   uplink02:
     lo: 10.255.255.31/32
@@ -68,15 +59,6 @@ node:
       members:
       - swp1
       - swp2
-    ports:
-      swp1:
-        mlag: false
-        trunk: false
-        vlan: 269
-      swp2:
-        mlag: false
-        trunk: false
-        vlan: 269
 
   netdw2-spine-a:
     lo: 10.255.255.1/32
@@ -112,14 +94,6 @@ node:
         members:
         - swp2
         trunk: true
-      swp47:
-        mlag: false
-        vlan: 269
-        trunk: false
-      swp48:
-        mlag: false
-        vlan: 269
-        trunk: false
 
   netdw2-spine-b:
     lo: 10.255.255.2/32
@@ -155,14 +129,6 @@ node:
         members:
         - swp2
         trunk: true
-      swp47:
-        mlag: false
-        vlan: 269
-        trunk: false
-      swp48:
-        mlag: false
-        vlan: 269
-        trunk: false
 
   netdw2-leaf-d1a:
     lo: 10.255.255.11/32
