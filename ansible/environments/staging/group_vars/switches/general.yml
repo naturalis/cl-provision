@@ -49,8 +49,11 @@ node:
       lnk-vlan: 269
       members:
       - swp1
-      - swp2
     ports:
+      swp1:
+        mlag: false
+        trunk: true
+        vlan: 269
 
   uplink02:
     lo: 10.255.255.31/32
@@ -59,8 +62,11 @@ node:
       lnk-vlan: 269
       members:
       - swp1
-      - swp2
     ports:
+      swp1:
+        mlag: false
+        trunk: true
+        vlan: 269
 
   netdw2-spine-a:
     lo: 10.255.255.1/32
