@@ -13,18 +13,10 @@
     - ansible-role-cumulus-ptm
 
 - name: Cumulus Setup interfaces for spine switches
-  hosts: spine
+  hosts: switches
   remote_user: cumulus
   gather_facts: no
   become: true
   roles:
-    - ansible-role-cumulus-spine
-
-- name: Cumulus Setup interfaces for leaf switches
-  hosts: leaf
-  remote_user: cumulus
-  gather_facts: no
-  become: true
-  roles:
-    - ansible-role-cumulus-leaf
+    - ansible-role-cumulus-interfaces
 ...
