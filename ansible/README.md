@@ -47,7 +47,7 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 │  
 ├── playbooks/
 │   ├── cumulus_check.yml                     # Playbook to check and ouput ptm and lldp information.
-│   ├── cumulus_interfaces.yml                # Playbook to setup interfaces.
+│   ├── cumulus_interfaces.yml                # Playbook to setup interfaces on spine and leaf switches.
 │   ├── cumulus_license.yml                   # Playbook to setup or change license key (initial setup is done by ZTP).
 │   ├── cumulus_provision.yml                 # Playbook to do the first provisioning.
 │   ├── cumulus_support_make.yml              # Playbook to make and retrieve support files for troubleshooting.
@@ -59,8 +59,7 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 │
 ├── roles/
 │   ├── ansible-role-cumulus-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
-│   ├── ansible-role-cumulus-leaf             # Will set interfaces for leaf switches. Also PoE is enabled needed ports.
-│   ├── ansible-role-cumulus-spine            # Will set interfaces and ospf for spine switches.
+│   ├── ansible-role-cumulus-interfaces       # Will set interfaces and OSPF routing on spine switches and interfaces and PoE on leaf switches
 │   ├── ansible-role-cumulus-uplink           # Will set interfaces and ospf for uplink switches (staging).
 │   ├── ansible-role-cumulus-license          # Can change the license key on the switches (initial setup is done by ZTP).
 │   ├── ansible-role-cumulus-monitoring       # Installs prometheus node_exporter, configures remote syslog and snmp daemon.
