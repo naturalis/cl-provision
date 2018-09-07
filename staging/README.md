@@ -1,7 +1,7 @@
 # cl-provision
 
 # Staging
-- Setup Vagrant + libvirt on KVM. A [guide is found here](https://docs.cumulusnetworks.com/display/VX/Vagrant+and+Libvirt+with+KVM+or+QEMU).
+- Setup Vagrant + libvirt on KVM, following the [guide](https://docs.cumulusnetworks.com/display/VX/Vagrant+and+Libvirt+with+KVM+or+QEMU) or running the ansible [playbook](https://github.com/CumulusNetworks/ansible_snippets/blob/master/setup_simulation_server/install_libvirt_kvm_simulation.yml).
 - Clone this repo
 - Edit the .dot file and run the topology converter:
 ```bash
