@@ -52,7 +52,6 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 │   ├── cumulus_provision.yml                 # Playbook to do the first provisioning.
 │   ├── cumulus_support_make.yml              # Playbook to make and retrieve support files for troubleshooting.
 │   ├── cumulus_support_remove.yml            # Playbook to remove support files from switches.
-│   ├── cumulus_uplink.yml                    # Playbook to setup interfaces and ospf on uplink switches (staging).
 │   ├── cumulus_users.yml                     # Playbook to setup users and ssh keys.
 │   ├── opnsense_api.yml                      # Playbook to test API on OPNSense firewall.
 │   └── opnsense_config.yml                   # Playbook to set config on OPNSense firewall.
@@ -60,18 +59,19 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 ├── roles/
 │   ├── ansible-role-cumulus-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
 │   ├── ansible-role-cumulus-interfaces       # Will set interfaces and OSPF routing on spine switches and interfaces and PoE on leaf switches
-│   ├── ansible-role-cumulus-uplink           # Will set interfaces and ospf for uplink switches (staging).
 │   ├── ansible-role-cumulus-license          # Can change the license key on the switches (initial setup is done by ZTP).
 │   ├── ansible-role-cumulus-monitoring       # Installs prometheus node_exporter, configures remote syslog and snmp daemon.
 │   ├── ansible-role-cumulus-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file
 │   ├── ansible-role-cumulus-users            # Sets up Infra user and removes credentials from cumulus user.
 │   ├── ansible-role-opnsense-api             # Test API on OPNSense firewall.
-│   └── ansible-role-opnsense-config          # Setup config on OPNSense firewall.
+│   ├── ansible-role-opnsense-config          # Setup config on OPNSense firewall.
+│   └── requirements.yml                      # File to install these roles with ansible-galaxy.
 │
 ├── vars/
 │   ├── prod.yml                              # prod specific vars files.
 │   └── staging.yml                           # staging specific vars files.
 │
+├── .gitignore                                # File to keep some stuff secret ;) .
 ├── ansible.cfg                               # default arguments for ansible
 ├── linter.sh                                 # Passes all .yml files through yamllint ($pip install yamllint).
 └── README.md                                 # This file
