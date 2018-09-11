@@ -7,6 +7,17 @@
 - You can setup Vagrant + libvirt on KVM, following the [guide](https://docs.cumulusnetworks.com/display/VX/Vagrant+and+Libvirt+with+KVM+or+QEMU) or running the ansible [playbook](https://github.com/CumulusNetworks/ansible_snippets/blob/master/setup_simulation_server/install_libvirt_kvm_simulation.yml).
 
 - Clone the [topology_converter repo](https://github.com/CumulusNetworks/topology_converter) from cumulus. These files will help us to make a Vagrantfile with needed specials according to the links and hosts we define in a .dot file. More info about this tool is found [here](https://github.com/CumulusNetworks/topology_converter/tree/master/documentation).
+
+- Install the base requirements:
+```bash
+sudo apt install python-pip
+sudo pip install --upgrade pip
+sudo pip install setuptools
+sudo pip install pydotplus
+sudo pip install jinja2
+sudo pip install ipaddress
+```
+## This is the magic...
 ```bash
                                                                        +---------+
                                                                   +--> | LibVirt |
@@ -122,18 +133,22 @@ vagrant status
 
 ## Ansible
 
-You can clone the [ansible](https://github.com/naturalis/network/tree/master/ansible) code into the oob-mgmt-server and test connections:
+Log in to the oob-mgmt server:
 ```bash
 vagrant ssh oob-server
 su - cumulus
-git clone https://github.com/naturalis/network
-cd network/ansible
-ansible switches -m ping
 ```
-Update ansible if needed (there's some ugly red errors on your screen):
+Update ansible:
 ```bash
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update && sudo apt install ansible
+```
+You can clone the [ansible](https://github.com/naturalis/network/tree/master/ansible) code into the oob-mgmt-server and test connections:
+```bash
+git clone https://github.com/naturalis/network
+cd network/ansible
+ansible-galaxy install -r roles/requirements.yml --roles-path ./roles/
+ansible switches -m ping
 ```
 
 ## Graphs

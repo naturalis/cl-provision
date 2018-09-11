@@ -16,18 +16,18 @@ pad = "2"
    "uplink02"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"
                fillcolor = "#80bfff",shape = "rectangle",style = "solid,rounded,filled"]
 
-   "netdw2-spine-a"  [function="spine" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"
+   "netdw2-spine-a"  [function="spine" version="3.6.2" config="./helper_scripts/extra_switch_config.sh"
                      fillcolor = "#99FF33C8",shape = "rectangle",style = "solid,rounded,filled"]
-   "netdw2-spine-b"  [function="spine" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"
+   "netdw2-spine-b"  [function="spine" version="3.6.2" config="./helper_scripts/extra_switch_config.sh"
                      fillcolor = "#99FF33C8",shape = "rectangle",style = "solid,rounded,filled"]
 
-   "netdw2-leaf-d1a"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"
+   "netdw2-leaf-d1a"  [function="leaf" version="3.6.2" config="./helper_scripts/extra_switch_config.sh"
                       fillcolor = "#99FF33C8",shape = "rectangle",style = "solid,rounded,filled"]
-   "netdw2-leaf-d1b"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"
+   "netdw2-leaf-d1b"  [function="leaf" version="3.6.2" config="./helper_scripts/extra_switch_config.sh"
                       fillcolor = "#99FF33C8",shape = "rectangle",style = "solid,rounded,filled"]
-   "netdw2-leaf-d1c"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"
+   "netdw2-leaf-d1c"  [function="leaf" version="3.6.2" config="./helper_scripts/extra_switch_config.sh"
                       fillcolor = "#99FF33C8",shape = "rectangle",style = "solid,rounded,filled"]
-   "netdw2-leaf-d1d"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"
+   "netdw2-leaf-d1d"  [function="leaf" version="3.6.2" config="./helper_scripts/extra_switch_config.sh"
                       fillcolor = "#99FF33C8",shape = "rectangle",style = "solid,rounded,filled"]
 
    "netdw2-leaf-h1a"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"
