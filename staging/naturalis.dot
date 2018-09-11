@@ -1,22 +1,22 @@
 graph dc {
-   "oob-mgmt-switch"  [function="oob-switch" config="./helper_scripts/oob_switch_config.sh"]
-   "oob-mgmt-server"  [function="oob-server" config="./helper_scripts/OOB_Server_Config.sh"]
+   "oob-mgmt-switch"  [function="oob-switch" version="3.6.1" config="./helper_scripts/oob_switch_config.sh"]
+   "oob-mgmt-server"  [function="oob-server" version="3.6.1" config="./helper_scripts/OOB_Server_Config.sh"]
 
-   "uplink01"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
-   "uplink02"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
+   "uplink01"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "uplink02"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
 
-   "netdw2-spine-a"  [function="spine" config="./helper_scripts/extra_switch_config.sh"]
-   "netdw2-spine-b"  [function="spine" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-spine-a"  [function="spine" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-spine-b"  [function="spine" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
 
-   "netdw2-leaf-d1a"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
-   "netdw2-leaf-d1b"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
-   "netdw2-leaf-d1c"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
-   "netdw2-leaf-d1d"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-d1a"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-d1b"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-d1c"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-d1d"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
 
-   "netdw2-leaf-h1a"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
-   "netdw2-leaf-h1b"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
-   "netdw2-leaf-h1c"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
-   "netdw2-leaf-h1d"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-h1a"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-h1b"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-h1c"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-h1d"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
 
    "host01"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
    "host02"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]

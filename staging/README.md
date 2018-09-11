@@ -6,7 +6,7 @@
 
 - You can setup Vagrant + libvirt on KVM, following the [guide](https://docs.cumulusnetworks.com/display/VX/Vagrant+and+Libvirt+with+KVM+or+QEMU) or running the ansible [playbook](https://github.com/CumulusNetworks/ansible_snippets/blob/master/setup_simulation_server/install_libvirt_kvm_simulation.yml).
 
-- Clone the [topology_converter repo](https://github.com/CumulusNetworks/topology_converter) from cumulus. These files will help us to make a Vagrantfile with needed specials according to the links and hosts we define in a .dot file.
+- Clone the [topology_converter repo](https://github.com/CumulusNetworks/topology_converter) from cumulus. These files will help us to make a Vagrantfile with needed specials according to the links and hosts we define in a .dot file. More info about this tool is found [here](https://github.com/CumulusNetworks/topology_converter/tree/master/documentation).
 ```bash
                                                                        +---------+
                                                                   +--> | LibVirt |
@@ -19,7 +19,7 @@
                                                                        +------------+
 
 ```
-- Unfortunately there is still a bug we need to fix. Go into the local topology_converter repo and edit the /templates/Vagrantfile.j2 file to fix it:
+- Unfortunately there is still a bug (which is fixed in cl 3.6.2) we need to fix. Go into the local topology_converter repo and edit the /templates/Vagrantfile.j2 file to fix it:
 ```bash
 After the line:
 echo "### Resetting ZTP to work next boot..."
@@ -37,8 +37,9 @@ useradd -m cumulus
 Add the following line:
 echo "cumulus:CumulusLinux!" | chpasswd
 ```
-- Download the [naturalis.dot](naturalis.dot) file, from this repo and edit it as needed.
+- Download the [naturalis.dot](naturalis.dot) file, from this repo and edit it as needed. The  same .dot file structure will be used to test links with [PTM](https://github.com/naturalis/ansible-role-cumulus-ptm).
 
+### Sample naturalis.dot:
 ```bash
 
                      +----------+        +----------+
@@ -84,7 +85,7 @@ echo "cumulus:CumulusLinux!" | chpasswd
 
 ```
 
-- Now run the topology converter with it:
+- Now run the topology converter with it (with the -c option an oob-mgmt network/server/bridge is automatically built):
 ```bash
 ./topology_converter.py -s 25000 -p libvirt /home/bla/naturalis.dot -c
 ```
@@ -129,7 +130,7 @@ git clone https://github.com/naturalis/network
 cd network/ansible
 ansible switches -m ping
 ```
-Update ansible if needed:
+Update ansible if needed (there's some ugly red errors on your screen):
 ```bash
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update && sudo apt install ansible
