@@ -135,3 +135,13 @@ Update ansible if needed (there's some ugly red errors on your screen):
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt update && sudo apt install ansible
 ```
+
+## Graphs
+
+You can use the naturalis.dot file to make a graphical layout. Install a renderer and make the .png file:
+```bash
+sudo apt install dot
+dot -Tpng -O naturalis.dot
+```
+A simple layout would be:
+![diagram](naturalis.dot.png)

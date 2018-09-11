@@ -1,0 +1,58 @@
+graph dc {
+   "oob-mgmt-switch"  [function="oob-switch" version="3.6.1" config="./helper_scripts/oob_switch_config.sh"]
+   "oob-mgmt-server"  [function="oob-server" config="./helper_scripts/OOB_Server_Config.sh"]
+
+   "uplink01"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "uplink02"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+
+   "netdw2-spine-a"  [function="spine" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-spine-b"  [function="spine" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+
+   "netdw2-leaf-d1a"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-d1b"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-d1c"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-d1d"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+
+   "netdw2-leaf-h1a"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-h1b"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-h1c"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+   "netdw2-leaf-h1d"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
+
+   "host01"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
+   "host02"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
+   "host03"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
+   "host04"  [function="leaf" config="./helper_scripts/extra_switch_config.sh"]
+
+
+   "netdw2-spine-a":"swp47" -- "uplink01":"swp1"
+   "netdw2-spine-a":"swp48" -- "uplink02":"swp1"
+
+   "netdw2-spine-b":"swp47" -- "uplink01":"swp2"
+   "netdw2-spine-b":"swp48" -- "uplink02":"swp2"
+
+   "netdw2-spine-a":"swp49" -- "netdw2-spine-b":"swp49"
+   "netdw2-spine-a":"swp50" -- "netdw2-spine-b":"swp50"
+
+   "netdw2-spine-a":"swp1" -- "netdw2-leaf-d1a":"swp52"
+   "netdw2-spine-b":"swp1" -- "netdw2-leaf-d1d":"swp52"
+
+   "netdw2-spine-a":"swp2" -- "netdw2-leaf-h1a":"swp52"
+   "netdw2-spine-b":"swp2" -- "netdw2-leaf-h1d":"swp52"
+
+
+   "netdw2-leaf-d1a":"swp50" -- "netdw2-leaf-d1d":"swp50"
+   "netdw2-leaf-d1a":"swp49" -- "netdw2-leaf-d1b":"swp49"
+   "netdw2-leaf-d1d":"swp49" -- "netdw2-leaf-d1c":"swp49"
+   "netdw2-leaf-d1b":"swp50" -- "netdw2-leaf-d1c":"swp50"
+
+   "netdw2-leaf-d1b":"swp1" -- "host01":"swp1"
+   "netdw2-leaf-d1c":"swp1" -- "host02":"swp1"
+
+   "netdw2-leaf-h1a":"swp50" -- "netdw2-leaf-h1d":"swp50"
+   "netdw2-leaf-h1a":"swp49" -- "netdw2-leaf-h1b":"swp49"
+   "netdw2-leaf-h1d":"swp49" -- "netdw2-leaf-h1c":"swp49"
+   "netdw2-leaf-h1b":"swp50" -- "netdw2-leaf-h1c":"swp50"
+
+   "netdw2-leaf-h1b":"swp1" -- "host03":"swp1"
+   "netdw2-leaf-h1c":"swp1" -- "host04":"swp1"
+}
