@@ -75,11 +75,16 @@ vagrant status
 
 ## Ansible
 
-You can clone the [ansible](ansible/) code into the oob-mgmt-server and test connections:
+You can clone the [ansible](https://github.com/naturalis/network/tree/master/ansible) code into the oob-mgmt-server and test connections:
 ```bash
 vagrant ssh oob-server
 su - cumulus
 git clone https://github.com/naturalis/network
 cd network/ansible
 ansible switches -m ping
+```
+Update ansible if needed:
+```bash
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt update && sudo apt install ansible
 ```
