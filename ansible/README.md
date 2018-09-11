@@ -1,4 +1,4 @@
-# cl-provision
+# Naturalis campus network
 
 # Ansible
 - Clone this repo (Ansible folder) and install the roles:
