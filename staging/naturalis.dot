@@ -1,6 +1,6 @@
 graph dc {
    "oob-mgmt-switch"  [function="oob-switch" version="3.6.1" config="./helper_scripts/oob_switch_config.sh"]
-   "oob-mgmt-server"  [function="oob-server" version="3.6.1" config="./helper_scripts/OOB_Server_Config.sh"]
+   "oob-mgmt-server"  [function="oob-server" config="./helper_scripts/OOB_Server_Config.sh"]
 
    "uplink01"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
    "uplink02"  [function="leaf" version="3.6.1" config="./helper_scripts/extra_switch_config.sh"]
