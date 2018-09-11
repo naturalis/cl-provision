@@ -38,6 +38,52 @@ Add the following line:
 echo "cumulus:CumulusLinux!" | chpasswd
 ```
 - Download the [naturalis.dot](naturalis.dot) file, from this repo and edit it as needed.
+
+```bash
+
+                     +----------+        +----------+
+                     | uplink01 |        | uplink02 |
+                     +----------+        +----------+
+                        swp1   swp2    swp1    swp2
+                         |         \   /        |
+                         |          \ /         |
+                         |           X          |
+                         |          / \         |
+                       swp47    swp48   swp47  swp48
+                     +----------+       +----------+
+                     | spine-a  |-swp49-| spine-b  |
+                     |          |-swp50-|          |
+                     +----------+       +----------+
+                      swp1   swp2       swp1     swp2
+                     /           \     /             \
+                    /             \   /               \
+                   /               \ /                 \
+                  /                 X                   \
+                 /                 / \                   \
+                /                 /   \                   \
+               /                 /     \                   \
+              /                 /       \                   \
+          swp52             swp52      swp52              swp52
+  +----------+       +----------+      +----------+       +----------+
+  | leaf-d1a |-swp50-| leaf-d1d |      | leaf-h1a |-swp50-| leaf-h1d |
+  +----------+       +----------+      +----------+       +----------+
+    swp49               swp49             swp49               swp49
+      |                   |                 |                   |
+      |                   |                 |                   |
+    swp49               swp49             swp49               swp49
+  +----------+       +----------+      +----------+       +----------+
+  | leaf-d1b |-swp50-| leaf-d1c |      | leaf-h1b |-swp50-| leaf-h1c |
+  +----------+       +----------+      +----------+       +----------+
+     swp1                swp1              swp1                swp1
+      |                   |                 |                   |
+      |                   |                 |                   |
+     swp1                swp1              swp1                swp1
+ +---------+          +---------+       +---------+          +---------+
+ | host01  |          | host02  |       | host03  |          | host04  |
+ +---------+          +---------+       +---------+          +---------+
+
+```
+
 - Now run the topology converter with it:
 ```bash
 ./topology_converter.py -s 25000 -p libvirt /home/bla/naturalis.dot -c
