@@ -94,6 +94,10 @@ chown cumulus:cumulus /home/cumulus/.ssh/*
 cp /home/cumulus/.ssh/id_rsa.pub /var/www/html/authorized_keys
 chmod 777 -R /var/www/html/*
 ```
-- Setup cumulus installer Files
-  Download .bin files and put them in the /var/www/html folder using the right naming. (eg. cumulus-linux-3.6.1-bcm-amd64.bin / cumulus-linux-3.6.1-bcm-armel.bin)
-  Theres also the possibility to use symlinks.
+- Setup cumulus installer Files. Download .bin files and put them in the /var/www/html folder.
+  The best practice is to use soft links:
+```bash
+cd /var/www/html
+sudo ln -s cumulus-linux-3.7.0-bcm-amd64.bin onie-installer-x86_64
+sudo ln -s cumulus-linux-3.7.0-bcm-armel.bin onie-installer-arm
+```
