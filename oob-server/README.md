@@ -66,6 +66,10 @@ option www-server 172.16.200.2;
 
 systemctl restart isc-dhcp-server
 ```
+Set a nice index file:
+```bash
+echo "<html><h1>You've come to the OOB-MGMT-Server.</h1></html>" > /var/www/html/index.html
+```
 - Setup ztp.
 Clone this repo (OOB-server folder) and copy the ztp_oob.sh file to "/var/www/html/ztp_oob.sh"
 
