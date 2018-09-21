@@ -10,7 +10,7 @@ date "+%FT%T ztp starting script $0"
 
 trap error ERR
 
-SERVER="http://172.16.200.2"
+SERVER="http://10.114.0.10"
 USERNAME=automation
 
 #Add Debian Repositories
@@ -47,8 +47,8 @@ iface mgmt
   vrf-table auto
 EOT
 
-#Give sudo Powahr to cumulus user
-#echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
+#Give sudo Powahr to user
+#echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/12_$USERNAME
 
 #Install the license and restart switchd
 /usr/cumulus/bin/cl-license -i $SERVER/license && systemctl restart switchd.service
@@ -62,9 +62,6 @@ EOT
 base64 -d /etc/motd.base64 > /etc/motd
 rm /etc/motd.base64
 chmod 755 /etc/motd
-
-#Restart switchd to load license
-/bin/systemctl restart switchd.service
 
 #Reload interfaces to apply loaded config
 ifreload -a

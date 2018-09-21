@@ -95,7 +95,7 @@ cp /home/cumulus/.ssh/id_rsa.pub /var/www/html/authorized_keys
 chmod 777 -R /var/www/html/*
 ```
 - Setup cumulus installer Files. Download .bin files and put them in the /var/www/html folder.
-  The best practice is to use soft links:
+  The best practice is to use soft links, then you can change the links with new versions:
 ```bash
 cd /var/www/html
 sudo ln -s cumulus-linux-3.7.0-bcm-amd64.bin onie-installer-x86_64
