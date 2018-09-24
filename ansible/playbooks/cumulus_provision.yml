@@ -9,7 +9,7 @@
   become: yes
   roles:
     - ansible-cumulus-common
-    - ansible-cumulus-monitoring
+    - ansible-cumulus-metrics
     - ansible-cumulus-ptm
 
 - name: Cumulus Setup interfaces for spine switches
