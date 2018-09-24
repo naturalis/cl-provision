@@ -8,9 +8,9 @@
   gather_facts: yes
   become: yes
   roles:
-    - ansible-role-cumulus-common
-    - ansible-role-cumulus-monitoring
-    - ansible-role-cumulus-ptm
+    - ansible-cumulus-common
+    - ansible-cumulus-monitoring
+    - ansible-cumulus-ptm
 
 - name: Cumulus Setup interfaces for spine switches
   hosts: switches
@@ -18,5 +18,5 @@
   gather_facts: no
   become: true
   roles:
-    - ansible-role-cumulus-interfaces
+    - ansible-cumulus-interfaces
 ...

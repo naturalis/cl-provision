@@ -57,15 +57,15 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 │   └── opnsense_config.yml                   # Playbook to set config on OPNSense firewall.
 │
 ├── roles/
-│   ├── ansible-role-cumulus-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
-│   ├── ansible-role-cumulus-interfaces       # Will set interfaces and OSPF routing on spine switches and interfaces and PoE on leaf switches
-│   ├── ansible-role-cumulus-license          # Can change the license key on the switches (initial setup is done by ZTP).
-│   ├── ansible-role-cumulus-monitoring       # Installs prometheus node_exporter, configures remote syslog and snmp daemon.
-│   ├── ansible-role-cumulus-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file
-│   ├── ansible-role-cumulus-users            # Sets up Infra user and removes credentials from cumulus user.
-│   ├── ansible-role-opnsense-api             # Test API on OPNSense firewall.
-│   ├── ansible-role-opnsense-config          # Setup config on OPNSense firewall.
-│   └── requirements.yml                      # File to install these roles with ansible-galaxy.
+│   ├── ansible-cumulus-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
+│   ├── ansible-cumulus-interfaces       # Will set interfaces and OSPF routing on spine switches and interfaces and PoE on leaf switches
+│   ├── ansible-cumulus-license          # Can change the license key on the switches (initial setup is done by ZTP).
+│   ├── ansible-cumulus-monitoring       # Installs prometheus node_exporter, configures remote syslog and snmp daemon.
+│   ├── ansible-cumulus-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file
+│   ├── ansible-cumulus-users            # Sets up Infra user and removes credentials from cumulus user.
+│   ├── ansible-opnsense-api             # Test API on OPNSense firewall.
+│   ├── ansible-opnsense-config          # Setup config on OPNSense firewall.
+│   └── requirements.yml                 # File to install these roles with ansible-galaxy.
 │
 ├── vars/
 │   ├── prod.yml                              # prod specific vars files.

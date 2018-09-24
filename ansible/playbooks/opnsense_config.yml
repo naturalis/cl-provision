@@ -5,4 +5,4 @@
   gather_facts: no
   become: yes
   roles:
-    - ansible-role-opnsense-config
+    - ansible-opnsense-config

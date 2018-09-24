@@ -5,5 +5,5 @@
   gather_facts: no
   become: yes
   roles:
-    - ansible-role-cumulus-interfaces
+    - ansible-cumulus-interfaces
 ...

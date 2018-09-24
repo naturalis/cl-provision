@@ -8,5 +8,5 @@
   gather_facts: no
   become: true
   roles:
-    - ansible-role-cumulus-ptm
+    - ansible-cumulus-ptm
 ...
