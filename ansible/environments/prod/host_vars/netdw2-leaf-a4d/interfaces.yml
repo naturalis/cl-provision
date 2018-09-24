@@ -1,0 +1,22 @@
+---
+node:
+  netdw2-leaf-a4d:
+    lo: 10.255.255.17/32
+    mlag:
+      primary: false
+      members:
+      - swp50
+      address: 169.254.1.2/30
+      peer-ip: 169.254.1.1
+      backup-ip: 192.168.144.18
+      sysmac: 44:38:39:FF:12:12
+    bridge:
+      native: 122
+      priority: 4096
+    ports:
+      uplink:
+        mlag: true
+        mlag-id: 1
+        members:
+        - swp52
+        trunk: true
