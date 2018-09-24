@@ -21,15 +21,27 @@ node:
       native: 115
       priority: 4096
     ports:
-      ser-a:
+      ser-a3:
         mlag: true
         mlag-id: 1
         members:
         - swp1
         trunk: true
-      ser-b:
+      ser-a4:
         mlag: true
         mlag-id: 2
         members:
         - swp2
+        trunk: true
+      ser-b1:
+        mlag: true
+        mlag-id: 3
+        members:
+        - swp3
+        trunk: true
+      ser-c1:
+        mlag: true
+        mlag-id: 4
+        members:
+        - swp4
         trunk: true
