@@ -50,7 +50,7 @@ useradd -m cumulus
 passwd cumulus
 echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
 ```
-- Add parameters to DHCP server or dhcpd.conf and restart the DHCP server. there is an example [dhcpd.conf](dhcpd.conf) and [dhcpd.hosts](dhcpd.hosts) for isc-dhcp-server in this repo.
+- Add parameters to DHCP server or dhcpd.conf and restart the DHCP server. there is an example [dhcpd.conf](dhcpd.conf) and [dhcpd.hosts](dhcpd.hosts) for isc-dhcp-server in this repo. Yhere is also an example [hosts](hosts) file for DNS.
 ```bash
 vim /etc/dhcp/dhcpd.conf
 
