@@ -10,8 +10,8 @@ date "+%FT%T ztp starting script $0"
 
 trap error ERR
 
-SERVER="http://10.114.0.10"
-USERNAME=automation
+SERVER="http://192.168.144.10"
+USERNAME=cumulus
 
 #Add Debian Repositories
 #echo "deb http://http.us.debian.org/debian jessie main" >> /etc/apt/sources.list
