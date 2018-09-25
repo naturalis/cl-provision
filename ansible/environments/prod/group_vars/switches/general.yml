@@ -5,7 +5,7 @@ public_ssh_key: http://192.168.144.10/authorized_keys
 
 node_exporter_version: 0.16.0
 rsyslog_server: 192.168.144.10
-rsyslog_port: 512
+rsyslog_port: 514
 snmp_ro_community: public
 snmp_location: Leiden
 snmp_contact: infra@naturalis.nl
