@@ -15,4 +15,4 @@ snmp_allowed_hosts:
 ntp:
   - '192.168.144.10'
 
-timezone: 'Europe/Amsterdam'
+timezone: 'Etc/UTC'
