@@ -49,9 +49,9 @@ Now is the time to start the provision playbook if the provision callback is not
 ansible-playbook playbooks/cumulus_provision.yml -i environments/prod
 ```
 
-There is also an interfaces playbook, which only checks the interfaces for changes.
+There is also an interfaces playbook, which only checks the interfaces for changes. Use --limit to narrow scope.
 ```bash
-ansible-playbook playbooks/cumulus_interfaces.yml -i environments/prod
+ansible-playbook playbooks/cumulus_interfaces.yml -i environments/prod --limit leafs
 ```
 
 # OPNSense firewalls
