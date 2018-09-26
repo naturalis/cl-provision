@@ -1,4 +1,4 @@
-# Cumulus repo's
+# Cumulus
 - src: https://github.com/naturalis/ansible-cumulus-common
 - src: https://github.com/naturalis/ansible-cumulus-interfaces
 - src: https://github.com/naturalis/ansible-cumulus-license
@@ -6,6 +6,10 @@
 - src: https://github.com/naturalis/ansible-cumulus-ptm
 - src: https://github.com/naturalis/ansible-cumulus-users
 
-# OPNsense repo's
+# OPNsense
 - src: https://github.com/naturalis/ansible-opnsense-api
 - src: https://github.com/naturalis/ansible-opnsense-config
+
+# Misc
+- name: andrewrothstein.jq
+  src: https://github.com/andrewrothstein/ansible-jq
