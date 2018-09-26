@@ -16,3 +16,8 @@ ntp:
   - '192.168.144.10'
 
 timezone: 'Etc/UTC'
+
+jq_mirror: http://192.168.144.10
+jq_ver: '1.5'
+jq_install_dir: /usr/local/bin
+...
