@@ -1,8 +1,8 @@
-[spine]
+[spines]
 netdw2-spine-a1a ansible_host=192.168.144.21 ansible_user=cumulus
 #netdw2-spine-a1b ansible_host=192.168.144.22 ansible_user=cumulus
 
-[leaf]
+[leafs]
 #netdw2-leaf-a3a ansible_host=192.168.144.23 ansible_user=cumulus
 netdw2-leaf-a3b ansible_host=192.168.144.24 ansible_user=cumulus
 netdw2-leaf-a3c ansible_host=192.168.144.25 ansible_user=cumulus
@@ -11,12 +11,12 @@ netdw2-leaf-a3c ansible_host=192.168.144.25 ansible_user=cumulus
 netdw2-leaf-a3f ansible_host=192.168.144.28 ansible_user=cumulus
 
 [switches:children]
-spine
-leaf
+spines
+leafs
 
-[firewall]
+[firewalls]
 opnsense_1 ansible_host=localhost ansible_port=2222 ansible_user=root ansible_ssh_pass=opnsense ansible_become_method=sudo ansible_python_interpreter='/usr/bin/env python2.7'
 
 [network:children]
 switches
-firewall
+firewalls
