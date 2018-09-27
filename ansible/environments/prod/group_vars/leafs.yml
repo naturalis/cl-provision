@@ -1,4 +1,4 @@
 ---
 jq_platform: [] # arm architecture not available?
-install_jq: false
+jq_install: false
 ...
