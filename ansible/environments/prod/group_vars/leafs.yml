@@ -1,3 +1,4 @@
 ---
-jq_platform: osx-amd64
+jq_platform: [] # arm architecture not available?
+install_jq: false
 ...
