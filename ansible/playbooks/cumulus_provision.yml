@@ -9,6 +9,7 @@
   become: yes
   roles:
     - ansible-cumulus-common
+    - ansible-cumulus-repo
     - ansible-cumulus-metrics
     - ansible-cumulus-ptm
 

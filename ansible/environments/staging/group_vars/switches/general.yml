@@ -1,5 +1,5 @@
 ---
-public_ssh_key: http://172.16.200.254/authorized_keys
+cl_oob_server: 172.16.200.254
 
 node_exporter_version: 0.16.0
 rsyslog_server: 172.16.200.2

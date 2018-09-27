@@ -1,7 +1,5 @@
 ---
-cl_license_server: 192.168.144.10
-
-public_ssh_key: http://192.168.144.10/authorized_keys
+cl_oob_server: 192.168.144.10
 
 node_exporter_version: 0.16.0
 rsyslog_server: 192.168.144.10
