@@ -60,8 +60,9 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 │   ├── ansible-cumulus-common           # Will set common settings, like NTP, Hostname, Timezone, MOTD, hostfile
 │   ├── ansible-cumulus-interfaces       # Will set interfaces and OSPF routing on spine switches and interfaces and PoE on leaf switches
 │   ├── ansible-cumulus-license          # Can change the license key on the switches (initial setup is done by ZTP).
-│   ├── ansible-cumulus-monitoring       # Installs prometheus node_exporter, configures remote syslog and snmp daemon.
-│   ├── ansible-cumulus-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file
+│   ├── ansible-cumulus-metrics          # Installs prometheus node_exporter, configures remote syslog and snmp daemon.
+│   ├── ansible-cumulus-ptm              # Sets up the Prescriptive Topology Manager with a correct .dot file.
+│   ├── ansible-cumulus-repo             # Adds repo's that are mirrored on the oob mgmt server.
 │   ├── ansible-cumulus-users            # Sets up Infra user and removes credentials from cumulus user.
 │   ├── ansible-opnsense-api             # Test API on OPNSense firewall.
 │   ├── ansible-opnsense-config          # Setup config on OPNSense firewall.
@@ -72,8 +73,8 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 │   └── staging.yml                           # staging specific vars files.
 │
 ├── .gitignore                                # File to keep some stuff secret ;) .
-├── ansible.cfg                               # default arguments for ansible
+├── ansible.cfg                               # default arguments for ansible.
 ├── linter.sh                                 # Passes all .yml files through yamllint ($pip install yamllint).
-└── README.md                                 # This file
+└── README.md                                 # This file.
 
 ```
