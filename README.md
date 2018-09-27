@@ -54,6 +54,11 @@ There is also an interfaces playbook, which only checks the interfaces for chang
 ansible-playbook playbooks/cumulus_interfaces.yml -i environments/prod --limit leafs
 ```
 
+A reinstall of the whole OS can be done quite fast from the switch itself:
+```bash
+sudo onie-select -if && sudo reboot
+```
+
 # OPNSense firewalls
 We also use ansible to deploy OPNSense firewalls.
 
