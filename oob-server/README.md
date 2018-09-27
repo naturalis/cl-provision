@@ -2,6 +2,8 @@
 
 # oob-server
 
+There is work being done on an ansible role. But for now there is an example [hosts](hosts) file for DNS and an example [mirror.list](mirror.list) for hosting an internal repo.
+
 - Set a  nice MOTD for the OOB-server
 ```bash
 echo " ### Overwriting MOTD ###"
@@ -50,7 +52,7 @@ useradd -m cumulus
 passwd cumulus
 echo "cumulus ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10_cumulus
 ```
-- Add parameters to DHCP server or dhcpd.conf and restart the DHCP server. there is an example [dhcpd.conf](dhcpd.conf) and [dhcpd.hosts](dhcpd.hosts) for isc-dhcp-server in this repo. Yhere is also an example [hosts](hosts) file for DNS.
+- Add parameters to DHCP server or dhcpd.conf and restart the DHCP server. there is an example [dhcpd.conf](dhcpd.conf) and [dhcpd.hosts](dhcpd.hosts) for isc-dhcp-server in this repo.
 ```bash
 vim /etc/dhcp/dhcpd.conf
 
@@ -59,10 +61,9 @@ option cumulus-provision-url code 239 = text;
 option www-server code 72 = ip-address;
 
 *** Add to the mgmt subnet:  
-option default-url = "http://172.16.200.2/onie-installer-[ARCH].bin";
-option cumulus-provision-url "http://172.16.200.2/ztp_oob.sh";
-option www-server 172.16.200.2;
-
+option default-url = "http://192.168.144.10/onie-installer-[ARCH].bin";
+option cumulus-provision-url "http://192.168.144.10/ztp_oob.sh";
+option www-server 192.168.144.10;
 
 systemctl restart isc-dhcp-server
 ```
