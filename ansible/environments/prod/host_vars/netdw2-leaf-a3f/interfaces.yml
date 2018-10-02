@@ -29,7 +29,7 @@ node:
         trunk: true
       swp1:
         mlag: false
-        trunk: false
+        trunk: true
         voip:
           data-vlan: 119
           voice-vlan: 120
