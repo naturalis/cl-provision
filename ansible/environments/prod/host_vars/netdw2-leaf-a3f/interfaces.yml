@@ -27,3 +27,9 @@ node:
         members:
         - swp49
         trunk: true
+      swp1:
+        mlag: false
+        trunk: false
+        vlan: 115
+        poe_prio: high
+
