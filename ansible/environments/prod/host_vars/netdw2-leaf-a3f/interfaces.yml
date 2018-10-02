@@ -12,7 +12,7 @@ node:
       sysmac: 44:38:39:FF:13:12
       priority: 4096
     bridge:
-      native: 115
+      native: 123
       priority: 4096
     ports:
       uplink:
@@ -30,6 +30,7 @@ node:
       swp1:
         mlag: false
         trunk: false
-        vlan: 115
+        voip:
+          data-vlan: 119
+          voice-vlan: 120
         poe_prio: high
-
