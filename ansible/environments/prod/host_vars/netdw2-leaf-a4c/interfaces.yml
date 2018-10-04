@@ -9,7 +9,7 @@ node:
       address: 169.254.1.2/30
       peer-ip: 169.254.1.1
       backup-ip: 192.168.144.19
-      sysmac: 44:38:39:FF:11:34
+      sysmac: 44:38:39:FF:A4:02
       priority: 4096
     bridge:
       native: 115
