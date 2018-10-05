@@ -7,8 +7,15 @@ group {
   option www-server 192.168.144.5;
   option default-url = "http://192.168.144.5/onie-installer";
 
+  host netdw2-firewall-a1a {hardware ethernet 00:03:2d:3f:e6:24; fixed-address 192.168.144.1; option host-name "netdw2-leaf-a3f"; option cumulus-provision-url "http://192.168.144.5/ztp_oob.sh";  }
+  host netdw2-firewall-a1b {hardware ethernet 00:03:2d:3f:e6:24; fixed-address 192.168.144.2; option host-name "netdw2-leaf-a3f"; option cumulus-provision-url "http://192.168.144.5/ztp_oob.sh";  }
+
   host netdw2-spine-a1a {hardware ethernet a8:2b:b5:d2:92:d0; fixed-address 192.168.144.3; option host-name "netdw2-spine-a1a"; option cumulus-provision-url "http://192.168.144.5/ztp_oob.sh";  }
 #  host netdw2-spine-a1b {hardware ethernet a8:2b:b5:d2:92:d0; fixed-address 192.168.144.4; option host-name "netdw2-spine-a1b"; option cumulus-provision-url "http://192.168.144.5/ztp_oob.sh";  }
+
+# netdw2-maas-a
+# netdw2-maas-b
+# netdw2-modem-a
 
   host netdw2-leaf-a3a {hardware ethernet 3c:2c:99:ac:84:00; fixed-address 192.168.144.8; option host-name "netdw2-leaf-a3a"; option cumulus-provision-url "http://192.168.144.5/ztp_oob.sh";  }
   host netdw2-leaf-a3b {hardware ethernet 3c:2c:99:ac:97:40; fixed-address 192.168.144.9; option host-name "netdw2-leaf-a3b"; option cumulus-provision-url "http://192.168.144.5/ztp_oob.sh";  }

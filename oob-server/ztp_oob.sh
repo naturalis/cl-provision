@@ -10,7 +10,7 @@ date "+%FT%T ztp starting script $0"
 
 trap error ERR
 
-SERVER="http://192.168.144.10"
+SERVER="http://192.168.144.5"
 USERNAME=cumulus
 
 #Add Debian Repositories
