@@ -1,14 +1,14 @@
 [spines]
-netdw2-spine-a1a ansible_host=192.168.144.21 ansible_user=cumulus
-#netdw2-spine-a1b ansible_host=192.168.144.22 ansible_user=cumulus
+netdw2-spine-a1a ansible_host=192.168.144.3 ansible_user=cumulus
+#netdw2-spine-a1b ansible_host=192.168.144.4 ansible_user=cumulus
 
 [leafs]
-netdw2-leaf-a3a ansible_host=192.168.144.23 ansible_user=cumulus
-netdw2-leaf-a3b ansible_host=192.168.144.24 ansible_user=cumulus
-netdw2-leaf-a3c ansible_host=192.168.144.25 ansible_user=cumulus
-netdw2-leaf-a3d ansible_host=192.168.144.26 ansible_user=cumulus
-netdw2-leaf-a3e ansible_host=192.168.144.27 ansible_user=cumulus
-netdw2-leaf-a3f ansible_host=192.168.144.28 ansible_user=cumulus
+netdw2-leaf-a3a ansible_host=192.168.144.8 ansible_user=cumulus
+netdw2-leaf-a3b ansible_host=192.168.144.9 ansible_user=cumulus
+netdw2-leaf-a3c ansible_host=192.168.144.10 ansible_user=cumulus
+netdw2-leaf-a3d ansible_host=192.168.144.11 ansible_user=cumulus
+netdw2-leaf-a3e ansible_host=192.168.144.12 ansible_user=cumulus
+netdw2-leaf-a3f ansible_host=192.168.144.13 ansible_user=cumulus
 
 [switches:children]
 spines
