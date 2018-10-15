@@ -19,7 +19,7 @@ node:
       sysmac: 44:38:39:FF:A1:01
       priority: 4096
     bridge:
-      native: 115
+      native: 122
       priority: 4096
     ports:
       ser-a3:
