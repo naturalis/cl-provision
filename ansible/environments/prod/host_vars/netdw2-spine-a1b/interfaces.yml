@@ -161,21 +161,15 @@ node:
         members:
         - swp23
         trunk: true
-      ser-c1:
+      ser-o1:
         mlag: true
         mlag-id: 24
         members:
         - swp24
         trunk: true
-      ser-o1:
+      ser-p1:
         mlag: true
         mlag-id: 25
         members:
         - swp25
-        trunk: true
-      ser-p1:
-        mlag: true
-        mlag-id: 26
-        members:
-        - swp26
         trunk: true
