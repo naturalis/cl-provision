@@ -21,27 +21,161 @@ node:
       native: 122
       priority: 4096
     ports:
-      ser-a3:
+      fw-a2a-inside:
         mlag: true
         mlag-id: 1
         members:
         - swp1
         trunk: true
-      ser-a4:
+      fw-a2a-outside:
         mlag: true
         mlag-id: 2
         members:
         - swp2
-        trunk: true
-      ser-b1:
+        trunk: false
+        vlan: 269
+      fw-a2b-inside:
         mlag: true
         mlag-id: 3
         members:
         - swp3
         trunk: true
-      ser-c1:
+      fw-a2b-outside:
         mlag: true
         mlag-id: 4
         members:
         - swp4
+        trunk: false
+        vlan: 269
+      ser-a3:
+        mlag: true
+        mlag-id: 5
+        members:
+        - swp5
+        trunk: true
+      ser-a4:
+        mlag: true
+        mlag-id: 6
+        members:
+        - swp6
+        trunk: true
+      ser-b1:
+        mlag: true
+        mlag-id: 7
+        members:
+        - swp7
+        trunk: true
+      ser-c1:
+        mlag: true
+        mlag-id: 8
+        members:
+        - swp8
+        trunk: true
+      ser-c2:
+        mlag: true
+        mlag-id: 9
+        members:
+        - swp8
+        trunk: true
+      ser-d1:
+        mlag: true
+        mlag-id: 10
+        members:
+        - swp8
+        trunk: true
+      ser-e1:
+        mlag: true
+        mlag-id: 11
+        members:
+        - swp8
+        trunk: true
+      ser-e2:
+        mlag: true
+        mlag-id: 12
+        members:
+        - swp8
+        trunk: true
+      ser-e3:
+        mlag: true
+        mlag-id: 13
+        members:
+        - swp8
+        trunk: true
+      ser-f1:
+        mlag: true
+        mlag-id: 14
+        members:
+        - swp8
+        trunk: true
+      ser-f3:
+        mlag: true
+        mlag-id: 15
+        members:
+        - swp8
+        trunk: true
+      ser-g1:
+        mlag: true
+        mlag-id: 16
+        members:
+        - swp8
+        trunk: true
+      ser-h1:
+        mlag: true
+        mlag-id: 17
+        members:
+        - swp8
+        trunk: true
+      ser-i1:
+        mlag: true
+        mlag-id: 18
+        members:
+        - swp8
+        trunk: true
+      ser-j1:
+        mlag: true
+        mlag-id: 19
+        members:
+        - swp8
+        trunk: true
+      ser-k1:
+        mlag: true
+        mlag-id: 20
+        members:
+        - swp8
+        trunk: true
+      ser-l1:
+        mlag: true
+        mlag-id: 21
+        members:
+        - swp8
+        trunk: true
+      ser-m1:
+        mlag: true
+        mlag-id: 22
+        members:
+        - swp8
+        trunk: true
+      ser-n1:
+        mlag: true
+        mlag-id: 23
+        members:
+        - swp8
+        trunk: true
+      ser-c1:
+        mlag: true
+        mlag-id: 24
+        members:
+        - swp8
+        trunk: true
+      ser-o1:
+        mlag: true
+        mlag-id: 25
+        members:
+        - swp8
+        trunk: true
+      ser-p1:
+        mlag: true
+        mlag-id: 26
+        members:
+        - swp8
         trunk: true
