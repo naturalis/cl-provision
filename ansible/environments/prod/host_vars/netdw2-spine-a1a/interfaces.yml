@@ -76,107 +76,107 @@ node:
         mlag: true
         mlag-id: 9
         members:
-        - swp8
+        - swp9
         trunk: true
       ser-d1:
         mlag: true
         mlag-id: 10
         members:
-        - swp8
+        - swp10
         trunk: true
       ser-e1:
         mlag: true
         mlag-id: 11
         members:
-        - swp8
+        - swp11
         trunk: true
       ser-e2:
         mlag: true
         mlag-id: 12
         members:
-        - swp8
+        - swp12
         trunk: true
       ser-e3:
         mlag: true
         mlag-id: 13
         members:
-        - swp8
+        - swp13
         trunk: true
       ser-f1:
         mlag: true
         mlag-id: 14
         members:
-        - swp8
+        - swp14
         trunk: true
       ser-f3:
         mlag: true
         mlag-id: 15
         members:
-        - swp8
+        - swp15
         trunk: true
       ser-g1:
         mlag: true
         mlag-id: 16
         members:
-        - swp8
+        - swp16
         trunk: true
       ser-h1:
         mlag: true
         mlag-id: 17
         members:
-        - swp8
+        - swp17
         trunk: true
       ser-i1:
         mlag: true
         mlag-id: 18
         members:
-        - swp8
+        - swp18
         trunk: true
       ser-j1:
         mlag: true
         mlag-id: 19
         members:
-        - swp8
+        - swp19
         trunk: true
       ser-k1:
         mlag: true
         mlag-id: 20
         members:
-        - swp8
+        - swp20
         trunk: true
       ser-l1:
         mlag: true
         mlag-id: 21
         members:
-        - swp8
+        - swp21
         trunk: true
       ser-m1:
         mlag: true
         mlag-id: 22
         members:
-        - swp8
+        - swp22
         trunk: true
       ser-n1:
         mlag: true
         mlag-id: 23
         members:
-        - swp8
+        - swp23
         trunk: true
       ser-c1:
         mlag: true
         mlag-id: 24
         members:
-        - swp8
+        - swp24
         trunk: true
       ser-o1:
         mlag: true
         mlag-id: 25
         members:
-        - swp8
+        - swp25
         trunk: true
       ser-p1:
         mlag: true
         mlag-id: 26
         members:
-        - swp8
+        - swp26
         trunk: true
