@@ -35,7 +35,7 @@ modprobe 8021q
 echo "8021q" >> /etc/modules
 
 #extra if needed
-#apt-get install -y isc-dhcp-server dnsmasq lldpd ifenslave ntp
+#apt-get install -y isc-dhcp-server lldpd ifenslave ntp
 
 #caching proxy server for repositories
 #apt-get install -y apt-cacher-ng

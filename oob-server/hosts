@@ -7,14 +7,14 @@
 
 192.168.144.1 netdw2-firewall-a1a
 192.168.144.2 netdw2-firewall-a1a
-192.168.144.6 netdw2-spine-a1a
-# 192.168.144.7 netdw2-spine-a1b
-# 192.168.144.5 netdw2-maas-a
+# 192.168.144.3 netdw2-maas-a
 # 192.168.144.4 netdw2-maas-b
-# 192.168.144.8 netdw2-modem-a
-192.168.144.25 netdw2-leaf-a3a
-192.168.144.24 netdw2-leaf-a3b
-192.168.144.23 netdw2-leaf-a3c
-192.168.144.22 netdw2-leaf-a3d
-192.168.144.21 netdw2-leaf-a3e
+# 192.168.144.5 netdw2-modem-a
+192.168.144.6 netdw2-spine-a1a
+192.168.144.7 netdw2-spine-a1b
 192.168.144.20 netdw2-leaf-a3f
+192.168.144.21 netdw2-leaf-a3e
+192.168.144.22 netdw2-leaf-a3d
+192.168.144.23 netdw2-leaf-a3c
+192.168.144.24 netdw2-leaf-a3b
+192.168.144.25 netdw2-leaf-a3a
