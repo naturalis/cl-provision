@@ -1,7 +1,7 @@
 ---
 node:
   netdw2-spine-a1a:
-    lo: 10.255.255.3/32
+    lo: 10.255.255.6/32
     ospf:
       router-id: 145.136.246.218
       lnk-vlan: 269
@@ -15,7 +15,7 @@ node:
       - swp50
       address: 169.254.1.1/30
       peer-ip: 169.254.1.2
-      backup-ip: 192.168.144.4
+      backup-ip: 192.168.144.7
       sysmac: 44:38:39:FF:FA:01
       priority: 4096
     bridge:
