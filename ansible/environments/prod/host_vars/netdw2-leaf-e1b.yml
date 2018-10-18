@@ -1,14 +1,14 @@
 ---
 node:
   netdw2-leaf-e1b:
-    lo: 10.255.255.38/32
+    lo: 10.255.255.53/32
     mlag:
       primary: false
       members:
       - swp50
       address: 169.254.1.2/30
       peer-ip: 169.254.1.1
-      backup-ip: 192.168.144.37
+      backup-ip: 192.168.144.54
       sysmac: 44:38:39:FF:FA:16
     bridge:
       native: 122

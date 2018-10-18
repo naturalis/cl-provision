@@ -1,7 +1,7 @@
 ---
 node:
   netdw2-leaf-h1c:
-    lo: 10.255.255.68/32
+    lo: 10.255.255.78/32
     bridge:
       native: 122
       priority: 4096

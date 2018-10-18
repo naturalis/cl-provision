@@ -1,7 +1,7 @@
 ---
 node:
   netdw2-leaf-d1d:
-    lo: 10.255.255.35/32
+    lo: 10.255.255.45/32
     bridge:
       native: 122
       priority: 4096

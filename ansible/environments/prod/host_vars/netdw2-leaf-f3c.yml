@@ -1,14 +1,14 @@
 ---
 node:
   netdw2-leaf-f3c:
-    lo: 10.255.255.58/32
+    lo: 10.255.255.71/32
     mlag:
       primary: false
       members:
       - swp50
       address: 169.254.1.2/30
       peer-ip: 169.254.1.1
-      backup-ip: 192.168.144.61
+      backup-ip: 192.168.144.68
       sysmac: 44:38:39:FF:FA:26
     bridge:
       native: 122

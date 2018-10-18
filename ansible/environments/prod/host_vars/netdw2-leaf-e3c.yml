@@ -1,7 +1,7 @@
 ---
 node:
   netdw2-leaf-e3c:
-    lo: 10.255.255.51/32
+    lo: 10.255.255.61/32
     bridge:
       native: 122
       priority: 4096
