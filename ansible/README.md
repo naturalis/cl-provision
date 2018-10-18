@@ -35,15 +35,17 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 ```bash
 ├── environments/                             # Parent directory for environment-specific directories.
 │   │
-│   ├── staging/                              # Contains all files specific to the staging (cumulus vx) environment.
-│   │   ├── group_vars/                       # staging specific group_vars files.
-│   │   │   └── all
-│   │   └── hosts                             # Contains only the hosts in the staging environment.
+│   ├── prod/                                 # Contains all files specific to the production environment.
+│   │   ├── group_vars/                       # prod specific group_vars files.
+│   │   │   └── ...                           # Multiple .yml files for different functions
+│   │   ├── host_vars/
+│   │   │   └── ...                           # each host has a .yml file with interface definitions
+│   │   └── hosts                             # Contains only the hosts in the prod environment.
 │   │
-│   └── prod/                                 # Contains all files specific to the prod environment.
-│       ├── group_vars/                       # prod specific group_vars files.
-│       │   └── all
-│       └── hosts                             # Contains only the hosts in the prod environment.
+│   └── staging/                              # Contains all files specific to the staging (cumulus vx) environment.
+│       ├── group_vars/                       # staging specific group_vars files.
+│       │   └── ...                           # Multiple .yml files for different functions
+│       └── hosts                             # Contains only the hosts in the staging environment.
 │  
 ├── playbooks/
 │   ├── cumulus_check.yml                     # Playbook to check and ouput ptm and lldp information.
@@ -68,9 +70,6 @@ ansible-playbook playbooks/cumulus_interfaces.yml -i environments/staging
 │   ├── ansible-opnsense-config          # Setup config on OPNSense firewall.
 │   └── requirements.yml                 # File to install these roles with ansible-galaxy.
 │
-├── vars/
-│   ├── prod.yml                              # prod specific vars files.
-│   └── staging.yml                           # staging specific vars files.
 │
 ├── .gitignore                                # File to keep some stuff secret ;) .
 ├── ansible.cfg                               # default arguments for ansible.
