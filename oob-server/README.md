@@ -61,9 +61,9 @@ option cumulus-provision-url code 239 = text;
 option www-server code 72 = ip-address;
 
 *** Add to the mgmt subnet:  
-option default-url = "http://192.168.144.10/onie-installer-[ARCH].bin";
-option cumulus-provision-url "http://192.168.144.10/ztp_oob.sh";
-option www-server 192.168.144.10;
+option default-url = "http://192.168.144.5/onie-installer-[ARCH].bin";
+option cumulus-provision-url "http://192.168.144.5/ztp_oob.sh";
+option www-server 192.168.144.5;
 
 systemctl restart isc-dhcp-server
 ```
