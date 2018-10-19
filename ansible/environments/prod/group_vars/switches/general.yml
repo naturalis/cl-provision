@@ -1,6 +1,6 @@
 ---
 cl_oob_server: 192.168.144.5
-
+ib_mgmt: 114
 node_exporter_version: 0.16.0
 rsyslog_server: 192.168.144.5
 rsyslog_port: 514
