@@ -1,18 +1,16 @@
 ---
-node:
-  netdw2-leaf-d1d:
-    lo: 10.255.255.45/32
-    bridge:
-      native: 122
-      priority: 4096
-    ports:
-      uplink1:
-        mlag: false
-        members:
-        - swp52
-        trunk: true
-      uplink2:
-        mlag: false
-        members:
-        - swp49
-        trunk: true
+lo: 10.255.255.45/32
+bridge:
+  native: 122
+  priority: 4096
+ports:
+  uplink1:
+    mlag: false
+    members:
+    - swp52
+    trunk: true
+  uplink2:
+    mlag: false
+    members:
+    - swp49
+    trunk: true

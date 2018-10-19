@@ -1,176 +1,174 @@
 ---
-node:
-  netdw2-spine-a1a:
-    lo: 10.255.255.6/32
-    ospf:
-      router-id: 145.136.246.218
-      lnk-vlan: 269
-      members:
-      - swp47
-    svi: false
-    mlag:
-      primary: true
-      members:
-      - swp49
-      - swp50
-      address: 169.254.1.1/30
-      peer-ip: 169.254.1.2
-      backup-ip: 192.168.144.7
-      sysmac: 44:38:39:FF:FA:01
-      priority: 4096
-    bridge:
-      native: 122
-      priority: 4096
-    ports:
-      fw-a2a-inside:
-        mlag: true
-        mlag-id: 1
-        members:
-        - swp1
-        trunk: true
-      fw-a2a-outside:
-        mlag: true
-        mlag-id: 2
-        members:
-        - swp2
-        trunk: false
-        vlan: 269
-      fw-a2b-inside:
-        mlag: true
-        mlag-id: 3
-        members:
-        - swp3
-        trunk: true
-      fw-a2b-outside:
-        mlag: true
-        mlag-id: 4
-        members:
-        - swp4
-        trunk: false
-        vlan: 269
-      ser-a3:
-        mlag: true
-        mlag-id: 5
-        members:
-        - swp5
-        trunk: true
-      ser-a4:
-        mlag: true
-        mlag-id: 6
-        members:
-        - swp6
-        trunk: true
-      ser-b1:
-        mlag: true
-        mlag-id: 7
-        members:
-        - swp7
-        trunk: true
-      ser-c1:
-        mlag: true
-        mlag-id: 8
-        members:
-        - swp8
-        trunk: true
-      ser-c2:
-        mlag: true
-        mlag-id: 9
-        members:
-        - swp9
-        trunk: true
-      ser-d1:
-        mlag: true
-        mlag-id: 10
-        members:
-        - swp10
-        trunk: true
-      ser-e1:
-        mlag: true
-        mlag-id: 11
-        members:
-        - swp11
-        trunk: true
-      ser-e2:
-        mlag: true
-        mlag-id: 12
-        members:
-        - swp12
-        trunk: true
-      ser-e3:
-        mlag: true
-        mlag-id: 13
-        members:
-        - swp13
-        trunk: true
-      ser-f1:
-        mlag: true
-        mlag-id: 14
-        members:
-        - swp14
-        trunk: true
-      ser-f3:
-        mlag: true
-        mlag-id: 15
-        members:
-        - swp15
-        trunk: true
-      ser-g1:
-        mlag: true
-        mlag-id: 16
-        members:
-        - swp16
-        trunk: true
-      ser-h1:
-        mlag: true
-        mlag-id: 17
-        members:
-        - swp17
-        trunk: true
-      ser-i1:
-        mlag: true
-        mlag-id: 18
-        members:
-        - swp18
-        trunk: true
-      ser-j1:
-        mlag: true
-        mlag-id: 19
-        members:
-        - swp19
-        trunk: true
-      ser-k1:
-        mlag: true
-        mlag-id: 20
-        members:
-        - swp20
-        trunk: true
-      ser-l1:
-        mlag: true
-        mlag-id: 21
-        members:
-        - swp21
-        trunk: true
-      ser-m1:
-        mlag: true
-        mlag-id: 22
-        members:
-        - swp22
-        trunk: true
-      ser-n1:
-        mlag: true
-        mlag-id: 23
-        members:
-        - swp23
-        trunk: true
-      ser-o1:
-        mlag: true
-        mlag-id: 24
-        members:
-        - swp24
-        trunk: true
-      ser-p1:
-        mlag: true
-        mlag-id: 25
-        members:
-        - swp25
-        trunk: true
+lo: 10.255.255.6/32
+ospf:
+  router-id: 145.136.246.218
+  lnk-vlan: 269
+  members:
+  - swp47
+svi: false
+mlag:
+  primary: true
+  members:
+  - swp49
+  - swp50
+  address: 169.254.1.1/30
+  peer-ip: 169.254.1.2
+  backup-ip: 192.168.144.7
+  sysmac: 44:38:39:FF:FA:01
+  priority: 4096
+bridge:
+  native: 122
+  priority: 4096
+ports:
+  fw-a2a-inside:
+    mlag: true
+    mlag-id: 1
+    members:
+    - swp1
+    trunk: true
+  fw-a2a-outside:
+    mlag: true
+    mlag-id: 2
+    members:
+    - swp2
+    trunk: false
+    vlan: 269
+  fw-a2b-inside:
+    mlag: true
+    mlag-id: 3
+    members:
+    - swp3
+    trunk: true
+  fw-a2b-outside:
+    mlag: true
+    mlag-id: 4
+    members:
+    - swp4
+    trunk: false
+    vlan: 269
+  ser-a3:
+    mlag: true
+    mlag-id: 5
+    members:
+    - swp5
+    trunk: true
+  ser-a4:
+    mlag: true
+    mlag-id: 6
+    members:
+    - swp6
+    trunk: true
+  ser-b1:
+    mlag: true
+    mlag-id: 7
+    members:
+    - swp7
+    trunk: true
+  ser-c1:
+    mlag: true
+    mlag-id: 8
+    members:
+    - swp8
+    trunk: true
+  ser-c2:
+    mlag: true
+    mlag-id: 9
+    members:
+    - swp9
+    trunk: true
+  ser-d1:
+    mlag: true
+    mlag-id: 10
+    members:
+    - swp10
+    trunk: true
+  ser-e1:
+    mlag: true
+    mlag-id: 11
+    members:
+    - swp11
+    trunk: true
+  ser-e2:
+    mlag: true
+    mlag-id: 12
+    members:
+    - swp12
+    trunk: true
+  ser-e3:
+    mlag: true
+    mlag-id: 13
+    members:
+    - swp13
+    trunk: true
+  ser-f1:
+    mlag: true
+    mlag-id: 14
+    members:
+    - swp14
+    trunk: true
+  ser-f3:
+    mlag: true
+    mlag-id: 15
+    members:
+    - swp15
+    trunk: true
+  ser-g1:
+    mlag: true
+    mlag-id: 16
+    members:
+    - swp16
+    trunk: true
+  ser-h1:
+    mlag: true
+    mlag-id: 17
+    members:
+    - swp17
+    trunk: true
+  ser-i1:
+    mlag: true
+    mlag-id: 18
+    members:
+    - swp18
+    trunk: true
+  ser-j1:
+    mlag: true
+    mlag-id: 19
+    members:
+    - swp19
+    trunk: true
+  ser-k1:
+    mlag: true
+    mlag-id: 20
+    members:
+    - swp20
+    trunk: true
+  ser-l1:
+    mlag: true
+    mlag-id: 21
+    members:
+    - swp21
+    trunk: true
+  ser-m1:
+    mlag: true
+    mlag-id: 22
+    members:
+    - swp22
+    trunk: true
+  ser-n1:
+    mlag: true
+    mlag-id: 23
+    members:
+    - swp23
+    trunk: true
+  ser-o1:
+    mlag: true
+    mlag-id: 24
+    members:
+    - swp24
+    trunk: true
+  ser-p1:
+    mlag: true
+    mlag-id: 25
+    members:
+    - swp25
+    trunk: true
