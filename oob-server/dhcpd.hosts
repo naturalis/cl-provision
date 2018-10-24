@@ -7,8 +7,8 @@ group {
   option www-server 192.168.144.5;
   option default-url = "http://192.168.144.5/onie-installer";
 
-  host netdw2-firewall-a1a {hardware ethernet 00:03:2d:3f:e6:24; fixed-address 192.168.144.1; option host-name "netdw2-firewall-a1a"; }
-  host netdw2-firewall-a1b {hardware ethernet 00:03:2d:3f:e6:24; fixed-address 192.168.144.2; option host-name "netdw2-firewall-a1b"; }
+  host netdw2-firewall-a2a {hardware ethernet 00:03:2d:3f:e6:24; fixed-address 192.168.144.1; option host-name "netdw2-firewall-a2a"; }
+  host netdw2-firewall-a2b {hardware ethernet 00:03:2d:3f:e6:24; fixed-address 192.168.144.2; option host-name "netdw2-firewall-a2b"; }
 
   # host netdw2-maas-a2a {hardware ethernet 00:03:2d:3f:e6:24; fixed-address 192.168.144.3; option host-name "netdw2-maas-a2a"; }
   # host netdw2-maas-a2b {hardware ethernet 00:03:2d:3f:e6:24; fixed-address 192.168.144.4; option host-name "netdw2-maas-a2b"; }
